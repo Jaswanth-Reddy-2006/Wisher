@@ -1,0 +1,153 @@
+/* 3D Wedding Book Flip Style Sheet */
+
+.wedding-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #f9f7f2 0%, #ece8dd 100%);
+  user-select: none;
+}
+
+/* 3D Book Layout */
+.book-wrapper {
+  perspective: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 340px;
+  height: 480px;
+  position: relative;
+}
+
+.book {
+  position: relative;
+  width: 320px;
+  height: 440px;
+  transform-style: preserve-3d;
+  transform: rotateX(10deg);
+  transition: transform 0.5s ease;
+}
+
+/* Adjust book center position when opened */
+.book.opened {
+  transform: rotateX(10deg) translateX(80px); /* Shift right slightly so opened book centers */
+}
+
+/* Individual Pages */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 5;
+}
+
+/* Page Stack Orders */
+.page-1 { z-index: 4; }
+.page-2 { z-index: 3; }
+.page-3 { z-index: 2; }
+
+/* Page face container */
+.page-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5dfd3;
+  border-radius: 12px 18px 18px 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Left pages open backwards */
+.page-face.back-side {
+  transform: rotateY(180deg);
+  border-radius: 18px 12px 12px 18px;
+  box-shadow: inset 10px 0 20px rgba(0,0,0,0.03);
+}
+
+.page-face.front-side {
+  box-shadow: inset -10px 0 20px rgba(0,0,0,0.03);
+}
+
+/* Flipped state (GSAP rotates page Y by -180deg) */
+.page.flipped {
+  transform: rotateY(-180deg);
+  z-index: 10;
+}
+
+/* Gold corner ornaments */
+.gold-ornament {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid #d4af37; /* Gold color */
+  pointer-events: none;
+}
+
+.ornament-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; border-top-left-radius: 6px; }
+.ornament-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; border-top-right-radius: 6px; }
+.ornament-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; border-bottom-left-radius: 6px; }
+.ornament-br { bottom: 12px; right: 12px; border-left: none; border-top: none; border-bottom-right-radius: 6px; }
+
+/* Elegant Cursive Elements */
+.font-wedding-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.wedding-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.wedding-line {
+  height: 1px;
+  width: 40px;
+  background-color: #d4af37;
+}
+
+.wedding-heart {
+  color: var(--accent-red);
+  font-size: 14px;
+}
+
+/* Action button for flipping */
+.page-flip-btn {
+  margin-top: 16px;
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid #111111;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-flip-btn:hover {
+  background-color: #111111;
+  color: #ffffff;
+}

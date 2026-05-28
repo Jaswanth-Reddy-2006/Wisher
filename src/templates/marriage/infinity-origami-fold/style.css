@@ -1,0 +1,147 @@
+/* infinity-origami-fold Template Styles */
+
+.origami-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3efe6; /* Neutral cream */
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+/* Origami Center Core Scene */
+.origami-scene {
+  perspective: 1200px;
+  width: 320px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+/* Base structural card containing content layers */
+.origami-core {
+  width: 260px;
+  height: 260px;
+  background-color: #ffffff;
+  border: 1px solid #e5dfd3;
+  border-radius: 16px;
+  box-shadow: var(--box-shadow-medium);
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Folding Flap layers */
+.origami-flap {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #e5dfd3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Position Flaps */
+.flap-top {
+  width: 260px;
+  height: 130px;
+  top: 0;
+  left: 0;
+  transform-origin: center top;
+  border-radius: 16px 16px 0 0;
+  z-index: 15;
+}
+
+.flap-bottom {
+  width: 260px;
+  height: 130px;
+  bottom: 0;
+  left: 0;
+  transform-origin: center bottom;
+  border-radius: 0 0 16px 16px;
+  z-index: 15;
+}
+
+.flap-left {
+  width: 130px;
+  height: 260px;
+  top: 0;
+  left: 0;
+  transform-origin: left center;
+  border-radius: 16px 0 0 16px;
+  z-index: 14;
+}
+
+.flap-right {
+  width: 130px;
+  height: 260px;
+  top: 0;
+  right: 0;
+  transform-origin: right center;
+  border-radius: 0 16px 16px 0;
+  z-index: 14;
+}
+
+/* Flipped transforms (GSAP/React classes) */
+.origami-scene.folded-vertical .flap-top {
+  transform: rotateX(180deg);
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+}
+
+.origami-scene.folded-vertical .flap-bottom {
+  transform: rotateX(-180deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.origami-scene.folded-horizontal .flap-left {
+  transform: rotateY(-180deg);
+  box-shadow: -4px 0 10px rgba(0,0,0,0.05);
+}
+
+.origami-scene.folded-horizontal .flap-right {
+  transform: rotateY(180deg);
+  box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+}
+
+/* Inside pages containing details */
+.origami-inside-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+}
+
+.origami-inside-content.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 10;
+}

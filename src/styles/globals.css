@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@import "./variables.css";
+
+@theme {
+  --color-bg-luxury: var(--bg-primary);
+  --color-card-luxury: var(--bg-card);
+  --color-accent-red: var(--accent-red);
+  --color-accent-red-hover: var(--accent-red-hover);
+  --color-text-dark: var(--text-dark);
+  --color-text-muted: var(--text-muted);
+  --font-primary: var(--font-primary);
+  --radius-xl: var(--border-radius-xl);
+  --radius-lg: var(--border-radius-lg);
+  --radius-md: var(--border-radius-md);
+  --radius-sm: var(--border-radius-sm);
+  
+  --shadow-soft: var(--box-shadow-soft);
+  --shadow-medium: var(--box-shadow-medium);
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  ::selection {
+    background-color: var(--accent-red);
+    color: white;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d4cb;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
+}
+
+/* Premium utilities */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-glassmorphism {
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px var(--text-dark);
+  color: transparent;
+}
+
+/* Perspective utilities for 3D elements */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Responsive scaling for all 3D templates on larger screens */
+@media (min-width: 768px) {
+  .box-scene, .greeting-card-container,
+  .cyberpunk-scene, .cyberpunk-text-panel,
+  .storybook-scene, .storybook-text-card,
+  .sphere-scene, .cosmic-text-card,
+  .book-wrapper,
+  .scroll-container,
+  .origami-scene,
+  .terrarium-scene,
+  .door-scene, .housewarming-card,
+  .blueprint-scene, .blueprint-info-card,
+  .neighborhood-scene, .neighborhood-card,
+  .mailbox-scene, .mailbox-details-card {
+    zoom: 1.35;
+  }
+}
+
+@media (min-width: 1200px) {
+  .box-scene, .greeting-card-container,
+  .cyberpunk-scene, .cyberpunk-text-panel,
+  .storybook-scene, .storybook-text-card,
+  .sphere-scene, .cosmic-text-card,
+  .book-wrapper,
+  .scroll-container,
+  .origami-scene,
+  .terrarium-scene,
+  .door-scene, .housewarming-card,
+  .blueprint-scene, .blueprint-info-card,
+  .neighborhood-scene, .neighborhood-card,
+  .mailbox-scene, .mailbox-details-card {
+    zoom: 1.75;
+  }
+}

@@ -1,0 +1,170 @@
+/* neon-cyberpunk-vinyl Template Styles */
+
+.cyberpunk-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b0b0f; /* Pitch dark cyberpunk backdrop */
+  color: #00ffff;
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+/* 3D Scene Area */
+.cyberpunk-scene {
+  perspective: 1200px;
+  width: 280px;
+  height: 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+/* Vinyl Sleeve Container */
+.vinyl-sleeve {
+  width: 240px;
+  height: 240px;
+  background: linear-gradient(135deg, #120e2e 0%, #030008 100%);
+  border: 2px solid #ff007f;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 0, 127, 0.4), inset 0 0 20px rgba(255, 0, 127, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotateX(25deg) rotateY(-15deg);
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+  z-index: 15;
+}
+
+/* Outer neon rings */
+.neon-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.ring-outer {
+  width: 320px;
+  height: 320px;
+  animation: spinRing 20s linear infinite;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.ring-inner {
+  width: 200px;
+  height: 200px;
+  border-color: rgba(255, 0, 127, 0.3);
+  animation: spinRing 12s linear infinite reverse;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Vinyl Disc styling */
+.vinyl-disc {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #080808 30%, #151515 60%, #080808 90%);
+  border-radius: 50%;
+  border: 2px solid #111111;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.9);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+  transform: translateZ(0px) translateY(0px) rotate(0deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Groove lines inside record */
+.vinyl-groove {
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+.vinyl-groove-2 {
+  position: absolute;
+  inset: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+}
+.vinyl-groove-3 {
+  position: absolute;
+  inset: 55px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+}
+
+/* Center record label stickers */
+.vinyl-label {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #ff007f 40%, #00ffff 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: #111111;
+  font-weight: 900;
+  text-align: center;
+}
+
+.vinyl-disc.spinning {
+  animation: rotateDisc 2s linear infinite;
+}
+
+@keyframes rotateDisc {
+  from { transform: translateZ(20px) translateY(-140px) rotate(0deg); }
+  to { transform: translateZ(20px) translateY(-140px) rotate(360deg); }
+}
+
+/* Cyberpunk Text overlay */
+.cyberpunk-text-panel {
+  position: absolute;
+  width: 320px;
+  background: rgba(18, 14, 46, 0.7);
+  backdrop-filter: blur(12px);
+  border: 2px solid #00ffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  opacity: 0;
+  transform: translateY(220px) scale(0.9);
+  z-index: 20;
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+  text-align: center;
+}
+
+.cyberpunk-text-panel.visible {
+  opacity: 1;
+  transform: translateY(120px) scale(1);
+}
+
+.cyber-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, 0.03) 25%, rgba(0, 255, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.03) 75%, rgba(0, 255, 255, 0.03) 76%, transparent 77%),
+                    linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, 0.03) 25%, rgba(0, 255, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.03) 75%, rgba(0, 255, 255, 0.03) 76%, transparent 77%);
+  background-size: 40px 40px;
+  pointer-events: none;
+}

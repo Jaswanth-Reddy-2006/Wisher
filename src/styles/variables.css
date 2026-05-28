@@ -1,0 +1,21 @@
+:root {
+  --bg-primary: #f5f2eb;        /* Textured luxury warm cream background */
+  --bg-card: #ffffff;           /* Ultra crisp white card background surfaces */
+  --accent-red: #d30f0f;        /* High-vibrancy energetic premium crimson red */
+  --accent-red-hover: #b00c0c;  /* Slightly darker red for hover states */
+  --text-dark: #111111;         /* Deep rich charcoal for clean typography */
+  --text-muted: #5e5a52;        /* Mid-tone slate for secondary labels */
+  --pill-bg: #111111;           /* Ink black accents for system navigation items */
+  --pill-text: #ffffff;
+  
+  --font-primary: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --border-radius-xl: 32px;
+  --border-radius-lg: 24px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 8px;
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --box-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --box-shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.08);
+}

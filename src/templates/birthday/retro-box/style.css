@@ -1,0 +1,217 @@
+/* 3D Exploding Gift Box Style Sheet */
+
+.template-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary);
+  user-select: none;
+}
+
+/* 3D Box Arena */
+.box-scene {
+  width: 200px;
+  height: 200px;
+  perspective: 1200px;
+  position: relative;
+  margin-top: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.gift-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(45deg);
+}
+
+/* Slowly float/rotate the box before opening */
+.gift-box.breathing {
+  animation: floatBox 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatBox {
+  0% {
+    transform: rotateX(-20deg) rotateY(35deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(-15deg) rotateY(55deg) translateY(-10px);
+  }
+}
+
+/* Face Styles */
+.box-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: var(--theme-color, #d30f0f);
+  border: 2px solid rgba(17, 17, 17, 0.15);
+  transform-origin: center bottom;
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+  backface-visibility: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Inner face shadow overlay */
+.box-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.15));
+}
+
+/* Ribbons decoration on box faces */
+.ribbon-v, .ribbon-h {
+  position: absolute;
+  background-color: #ffd700; /* Gold ribbon */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.ribbon-v {
+  width: 40px;
+  height: 100%;
+  left: 80px;
+  top: 0;
+}
+
+.ribbon-h {
+  width: 100%;
+  height: 40px;
+  left: 0;
+  top: 80px;
+}
+
+/* Position Box Sides */
+.face-front  { transform: rotateY(0deg) translateZ(100px); }
+.face-back   { transform: rotateY(180deg) translateZ(100px); transform-origin: center bottom; }
+.face-left   { transform: rotateY(-90deg) translateZ(100px); transform-origin: center bottom; }
+.face-right  { transform: rotateY(90deg) translateZ(100px); transform-origin: center bottom; }
+.face-bottom { 
+  transform: rotateX(-90deg) translateZ(100px); 
+  background-color: #8c0a0a;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+  transform-origin: center center;
+}
+
+/* Exploded/Opened State rotations */
+.gift-box.open .face-front  { transform: rotateY(0deg) translateZ(100px) rotateX(90deg); opacity: 0.9; }
+.gift-box.open .face-back   { transform: rotateY(180deg) translateZ(100px) rotateX(90deg); opacity: 0.9; }
+.gift-box.open .face-left   { transform: rotateY(-90deg) translateZ(100px) rotateX(90deg); opacity: 0.9; }
+.gift-box.open .face-right  { transform: rotateY(90deg) translateZ(100px) rotateX(90deg); opacity: 0.9; }
+
+/* Lid styling */
+.box-lid {
+  position: absolute;
+  width: 216px;
+  height: 40px;
+  top: -20px;
+  left: -8px;
+  transform-style: preserve-3d;
+  transform: translateZ(0px) translateY(-100px) rotateX(90deg); /* Positioned on top */
+  transform-origin: center center;
+  transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+  z-index: 5;
+}
+
+.lid-top {
+  position: absolute;
+  width: 216px;
+  height: 216px;
+  background-color: #e51515;
+  border: 2px solid rgba(17, 17, 17, 0.15);
+  transform: rotateX(-90deg) translateZ(0px);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.15);
+}
+
+/* Ribbons on Lid */
+.lid-top .ribbon-v { left: 88px; width: 40px; height: 100%; }
+.lid-top .ribbon-h { top: 88px; height: 40px; width: 100%; }
+
+/* Lid Sides */
+.lid-side {
+  position: absolute;
+  height: 30px;
+  background-color: #b80c0c;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+}
+.lid-side-front  { width: 216px; transform: rotateY(0deg) translateZ(108px) translateY(186px); }
+.lid-side-back   { width: 216px; transform: rotateY(180deg) translateZ(108px) translateY(186px); }
+.lid-side-left   { width: 216px; transform: rotateY(-90deg) translateZ(108px) translateY(186px); }
+.lid-side-right  { width: 216px; transform: rotateY(90deg) translateZ(108px) translateY(186px); }
+
+/* Lid Bow Ribbon */
+.lid-bow {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 78px;
+  left: 78px;
+  background: radial-gradient(circle, #ffd700 30%, #e5b800 90%);
+  border-radius: 50% 50% 0 50%;
+  transform: rotateZ(45deg) translateZ(5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.lid-bow::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ffd700 30%, #e5b800 90%);
+  border-radius: 50% 50% 50% 0;
+  transform: rotateZ(90deg);
+}
+
+/* Reveal Greeting Card rising */
+.greeting-card-container {
+  position: absolute;
+  width: 320px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--box-shadow-medium);
+  border: 2px solid #111111;
+  opacity: 0;
+  transform: translateY(200px) scale(0.6);
+  z-index: 1;
+  text-align: center;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.greeting-card-container.visible {
+  opacity: 1;
+  transform: translateY(-80px) scale(1);
+  z-index: 25;
+}
+
+/* Pulse animation for tapping instruction */
+.tap-instruction {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 180px;
+  text-align: center;
+  animation: pulseText 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseText {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
