@@ -4,6 +4,7 @@ import { PopUpStorybook } from './birthday/pop-up-storybook';
 import { RomanticAnimeBirthday } from './birthday/romantic-anime-birthday';
 import { Cinematic3DBirthday } from './birthday/cinematic-3d-birthday';
 import { BirthdayOriginal } from './birthday/happy-birthday-original';
+import { Galactic3DHeart } from './birthday/galactic-3d-heart';
 
 export const TEMPLATES = [
   // BIRTHDAYS
@@ -60,6 +61,15 @@ export const TEMPLATES = [
     component: BirthdayOriginal,
     thumbnail: '/templates/birthday-original/images/photo1.jpg',
     defaultTitle: 'Happy Birthday!',
+  },
+  {
+    id: 'galactic-3d-heart' as const,
+    name: 'Galactic 3D Heart',
+    description: 'A luxurious ivory-gold stellar universe with a custom 3D rotating heart particle engine, trailing cursor effects, sky lanterns, and candle-blowing cake interactions.',
+    category: 'Birthday',
+    component: Galactic3DHeart,
+    thumbnail: 'https://images.unsplash.com/photo-1518199266791-5375a83164ba?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Happy Birthday Siri ❤️',
   }
 ];
 

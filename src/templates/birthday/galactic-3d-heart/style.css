@@ -1,0 +1,19 @@
+.galactic-3d-heart-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #030014;
+    cursor: none; /* Hide default cursor to show the custom trailing cursor */
+}
+
+.galactic-3d-heart-container * {
+    cursor: none; /* Apply custom cursor everywhere */
+}
+
+/* For interactable elements like buttons, show pointer but keep custom cursor */
+.galactic-3d-heart-container button,
+.galactic-3d-heart-container a {
+    cursor: none;
+}
