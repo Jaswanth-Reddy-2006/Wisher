@@ -1,0 +1,703 @@
+@font-face {
+  font-family: 'Happy';
+  src: url('/templates/birthday-original/fonts/Sweet-Toffee.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Scoped Viewport Overhaul */
+.original-viewport {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0f0705 0%, #030101 100%);
+  transition: background 6s ease-in-out;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  user-select: none;
+}
+
+.original-viewport.scrollable {
+  overflow-y: auto;
+}
+
+.original-viewport.peach {
+  background: radial-gradient(circle at center, #1c0e0b 0%, #0a0403 100%) !important;
+}
+
+.original-viewport.peach-after {
+  animation: original_cozy_glow_anim linear 12s infinite;
+}
+
+@keyframes original_cozy_glow_anim {
+  0% { background: radial-gradient(circle at center, #1c0e0b 0%, #0a0403 100%); }
+  33% { background: radial-gradient(circle at center, #26130f 0%, #0d0605 100%); }
+  66% { background: radial-gradient(circle at center, #1e0e15 0%, #0a0407 100%); }
+  100% { background: radial-gradient(circle at center, #1c0e0b 0%, #0a0403 100%); }
+}
+
+/* 4-Side String Fairy Lights LED styling */
+.original-viewport .fairy-light-node {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #3b2e0e; /* Dim dark yellow/amber wire node */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(0,0,0,0.8);
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 10000;
+}
+
+/* Blinking animations odd phase */
+.original-viewport .fairy-light-node.fairy-active.fairy-glow-odd {
+  background-color: #ffd700;
+  box-shadow: 0 0 12px 3px rgba(253, 224, 71, 0.85), 0 0 4px 1px rgba(253, 224, 71, 0.5);
+  animation: fairy_blink_odd_anim 1.8s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Blinking animations even phase */
+.original-viewport .fairy-light-node.fairy-active.fairy-glow-even {
+  background-color: #eab308;
+  box-shadow: 0 0 12px 3px rgba(234, 179, 8, 0.85), 0 0 4px 1px rgba(234, 179, 8, 0.5);
+  animation: fairy_blink_even_anim 1.8s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.9s;
+}
+
+/* Faster blinking when music starts */
+.original-viewport .fairy-light-node.fairy-active.fairy-fast.fairy-glow-odd {
+  animation-duration: 0.8s;
+}
+
+.original-viewport .fairy-light-node.fairy-active.fairy-fast.fairy-glow-even {
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+}
+
+@keyframes fairy_blink_odd_anim {
+  0% {
+    background-color: #4b3806;
+    box-shadow: 0 0 3px 0px rgba(253, 224, 71, 0.15);
+  }
+  100% {
+    background-color: #ffe082;
+    box-shadow: 0 0 16px 5px rgba(253, 224, 71, 0.95), 0 0 6px 2px rgba(253, 224, 71, 0.6);
+  }
+}
+
+@keyframes fairy_blink_even_anim {
+  0% {
+    background-color: #4b3806;
+    box-shadow: 0 0 3px 0px rgba(234, 179, 8, 0.15);
+  }
+  100% {
+    background-color: #ffd54f;
+    box-shadow: 0 0 16px 5px rgba(234, 179, 8, 0.95), 0 0 6px 2px rgba(234, 179, 8, 0.6);
+  }
+}
+
+/* Floating Bokeh Golden Particles */
+.original-viewport .warm-particle {
+  position: absolute;
+  bottom: -30px;
+  background: radial-gradient(circle, rgba(253, 224, 71, 0.4) 0%, rgba(234, 179, 8, 0.1) 60%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: 2;
+  animation: float_warm_particle_anim linear infinite;
+}
+
+@keyframes float_warm_particle_anim {
+  0% {
+    transform: translateY(0) scale(0.8) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: inherit;
+  }
+  85% {
+    opacity: inherit;
+  }
+  100% {
+    transform: translateY(-112dvh) scale(1.3) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* Banner Deco */
+.original-viewport .bannar {
+  max-width: 90%;
+  transform: translateY(-500px);
+  transition: transform ease-in-out 1s;
+}
+
+.original-viewport .bannar-come {
+  animation: bannar_come_anim linear 6s forwards;
+  transform: translateY(0px);
+}
+
+@keyframes bannar_come_anim {
+  0% { transform: translateY(-1000px); }
+  33% { transform: translateY(0px) rotate(10deg); }
+  66% { transform: translateY(80px) rotate(-10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Floating Balloons */
+.original-viewport .balloons {
+  position: absolute;
+  bottom: -250px;
+  opacity: 0.7;
+  z-index: 99;
+  width: 100px;
+  height: 183px;
+  background-repeat: no-repeat;
+  background-size: 100px 183px;
+  transition: opacity 1s ease;
+}
+
+.original-viewport .balloons h2 {
+  text-transform: uppercase;
+  font-family: 'Signika', sans-serif;
+  font-size: 50px;
+  text-shadow: 2px 2px 5px #FFF;
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+}
+
+.original-viewport #b1 { background-image: url('/templates/birthday-original/images/balloons/b1.png'); }
+.original-viewport #b2 { background-image: url('/templates/birthday-original/images/balloons/b2.png'); }
+.original-viewport #b3 { background-image: url('/templates/birthday-original/images/balloons/b3.png'); }
+.original-viewport #b4 { background-image: url('/templates/birthday-original/images/balloons/b4.png'); }
+.original-viewport #b5 { background-image: url('/templates/birthday-original/images/balloons/b5.png'); }
+.original-viewport #b6 { background-image: url('/templates/birthday-original/images/balloons/b6.png'); }
+.original-viewport #b7 { background-image: url('/templates/birthday-original/images/balloons/b7.png'); }
+
+.original-viewport .balloons-rotate-behaviour-one {
+  animation: balloons_rotate_one linear 10s infinite;
+  transform: rotate(30deg);
+}
+
+.original-viewport .balloons-rotate-behaviour-two {
+  animation: balloons_rotate_two linear 10s infinite;
+  transform: rotate(-20deg);
+}
+
+@keyframes balloons_rotate_one {
+  0%, 100% { transform: rotate(30deg); }
+  50% { transform: rotate(-30deg); }
+}
+
+@keyframes balloons_rotate_two {
+  0%, 100% { transform: rotate(-20deg); }
+  50% { transform: rotate(20deg); }
+}
+
+.original-viewport .balloon-border {
+  position: absolute;
+  top: 100%;
+  opacity: 0.5;
+  z-index: 98;
+  width: 100%;
+  transition: transform 8s linear;
+}
+
+/* ============================================== 3D FLIP POLAROID ALBUM */
+.original-viewport .polaroid-flip-container {
+  position: absolute;
+  width: 190px;
+  height: 230px;
+  perspective: 1000px; /* Standard CSS depth perspective */
+  z-index: 50;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.original-viewport .polaroid-flip-container:hover {
+  transform: scale(1.06) !important;
+  z-index: 100;
+}
+
+/* 3 Left column tilted offsets */
+.original-viewport .left-1 { top: 90px; left: 35px; transform: rotate(-6deg); }
+.original-viewport .left-2 { top: 290px; left: 50px; transform: rotate(4deg); }
+.original-viewport .left-3 { top: 490px; left: 25px; transform: rotate(-3deg); }
+
+/* 3 Right column tilted offsets */
+.original-viewport .right-1 { top: 90px; right: 35px; transform: rotate(6deg); }
+.original-viewport .right-2 { top: 290px; right: 50px; transform: rotate(-4deg); }
+.original-viewport .right-3 { top: 490px; right: 25px; transform: rotate(3deg); }
+
+/* Card Wrapper preserving 3D rotations */
+.original-viewport .polaroid-flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.original-viewport .polaroid-flip-container.is-flipped .polaroid-flip-card {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Faces */
+.original-viewport .polaroid-card-front,
+.original-viewport .polaroid-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide face when turned away */
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Card Back Design (Tap Reveal Cover) */
+.original-viewport .polaroid-card-back {
+  background: linear-gradient(135deg, #1c0e0b 0%, #2e1712 100%);
+  border: 3px solid rgba(251, 191, 36, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffe082;
+  text-align: center;
+  padding: 15px;
+}
+
+.original-viewport .polaroid-card-back .heart-deco {
+  font-size: 26px;
+  color: #ef4444;
+  animation: heart_beat_mini 1.2s infinite ease-in-out;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+@keyframes heart_beat_mini {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.original-viewport .polaroid-card-back .text-tag {
+  font-family: 'Signika', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.original-viewport .polaroid-card-back .tap-hint {
+  font-size: 8px;
+  color: rgba(251, 191, 36, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 14px;
+  font-weight: bold;
+}
+
+/* Card Front Design (Actual vintage Polaroid) */
+.original-viewport .polaroid-card-front {
+  background-color: #ffffff;
+  border: 4px solid #ffffff;
+  transform: rotateY(180deg); /* Flipped initially */
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 18px 5px;
+}
+
+.original-viewport .polaroid-card-front .photo-img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 2px;
+  background-color: #0d0605;
+  cursor: zoom-in;
+}
+
+.original-viewport .polaroid-card-front .photo-caption {
+  font-family: 'Happy', sans-serif;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.original-viewport .can-zoom {
+  position: absolute;
+  right: 70px;
+  top: 510px;
+  width: 140px;
+  height: auto;
+  opacity: 0.75;
+  z-index: 40;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.original-viewport .can-zoom:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* Photo Lightbox Zoom Modal */
+.original-viewport .lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeIn 0.35s ease;
+}
+
+.original-viewport .lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 4px;
+  border: 6px solid white;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  animation: scaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Glowing Target Name Celebrations Title */
+.original-viewport .retro-birthday-title {
+  font-family: 'Happy', sans-serif;
+  font-size: 40px;
+  color: #ffe082;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.6), 0 0 20px rgba(251, 191, 36, 0.3);
+  animation: gold_title_pulse 2s infinite alternate ease-in-out;
+  display: inline-block;
+}
+
+@keyframes gold_title_pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+  }
+  100% {
+    transform: scale(1.03);
+    text-shadow: 0 0 18px rgba(251, 191, 36, 0.95), 0 0 8px rgba(251, 191, 36, 0.4);
+  }
+}
+
+/* Cake Layout */
+.original-viewport .cake-cover {
+  margin-top: 40px;
+  position: relative;
+  height: 300px;
+}
+
+.original-viewport .cake {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+}
+
+/* Cake Base Plate */
+.original-viewport .cake:after {
+  background: #ffffff;
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 6px;
+}
+
+/* Candle Stick */
+.original-viewport .velas {
+  background: #ffffff;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5px;
+  margin-top: -25px;
+  width: 15px;
+  height: 50px;
+}
+
+.original-viewport .velas:after,
+.original-viewport .velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6.66px;
+}
+
+.original-viewport .velas:after { top: 25%; left: 0; }
+.original-viewport .velas:before { top: 45%; left: 0; }
+
+/* Candle Flame (Fuego) */
+.original-viewport .fuego {
+  border-radius: 100%;
+  box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.25);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 37.5px;
+}
+
+.original-viewport .fuego:nth-child(1) { animation: fuego_anim_1 2s infinite; }
+.original-viewport .fuego:nth-child(2) { animation: fuego_anim_2 1.5s infinite; }
+.original-viewport .fuego:nth-child(3) { animation: fuego_anim_3 1s infinite; }
+.original-viewport .fuego:nth-child(4) { animation: fuego_anim_4 0.5s infinite; }
+.original-viewport .fuego:nth-child(5) { animation: fuego_anim_5 0.2s infinite; }
+
+@keyframes fuego_anim_1 {
+  0%, 100% { background: rgba(254, 248, 97, 0.5); transform: translateY(0) scale(1); }
+  50% { background: rgba(255, 50, 0, 0.1); transform: translateY(-60px) scale(0); }
+}
+@keyframes fuego_anim_2 {
+  0%, 100% { background: rgba(254, 248, 97, 0.5); transform: translateY(0) scale(1); }
+  50% { background: rgba(255, 50, 0, 0.1); transform: translateY(-60px) scale(0); }
+}
+@keyframes fuego_anim_3 {
+  0%, 100% { background: rgba(254, 248, 97, 0.5); transform: translateY(0) scale(1); }
+  50% { background: rgba(255, 50, 0, 0.1); transform: translateY(-60px) scale(0); }
+}
+@keyframes fuego_anim_4 {
+  0%, 100% { background: rgba(254, 248, 97, 0.5); transform: translateY(0) scale(1); }
+  50% { background: rgba(255, 50, 0, 0.1); transform: translateY(-60px) scale(0); }
+}
+@keyframes fuego_anim_5 {
+  0%, 100% { background: rgba(254, 248, 97, 0.5); transform: translateY(0) scale(1); }
+  50% { background: rgba(255, 50, 0, 0.1); transform: translateY(-60px) scale(0); }
+}
+
+/* Frosting (Cobertura) */
+.original-viewport .cobertura {
+  background: #ece7e3;
+  border-radius: 150px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-left: -83.33px;
+  margin-top: -15px;
+  width: 166.66px;
+  height: 37.5px;
+  z-index: 10;
+}
+
+.original-viewport .cobertura:after,
+.original-viewport .cobertura:before {
+  background: #ece7e3;
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 30px;
+}
+
+.original-viewport .cobertura:after { top: 20px; right: 42.85px; }
+.original-viewport .cobertura:before { top: 30px; right: 27.27px; }
+
+/* Profile Photo nested on cake side */
+.original-viewport .profile-img {
+  position: absolute;
+  bottom: 30px;
+  right: -170px;
+  width: 150px;
+  height: 150px;
+  border: 5px solid white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  object-fit: cover;
+  z-index: 12;
+  background-color: #fff;
+  transition: opacity 1s ease;
+}
+
+/* Biscuit Cake Base Sponge (Bizcocho) */
+.original-viewport .bizcocho {
+  background: #6d3826;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px;
+  height: 100px;
+}
+
+.original-viewport .bizcocho:after,
+.original-viewport .bizcocho:before {
+  background: rgba(236, 231, 227, 0.6);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+}
+
+.original-viewport .bizcocho:after { top: 30%; left: 0; }
+.original-viewport .bizcocho:before { top: 60%; left: 0; }
+
+/* Story Note Message Layout */
+.original-viewport .message {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  z-index: 2000;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.original-viewport .message p {
+  font-family: 'Happy', sans-serif;
+  font-size: 46px;
+  text-transform: uppercase;
+  color: #C4515C;
+  text-shadow: 2px 2px 2px #FFF;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+/* Swiper Swapper Navigation Gold controls */
+.original-viewport .navbar-fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 0;
+  background: linear-gradient(to top, rgba(20, 10, 5, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
+  backdrop-filter: blur(12px) saturate(120%);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(251, 191, 36, 0.08);
+}
+
+/* Premium Gold glassmorphic button style */
+.original-viewport .btn-primary-retro {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(251, 191, 36, 0.22) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  padding: 14px 34px;
+  text-transform: uppercase;
+  font-family: 'Signika', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #ffe082;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.12), inset 0 1px 0 rgba(255,255,255,0.05);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.original-viewport .btn-primary-retro:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  color: #fff;
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.28), 0 4px 20px rgba(251, 191, 36, 0.15);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.original-viewport .btn-primary-retro:focus {
+  outline: none;
+  border-color: rgba(251, 191, 36, 0.8);
+}
+
+.original-viewport .btn-primary-retro:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.18);
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 768px) {
+  .original-viewport .polaroid-flip-container {
+    width: 100px;
+    height: 120px;
+    border-width: 2px;
+  }
+  .original-viewport .polaroid-card-front {
+    padding: 3px 3px 10px 3px;
+  }
+  .original-viewport .polaroid-card-front .photo-img {
+    height: 80px;
+  }
+  .original-viewport .polaroid-card-front .photo-caption {
+    font-size: 8px;
+    margin-top: 3px;
+  }
+  .original-viewport .polaroid-card-back {
+    padding: 5px;
+    border-width: 1.5px;
+  }
+  .original-viewport .polaroid-card-back .heart-deco {
+    font-size: 14px;
+  }
+  .original-viewport .polaroid-card-back .text-tag {
+    font-size: 7px;
+    margin-top: 4px;
+  }
+  .original-viewport .polaroid-card-back .tap-hint {
+    font-size: 5px;
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+  .original-viewport .left-1 { top: 60px; left: 10px; }
+  .original-viewport .left-2 { top: 190px; left: 15px; }
+  .original-viewport .left-3 { top: 320px; left: 8px; }
+  
+  .original-viewport .right-1 { top: 60px; right: 10px; }
+  .original-viewport .right-2 { top: 190px; right: 15px; }
+  .original-viewport .right-3 { top: 320px; right: 8px; }
+
+  .original-viewport .can-zoom {
+    width: 70px;
+    right: 10px;
+    top: 450px;
+  }
+  .original-viewport .retro-birthday-title {
+    font-size: 20px;
+  }
+  .original-viewport .message p {
+    font-size: 24px;
+  }
+  .original-viewport .cake {
+    transform: translateX(-50%) scale(0.85);
+  }
+  .original-viewport .profile-img {
+    width: 100px;
+    height: 100px;
+    bottom: 20px;
+    right: -110px;
+    border-width: 3px;
+  }
+  .original-viewport .navbar-fixed-bottom {
+    padding: 14px 0;
+  }
+  .original-viewport .btn-primary-retro {
+    padding: 10px 22px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+}

@@ -1,6 +1,12 @@
 export interface WishData {
   id?: string;
-  templateType: 'birthday-universe' | 'happy-birthday-classic' | 'pop-up-storybook' | 'romantic-anime-birthday' | 'cinematic-3d-birthday';
+  templateType: 
+    | 'birthday-universe' 
+    | 'happy-birthday-classic' 
+    | 'pop-up-storybook' 
+    | 'romantic-anime-birthday' 
+    | 'cinematic-3d-birthday' 
+    | 'birthday-original';
   title: string;
   targetName: string;
   date: string; // ISO string / Date format string
@@ -40,11 +46,13 @@ export interface WishData {
   quizA3d?: string;
   quizA3correct?: number;
 
-  // Photo gallery — 4 memory photos
+  // Photo gallery — 6 memory photos
   photo1?: string;
   photo2?: string;
   photo3?: string;
   photo4?: string;
+  photo5?: string;
+  photo6?: string;
 }
 
 export interface TemplateProps {

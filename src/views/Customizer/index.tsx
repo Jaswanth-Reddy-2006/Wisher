@@ -20,11 +20,7 @@ export const Customizer: React.FC = () => {
   // Read URL query parameter on mount
   useEffect(() => {
     const tmplParam = searchParams.get('template');
-    const validTemplates: WishData['templateType'][] = [
-      'birthday-universe', 
-      'happy-birthday-classic', 
-      'pop-up-storybook'
-    ];
+    const validTemplates: WishData['templateType'][] = TEMPLATES.map(t => t.id);
     if (tmplParam && validTemplates.includes(tmplParam as WishData['templateType'])) {
       if (currentWish.templateType !== tmplParam) {
         setTemplate(tmplParam as WishData['templateType']);
@@ -172,8 +168,6 @@ export const Customizer: React.FC = () => {
                 placeholder="Name"
               />
             </div>
-
-
           </div>
 
           {/* 4. Greeting Message */}
@@ -230,6 +224,8 @@ export const Customizer: React.FC = () => {
               { key: 'photo2' as const, label: 'Memory Photo 2' },
               { key: 'photo3' as const, label: 'Memory Photo 3' },
               { key: 'photo4' as const, label: 'Memory Photo 4' },
+              { key: 'photo5' as const, label: 'Memory Photo 5' },
+              { key: 'photo6' as const, label: 'Memory Photo 6' },
             ].map((item) => (
               <div key={item.key} className="space-y-1">
                 <span className="text-[10px] font-bold text-[#5e5a52] uppercase tracking-wider">{item.label}</span>

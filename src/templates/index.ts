@@ -3,8 +3,10 @@ import { HappyBirthdayClassic } from './birthday/happy-birthday-classic';
 import { PopUpStorybook } from './birthday/pop-up-storybook';
 import { RomanticAnimeBirthday } from './birthday/romantic-anime-birthday';
 import { Cinematic3DBirthday } from './birthday/cinematic-3d-birthday';
+import { BirthdayOriginal } from './birthday/happy-birthday-original';
 
 export const TEMPLATES = [
+  // BIRTHDAYS
   {
     id: 'birthday-universe' as const,
     name: 'Cosmic Universe',
@@ -49,6 +51,15 @@ export const TEMPLATES = [
     component: Cinematic3DBirthday,
     thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80',
     defaultTitle: 'Happy Birthday Navya ❤️',
+  },
+  {
+    id: 'birthday-original' as const,
+    name: 'Birthday Original (Retro)',
+    description: 'The legendary interactive step-by-step birthday present. Turn on lights, play music, mount banners, fly balloons, fade in the cake, light candles, and read a personal slow-typing story note.',
+    category: 'Birthday',
+    component: BirthdayOriginal,
+    thumbnail: '/templates/birthday-original/images/photo1.jpg',
+    defaultTitle: 'Happy Birthday!',
   }
 ];
 

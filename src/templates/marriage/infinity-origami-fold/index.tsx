@@ -72,8 +72,8 @@ export const InfinityOrigamiFold: React.FC<TemplateProps> = ({ data, isPreview =
         {/* 3D Scene */}
         <div 
           className={`origami-scene ${step >= 1 ? 'folded-vertical' : ''} ${step === 2 ? 'folded-horizontal' : ''}`}
-          onClick={isPreview ? undefined : handleNextStep}
-          style={{ pointerEvents: isPreview ? 'none' : 'auto' }}
+          onClick={handleNextStep}
+          style={{ pointerEvents: 'auto' }}
         >
           <div className="origami-core">
             

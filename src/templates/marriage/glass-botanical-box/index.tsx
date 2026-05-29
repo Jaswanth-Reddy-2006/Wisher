@@ -96,8 +96,8 @@ export const GlassBotanicalBox: React.FC<TemplateProps> = ({ data, isPreview = f
           className="terrarium-scene"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          onClick={isPreview ? undefined : handleOpen}
-          style={{ pointerEvents: isPreview ? 'none' : 'auto' }}
+          onClick={handleOpen}
+          style={{ pointerEvents: 'auto' }}
         >
           <div 
             className="terrarium-box"

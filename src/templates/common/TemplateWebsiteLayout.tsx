@@ -3,6 +3,7 @@ import { Calendar, MapPin, Mail, Clock, Heart, CheckCircle2, Home, Gift, Sparkle
 import type { WishData } from '../types';
 import Countdown from './Countdown';
 import { fireConfetti } from './CanvasConfetti';
+import { getTemplateById } from '../index';
 
 interface TemplateWebsiteLayoutProps {
   data: WishData;
@@ -13,6 +14,7 @@ interface TemplateWebsiteLayoutProps {
 export const TemplateWebsiteLayout: React.FC<TemplateWebsiteLayoutProps> = ({
   data,
   primaryColor,
+  type,
 }) => {
   const [rsvpName, setRsvpName] = useState('');
   const [rsvpGuestCount, setRsvpGuestCount] = useState('1');
@@ -22,11 +24,14 @@ export const TemplateWebsiteLayout: React.FC<TemplateWebsiteLayoutProps> = ({
   const [candlesBlownOut, setCandlesBlownOut] = useState(false);
   const [openedGifts, setOpenedGifts] = useState<{ [key: number]: boolean }>({ 0: false, 1: false, 2: false });
 
-  const isWedding = false;
-  const isHousewarming = false;
-  const isGraduation = false;
-  const isBabyShower = false;
-  const isBirthday = true;
+  const activeTemplate = getTemplateById(type);
+  const category = activeTemplate?.category || 'Birthday';
+
+  const isWedding = category === 'Wedding';
+  const isHousewarming = category === 'House Warming';
+  const isGraduation = category === 'Graduation';
+  const isBabyShower = category === 'Baby Shower';
+  const isBirthday = category === 'Birthday';
 
   const handleBlowOut = () => {
     if (candlesBlownOut) return;

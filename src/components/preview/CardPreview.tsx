@@ -57,6 +57,70 @@ export const renderCardPreview = (id: WishData['templateType']) => {
           </div>
         </div>
       );
+    case 'birthday-original':
+      return (
+        <div className="w-full h-full bg-[#FFDAB9] relative flex flex-col items-center justify-center overflow-hidden">
+          {/* Mini Light Bulbs Row */}
+          <div className="absolute top-1 left-0 right-0 flex justify-between px-2 pointer-events-none">
+            <div className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse shadow-[0_0_4px_#facc15]" />
+            <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_4px_#ef4444]" style={{ animationDelay: '0.2s' }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_4px_#3b82f6]" style={{ animationDelay: '0.4s' }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_4px_#22c55e]" style={{ animationDelay: '0.6s' }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse shadow-[0_0_4px_#ec4899]" style={{ animationDelay: '0.8s' }} />
+          </div>
+          
+          {/* Glowing Cake representation */}
+          <div className="relative flex flex-col items-center mt-2">
+            <div className="w-0.5 h-2 bg-yellow-300 rounded-sm relative">
+              <div className="w-1 h-1 rounded-full bg-orange-400 absolute -top-1 left-1/2 -translate-x-1/2 animate-pulse shadow-[0_0_4px_#fb923c]" />
+            </div>
+            <div className="w-6 h-3 bg-[#6d3826] rounded-t-sm shadow-md" />
+            <div className="w-8 h-0.5 bg-white rounded-full" />
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#C4515C] font-black tracking-widest uppercase">Retro Original</span>
+          </div>
+        </div>
+      );
+    case 'romantic-anime-birthday':
+      return (
+        <div className="w-full h-full bg-pink-50 relative flex items-center justify-center overflow-hidden border border-pink-100">
+          {/* Animated drifting cherry blossoms (petals) */}
+          <div className="absolute w-1 h-1 bg-pink-300 rounded-full top-3 left-4 animate-bounce" style={{ animationDelay: '0.1s' }} />
+          <div className="absolute w-1.5 h-1.5 bg-pink-400 rounded-full top-6 right-6 animate-bounce" style={{ animationDelay: '0.4s' }} />
+          <div className="absolute w-1 h-1 bg-pink-200 rounded-full bottom-8 left-8 animate-bounce" style={{ animationDelay: '0.7s' }} />
+          
+          {/* Couple/heart anime vibe */}
+          <div className="w-10 h-10 rounded-full bg-pink-200/50 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+            <span className="text-[14px]">🌸</span>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-pink-500 font-serif tracking-widest uppercase">Anime Dream</span>
+          </div>
+        </div>
+      );
+    case 'cinematic-3d-birthday':
+      return (
+        <div className="w-full h-full bg-gradient-to-br from-[#12001e] to-[#030008] relative flex items-center justify-center overflow-hidden border border-purple-900/30">
+          {/* Neon lights */}
+          <div className="absolute -top-10 -left-10 w-24 h-24 rounded-full bg-fuchsia-500/20 blur-xl" />
+          <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full bg-cyan-500/20 blur-xl" />
+          
+          {/* Glassmorphic card preview */}
+          <div className="w-14 h-18 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm shadow-[0_4px_12px_rgba(0,0,0,0.5)] flex flex-col items-center justify-center p-1 group-hover:rotate-3 transition-transform duration-300">
+            <div className="w-6 h-6 rounded-full bg-cyan-400/30 flex items-center justify-center animate-pulse">
+              <span className="text-[8px] text-cyan-200">✨</span>
+            </div>
+            <div className="w-8 h-1 bg-fuchsia-400/50 rounded-full mt-2" />
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-purple-300 font-serif tracking-widest uppercase">Cinematic 3D</span>
+          </div>
+        </div>
+      );
     default:
       return (
         <div className="w-full h-full bg-slate-200 flex items-center justify-center">

@@ -143,5 +143,27 @@ export const templateMockData: Record<WishData['templateType'], WishData> = {
     photo2: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
     photo3: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80",
     photo4: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
-  }
+  },
+  'birthday-original': {
+    templateType: 'birthday-original',
+    title: "Happy Birthday",
+    targetName: "Anggie",
+    date: new Date(Date.now() + 86400000 * 3).toISOString().slice(0, 16),
+    message: "Today is...\nas beautiful as other days\nbut you realize\nanother year has gone\nin a blink of the eyes\nhowever\nDo you know..?\ntoday is just special\nso special to you\nthat's why\nLet's make it...\nthe best celebration ever\nand let me share...\na piece of happiness to you\nI made all this...\nas a birthday present to you\nI'm glad we met on zzz\nthanks for the friendship we made\nthanks for everything\nI wish you all the best\nMay your life be at ease\nMay all your wishes come true\nRemember\nyour ambitions\nyou live as a free bird...\nflying in the blue sky\nNow things are different...\nreal story of your life\nis just about to begin\nindeed..\nbut...\ndon't worry\nbecause...\nGod has your back\nand\nthis year will be better\nand I hope\nyou'll find...\nhappiness along the way\nkeep your spirit up\nenjoy every single moment...\nthat you experience today\nfill it with your most beautiful smile\nand make it the best memory..\nlastly...\nI'd like to wish you one more time\na very happy birthday babyy ❤️",
+    primaryColor: "#FFDAB9",
+    musicUrl: "/templates/birthday-original/audio/hbd.mp3",
+    musicName: "Happy Birthday Original",
+    extraMessage: "This birthday present is built just for you! ❤️",
+    rsvpEmail: "birthday@wisher.net",
+    bgImage: "/templates/birthday-original/images/person.png",
+    quizQ1: "What is my favorite color?", quizA1a: "Pink 💗", quizA1b: "Blue 💙", quizA1c: "Purple 💜", quizA1d: "Red ❤️", quizA1correct: 0,
+    quizQ2: "What is my dream travel destination?", quizA2a: "Paris 🗼", quizA2b: "Maldives 🏝️", quizA2c: "Tokyo 🗾", quizA2d: "Switzerland 🏔️", quizA2correct: 1,
+    quizQ3: "What makes me happiest?", quizA3a: "Good food 🍕", quizA3b: "Sunsets 🌅", quizA3c: "Being with you 🥰", quizA3d: "Music 🎵", quizA3correct: 2,
+    photo1: "/templates/birthday-original/images/photo1.jpg",
+    photo2: "/templates/birthday-original/images/photo2.jpg",
+    photo3: "/templates/birthday-original/images/photo3.jpg",
+    photo4: "/templates/birthday-original/images/photo4.jpg",
+    photo5: "/templates/birthday-original/images/photo5.jpg",
+    photo6: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80"
+  },
 };

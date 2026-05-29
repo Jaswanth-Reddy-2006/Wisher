@@ -98,3 +98,12 @@
   transform: rotateX(180deg);
   z-index: 1;
 }
+
+@media (max-width: 480px) {
+  .envelope-container {
+    transform: scale(0.85);
+  }
+  .envelope-container.unfolded {
+    transform: translateY(30px) scale(0.85);
+  }
+}

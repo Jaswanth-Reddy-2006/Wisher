@@ -162,7 +162,7 @@ export const GardenGate: React.FC<TemplateProps> = ({ data, isPreview = false })
             {/* Golden Padlock Lock Center */}
             {!isOpen && (
               <div 
-                onClick={isPreview ? undefined : handleOpen}
+                onClick={handleOpen}
                 className={`gate-padlock ${isOpening ? 'unlocking' : ''}`}
               >
                 <div className="padlock-loop" />

@@ -151,3 +151,20 @@
   background-color: #111111;
   color: #ffffff;
 }
+
+@media (max-width: 767px) {
+  .book-wrapper {
+    transform: scale(0.8);
+  }
+  .book.opened {
+    transform: rotateX(10deg) translateX(65px);
+  }
+}
+@media (max-width: 480px) {
+  .book-wrapper {
+    transform: scale(0.68);
+  }
+  .book.opened {
+    transform: rotateX(10deg) translateX(55px);
+  }
+}

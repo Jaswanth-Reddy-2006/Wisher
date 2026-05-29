@@ -121,7 +121,7 @@ export const SilkRibbonEnvelope: React.FC<TemplateProps> = ({ data, isPreview = 
         <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" />
 
         {/* Envelope 3D Container */}
-        <div className={`envelope-container ${isOpen ? 'unfolded' : ''}`} onClick={isPreview ? undefined : handleOpen}>
+        <div className={`envelope-container ${isOpen ? 'unfolded' : ''}`} onClick={handleOpen}>
           {/* Back Flap (Background) */}
           <div className="env-back bg-white border border-[#ffe4e6]"></div>
 
@@ -171,7 +171,11 @@ export const SilkRibbonEnvelope: React.FC<TemplateProps> = ({ data, isPreview = 
               {/* Ribbon line vertical */}
               <div className="absolute h-[105%] w-6 bg-rose-400 opacity-90 shadow-md" style={{ backgroundColor: primaryColor }} />
               {/* Ribbon Bow knot */}
-              <div className="absolute w-12 h-12 bg-rose-500 rounded-full border-2 border-white/60 shadow-lg flex items-center justify-center pointer-events-auto cursor-pointer" style={{ backgroundColor: primaryColor }}>
+              <div 
+                onClick={handleOpen}
+                className="absolute w-12 h-12 bg-rose-500 rounded-full border-2 border-white/60 shadow-lg flex items-center justify-center pointer-events-auto cursor-pointer" 
+                style={{ backgroundColor: primaryColor }}
+              >
                 <Heart className="h-4.5 w-4.5 text-white fill-white/10" />
               </div>
             </div>
