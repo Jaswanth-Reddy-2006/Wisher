@@ -137,6 +137,23 @@ export const renderCardPreview = (id: WishData['templateType']) => {
           </div>
         </div>
       );
+    case 'wedding-classic-sonali':
+      return (
+        <div className="w-full h-full bg-[#fdfaf6] relative flex items-center justify-center overflow-hidden border border-[#674ea7]/10">
+          {/* Subtle floral frame corners */}
+          <div className="absolute top-1 left-1 w-6 h-6 border-t border-l border-[#674ea7]/20 rounded-tl-sm pointer-events-none" />
+          <div className="absolute top-1 right-1 w-6 h-6 border-t border-r border-[#674ea7]/20 rounded-tr-sm pointer-events-none" />
+          
+          {/* Central falling sakura indicator */}
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-[#674ea7] text-xl animate-bounce">🌸</span>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#674ea7] font-serif tracking-widest uppercase font-bold">Sonali Wedding</span>
+          </div>
+        </div>
+      );
     default:
       return (
         <div className="w-full h-full bg-slate-200 flex items-center justify-center">

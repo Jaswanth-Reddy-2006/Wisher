@@ -7,7 +7,8 @@ export interface WishData {
     | 'romantic-anime-birthday' 
     | 'cinematic-3d-birthday' 
     | 'birthday-original'
-    | 'galactic-3d-heart';
+    | 'galactic-3d-heart'
+    | 'wedding-classic-sonali';
   title: string;
   targetName: string;
   date: string; // ISO string / Date format string

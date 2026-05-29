@@ -5,6 +5,7 @@ import { RomanticAnimeBirthday } from './birthday/romantic-anime-birthday';
 import { Cinematic3DBirthday } from './birthday/cinematic-3d-birthday';
 import { BirthdayOriginal } from './birthday/happy-birthday-original';
 import { Galactic3DHeart } from './birthday/galactic-3d-heart';
+import { WeddingClassicSonali } from './marriage/wedding-classic-sonali';
 
 export const TEMPLATES = [
   // BIRTHDAYS
@@ -70,6 +71,15 @@ export const TEMPLATES = [
     component: Galactic3DHeart,
     thumbnail: 'https://images.unsplash.com/photo-1518199266791-5375a83164ba?auto=format&fit=crop&w=600&q=80',
     defaultTitle: 'Happy Birthday Siri ❤️',
+  },
+  {
+    id: 'wedding-classic-sonali' as const,
+    name: 'Sonali Classic Wedding',
+    description: 'A luxurious royal wedding invitation featuring cascading sakura petals, interactive traditional background music (Din Shagna Da), dynamic countdown timer, and glassmorphic card design.',
+    category: 'Wedding',
+    component: WeddingClassicSonali,
+    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Are getting married',
   }
 ];
 

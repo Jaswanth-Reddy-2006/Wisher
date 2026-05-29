@@ -186,5 +186,27 @@ export const templateMockData: Record<WishData['templateType'], WishData> = {
     photo2: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
     photo3: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80",
     photo4: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+  },
+  'wedding-classic-sonali': {
+    templateType: 'wedding-classic-sonali',
+    title: "Are getting married",
+    targetName: "Sonali & Gagan",
+    brideName: "Sonali",
+    groomName: "Gagan",
+    date: new Date(Date.now() + 86400000 * 30).toISOString().slice(0, 16),
+    message: "With the divine grace of the almighty, inviting you and your family to celebrate our marriage. Hope to see you there!",
+    primaryColor: "#674ea7",
+    musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    musicName: "Din Shagna Da (Traditional)",
+    extraMessage: "Dinner & Dancing to follow",
+    rsvpEmail: "wedding@wisher.net",
+    venueName: "Ashirwad Garden, Ratu Road, Ranchi",
+    googleMapsUrl: "https://goo.gl/maps/5z5xX2hTYzU8VGEJ9",
+    weddingTime: "7:00 PM onwards",
+    bgImage: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+    photo1: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80",
+    photo2: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80",
+    photo3: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80",
+    photo4: "https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80"
   }
 };
