@@ -1,0 +1,119 @@
+/* diploma-roll-unwrap Template Styles */
+
+.diploma-roll-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f172a;
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+/* Scrollable viewport state */
+.diploma-roll-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
+
+.diploma-container {
+  width: 240px;
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+  z-index: 10;
+  transition: height 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.diploma-container.unrolled {
+  height: 400px;
+}
+
+/* Wooden Cylinder Rods */
+.diploma-rod {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  height: 12px;
+  background: linear-gradient(to bottom, #d4af37 0%, #b89512 40%, #ffd700 70%, #856404 100%);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 5;
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.top-rod {
+  top: 0;
+}
+
+.bottom-rod {
+  bottom: 0;
+}
+
+/* Paper Sheet Banner */
+.diploma-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  bottom: 6px;
+  background-color: #faf6f0;
+  z-index: 2;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;
+  transition: height 1s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease-in-out;
+}
+
+.unrolled .diploma-sheet {
+  height: 388px;
+  opacity: 1;
+}
+
+/* Internal contents */
+.diploma-inner {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease-in-out 0.4s, transform 0.6s ease-in-out 0.4s;
+}
+
+.unrolled .diploma-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gold corner ornaments */
+.gold-seal-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d4af37;
+  pointer-events: none;
+}
+
+.s-tl { top: 8px; left: 8px; border-bottom: 0; border-right: 0; }
+.s-tr { top: 8px; right: 8px; border-bottom: 0; border-left: 0; }
+.s-bl { bottom: 8px; left: 8px; border-top: 0; border-right: 0; }
+.s-br { bottom: 8px; right: 8px; border-top: 0; border-left: 0; }
+
+@keyframes sway-scroll {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  100% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.diploma-container {
+  animation: sway-scroll 4s ease-in-out infinite alternate;
+}
+.diploma-container.unrolled {
+  animation: none;
+}

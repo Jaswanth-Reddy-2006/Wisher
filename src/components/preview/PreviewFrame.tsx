@@ -17,7 +17,7 @@ export const PreviewFrame: React.FC = () => {
   };
 
   return (
-    <div className="flex h-full flex-col bg-[#ede9e0] border-l border-[#e5dfd3] select-none">
+    <div className="flex h-full flex-col bg-[#f9f9f9] border-l border-[#e5dfd3] select-none">
       {/* Device Toolbar */}
       <div className="flex items-center justify-between bg-white px-6 py-3 border-b border-[#e5dfd3]">
         <span className="font-display text-xs font-bold uppercase tracking-wider text-[#5e5a52]">
@@ -31,7 +31,7 @@ export const PreviewFrame: React.FC = () => {
             className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors cursor-pointer ${
               device === 'mobile'
                 ? 'bg-[#111111] text-white'
-                : 'text-[#5e5a52] hover:bg-[#f5f2eb] hover:text-[#111111]'
+                : 'text-[#5e5a52] hover:bg-neutral-100 hover:text-[#111111]'
             }`}
             title="Mobile Portrait (100dvh)"
           >
@@ -44,7 +44,7 @@ export const PreviewFrame: React.FC = () => {
             className={`flex h-8 w-8 items-center justify-center rounded-lg transition-colors cursor-pointer ${
               device === 'desktop'
                 ? 'bg-[#111111] text-white'
-                : 'text-[#5e5a52] hover:bg-[#f5f2eb] hover:text-[#111111]'
+                : 'text-[#5e5a52] hover:bg-neutral-100 hover:text-[#111111]'
             }`}
             title="Desktop Viewport"
           >
@@ -56,7 +56,7 @@ export const PreviewFrame: React.FC = () => {
           {/* Refresh Frame */}
           <button
             onClick={handleReload}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-[#5e5a52] hover:bg-[#f5f2eb] hover:text-[#111111] transition-colors cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-[#5e5a52] hover:bg-neutral-100 hover:text-[#111111] transition-colors cursor-pointer"
             title="Restart Scene Animation"
           >
             <RotateCcw className="h-4 w-4" />
@@ -67,7 +67,7 @@ export const PreviewFrame: React.FC = () => {
       {/* Frame Sandbox */}
       <div className="flex-1 flex items-center justify-center p-4 overflow-hidden relative">
         <div
-          className="relative transition-all duration-500 ease-out shadow-medium border border-[#e5dfd3] bg-[#f5f2eb]"
+          className="relative transition-all duration-500 ease-out shadow-medium border border-[#e5dfd3] bg-white"
           style={{
             width: device === 'mobile' ? '360px' : '100%',
             height: device === 'mobile' ? '640px' : '100%',

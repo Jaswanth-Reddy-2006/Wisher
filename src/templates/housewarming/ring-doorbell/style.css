@@ -1,0 +1,194 @@
+/* ring-doorbell Template Styles */
+
+.doorbell-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f172a;
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+.doorbell-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
+
+/* Overhead Porch Light glow */
+.porch-light {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 180px;
+  background: radial-gradient(circle at center top, rgba(254, 240, 138, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 5;
+  transition: background 1s ease;
+}
+
+.porch-light.turned-on {
+  background: radial-gradient(circle at center top, rgba(254, 240, 138, 0.45) 0%, rgba(254, 240, 138, 0.1) 45%, transparent 70%);
+}
+
+.porch-light.flickering {
+  animation: flicker-on 1s ease-in-out forwards;
+}
+
+@keyframes flicker-on {
+  0%, 20%, 40% { background: radial-gradient(circle at center top, rgba(254, 240, 138, 0.08) 0%, transparent 70%); }
+  10%, 30%, 50% { background: radial-gradient(circle at center top, rgba(254, 240, 138, 0.45) 0%, rgba(254, 240, 138, 0.1) 45%, transparent 70%); }
+  60% { background: radial-gradient(circle at center top, rgba(254, 240, 138, 0.1) 0%, transparent 70%); }
+  100% { background: radial-gradient(circle at center top, rgba(254, 240, 138, 0.45) 0%, rgba(254, 240, 138, 0.1) 45%, transparent 70%); }
+}
+
+/* Porch Wooden/Metal door */
+.porch-door {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #854d0e 0%, #713f12 100%);
+  border: 8px double #a16207;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transform-origin: left center;
+  transition: transform 1.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 40px 20px;
+  pointer-events: auto;
+}
+
+.porch-door.open {
+  transform: rotateY(-110deg);
+  box-shadow: 15px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Door surface frames */
+.door-panel-top, .door-panel-bottom {
+  border: 3px solid rgba(161, 98, 7, 0.5);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.door-panel-top {
+  height: 45%;
+}
+
+.door-panel-bottom {
+  height: 45%;
+}
+
+/* Handle hardware */
+.door-handle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 50px;
+  background: linear-gradient(to right, #fbbf24, #d97706, #fbbf24);
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Doorbell Plaque setup */
+.doorbell-plaque {
+  width: 24px;
+  height: 52px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1.5px solid #d97706; /* brass bezel */
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.doorbell-plaque:hover {
+  transform: scale(1.05);
+}
+
+.plaque-brass {
+  position: absolute;
+  inset: 1px;
+  border: 0.5px solid #fbbf24;
+  border-radius: 4px;
+  opacity: 0.3;
+}
+
+.bell-button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #d1d5db, #9ca3af);
+  border: 1px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 1px 1px 2px rgba(255,255,255,0.2);
+}
+
+.bell-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 4px #0284c7;
+  animation: pulse-led 2s infinite ease-in-out;
+}
+
+@keyframes pulse-led {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 8px #38bdf8; }
+}
+
+.doorbell-plaque.ringing-pulse {
+  animation: bell-shake 0.2s ease-in-out infinite;
+}
+
+.doorbell-plaque.ringing-pulse .bell-led {
+  background-color: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: none;
+}
+
+@keyframes bell-shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Inside welcome invitation reveal container */
+.doorbell-invitation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s, opacity 1.2s ease 0.6s;
+  z-index: 10;
+  width: 100%;
+  max-width: 265px;
+}
+
+.doorbell-invitation.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}

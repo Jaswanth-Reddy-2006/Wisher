@@ -127,7 +127,7 @@ export const Deployer: React.FC = () => {
     </script>
     <style>
         :root {
-            --bg-primary: #f5f2eb;
+            --bg-primary: #ffffff;
             --accent-red: ${currentWish.primaryColor || '#d30f0f'};
             --text-dark: #111111;
             --text-muted: #5e5a52;
@@ -151,7 +151,7 @@ export const Deployer: React.FC = () => {
         // Redirect standalone page instantly to display customized templates
         const liveUrl = "${window.location.origin}/wish/" + "${deployedId}";
         document.body.innerHTML = \`
-            <div class="min-h-screen flex flex-col justify-center items-center p-6 text-center font-sans bg-[#f5f2eb]">
+            <div class="min-h-screen flex flex-col justify-center items-center p-6 text-center font-sans bg-white">
                 <div class="max-w-md bg-white p-8 rounded-3xl shadow-lg border border-[#e5dfd3]">
                     <div class="h-12 w-12 rounded-full bg-red-100 text-[#d30f0f] flex items-center justify-center mx-auto mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
@@ -204,7 +204,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
   const progress = (currentStep / steps.length) * 100;
 
   return (
-    <div className="min-h-screen bg-[#f5f2eb] text-[#111111] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-white text-[#111111] flex items-center justify-center p-6">
       <div className="w-full max-w-xl bg-white rounded-3xl shadow-medium border border-[#e5dfd3] p-8 relative overflow-hidden">
         {/* Border glow styling when finished */}
         {deployedId && (
@@ -229,7 +229,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
             </div>
 
             {/* Progress track */}
-            <div className="w-full h-2 bg-[#f5f2eb] rounded-full overflow-hidden mb-6 border border-[#e5dfd3]">
+            <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden mb-6 border border-[#e5dfd3]">
               <div
                 className="h-full bg-[#d30f0f] transition-all duration-300 ease-out"
                 style={{ width: `${progress}%` }}
@@ -266,7 +266,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
             </p>
 
             {/* Short link box */}
-            <div className="flex items-center gap-2 bg-[#f5f2eb] p-3.5 rounded-2xl border border-[#e5dfd3] mb-6">
+            <div className="flex items-center gap-2 bg-neutral-50 p-3.5 rounded-2xl border border-[#e5dfd3] mb-6">
               <input
                 type="text"
                 readOnly

@@ -2,6 +2,7 @@ import { RetroBox } from './birthday/retro-box';
 import { NeonCyberpunkVinyl } from './birthday/neon-cyberpunk-vinyl';
 import { PopUpStorybook } from './birthday/pop-up-storybook';
 import { CosmicConstellation } from './birthday/cosmic-constellation';
+import { MagicalBalloonRelease } from './birthday/magical-balloon-release';
 
 import { ElegantCard } from './marriage/elegant-card';
 import { WaxSealScroll } from './marriage/wax-seal-scroll';
@@ -12,6 +13,20 @@ import { ModernDoor } from './housewarming/modern-door';
 import { BlueprintToBrick } from './housewarming/blueprint-to-brick';
 import { IsometricNeighborhood } from './housewarming/isometric-neighborhood';
 import { CozyMailboxReveal } from './housewarming/cozy-mailbox-reveal';
+
+import { CapToss } from './graduation/cap-toss';
+import { StorkDelivery } from './babyshower/stork-delivery';
+
+import { SilkRibbonEnvelope } from './marriage/silk-ribbon-envelope';
+import { GoldenKeycard } from './housewarming/golden-keycard';
+
+import { CosmicGalaxyPortal } from './birthday/cosmic-galaxy-portal';
+import { DiplomaRollUnwrap } from './graduation/diploma-roll-unwrap';
+
+import { CurtainSpotlight } from './graduation/curtain-spotlight';
+import { NurseryMobile } from './babyshower/nursery-mobile';
+import { GardenGate } from './marriage/garden-gate';
+import { RingDoorbell } from './housewarming/ring-doorbell';
 
 export const TEMPLATES = [
   // Birthday Category
@@ -51,6 +66,24 @@ export const TEMPLATES = [
     thumbnail: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?auto=format&fit=crop&w=600&q=80',
     defaultTitle: 'Written in Stars',
   },
+  {
+    id: 'magical-balloon-release' as const,
+    name: 'Magical Balloon Release',
+    description: 'A cluster of colorful helium balloons bound by a custom gift tag. Pop the knot to release the balloons and unveil the wishes.',
+    category: 'Birthday',
+    component: MagicalBalloonRelease,
+    thumbnail: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Birthday Wishes',
+  },
+  {
+    id: 'cosmic-galaxy-portal' as const,
+    name: 'Cosmic Galaxy Portal',
+    description: 'Spinning stellar dust portal in dark space. Tap the galaxy core to reveal the stars and birthday details.',
+    category: 'Birthday',
+    component: CosmicGalaxyPortal,
+    thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'A Galactic Surprise',
+  },
 
   // Wedding/Marriage Category
   {
@@ -89,6 +122,24 @@ export const TEMPLATES = [
     thumbnail: 'https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=600&q=80',
     defaultTitle: 'Botanical Case',
   },
+  {
+    id: 'silk-ribbon-envelope' as const,
+    name: 'Silk Ribbon Envelope',
+    description: 'A textured premium wedding envelope wrapped in a silk bow ribbon. Untie the ribbon to slide open the invitation.',
+    category: 'Wedding',
+    component: SilkRibbonEnvelope,
+    thumbnail: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'A Ribbon Knot',
+  },
+  {
+    id: 'garden-gate' as const,
+    name: 'Secret Garden Gate',
+    description: 'An ornate 3D floral iron gate wrapped in climbing roses. Unlock the golden padlock to swing the gates open.',
+    category: 'Wedding',
+    component: GardenGate,
+    thumbnail: 'https://images.unsplash.com/photo-1545232979-8bf34eb9757b?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'A Secret Garden',
+  },
 
   // Housewarming Category
   {
@@ -126,6 +177,69 @@ export const TEMPLATES = [
     component: CozyMailboxReveal,
     thumbnail: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80',
     defaultTitle: 'Letter in Mailbox',
+  },
+  {
+    id: 'golden-keycard' as const,
+    name: 'Golden Smart-Keycard',
+    description: 'A futuristic electronic slot panel. Slide the golden keycard to activate the smart house lock and details.',
+    category: 'House Warming',
+    component: GoldenKeycard,
+    thumbnail: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Unlock Our Nest',
+  },
+  {
+    id: 'ring-doorbell' as const,
+    name: 'Ring the Doorbell',
+    description: 'A contemporary porch doorbell plaque. Press the button to ring, turn on the porch lights, and open the front door.',
+    category: 'House Warming',
+    component: RingDoorbell,
+    thumbnail: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Ring Our Bell',
+  },
+  {
+    id: 'cap-toss' as const,
+    name: 'Graduation Cap Toss',
+    description: 'Throw your virtual caps into the sky! Toss the caps to reveal the official graduation scroll and details.',
+    category: 'Graduation',
+    component: CapToss,
+    thumbnail: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Class of 2026',
+  },
+  {
+    id: 'diploma-roll-unwrap' as const,
+    name: 'Diploma Banner Unroll',
+    description: 'A leather-bound scroll tied in silk ribbon. Click to unroll the diploma downward like a graduation banner.',
+    category: 'Graduation',
+    component: DiplomaRollUnwrap,
+    thumbnail: 'https://images.unsplash.com/photo-1525921429624-479b6c294560?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'The Scholar Honor',
+  },
+  {
+    id: 'curtain-spotlight' as const,
+    name: 'Stage Curtain Spotlight',
+    description: 'A grand theater velvet curtain stage. Pull the golden tassel rope to raise curtains and cast a dramatic stage spotlight.',
+    category: 'Graduation',
+    component: CurtainSpotlight,
+    thumbnail: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Stage is Set',
+  },
+  {
+    id: 'stork-delivery' as const,
+    name: 'Stork Baby Delivery',
+    description: 'A special delivery from the sky! Click the stork bundle wrap to unravel the cute baby invitation details.',
+    category: 'Baby Shower',
+    component: StorkDelivery,
+    thumbnail: 'https://images.unsplash.com/photo-1519689680058-324335c77ebe?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'A Sweet Bundle',
+  },
+  {
+    id: 'nursery-mobile' as const,
+    name: 'Nursery Sky Mobile',
+    description: 'A whimsical cotton cloud and wooden star nursery mobile. Tap the hanging elements to spin it into stardust portals.',
+    category: 'Baby Shower',
+    component: NurseryMobile,
+    thumbnail: 'https://images.unsplash.com/photo-1519689680058-324335c77ebe?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Over the Moon',
   }
 ];
 

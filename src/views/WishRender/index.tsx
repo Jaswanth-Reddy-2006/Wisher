@@ -58,7 +58,7 @@ export const WishRender: React.FC = () => {
   // Loading Screen
   if (loading) {
     return (
-      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#f5f2eb] text-[#111111] font-sans">
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white text-[#111111] font-sans">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#d30f0f]/10 text-[#d30f0f] mb-4 animate-spin">
           <RefreshCw className="h-6 w-6" />
         </div>
@@ -75,7 +75,7 @@ export const WishRender: React.FC = () => {
   // Error Screen
   if (error || !wishData) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#f5f2eb] px-6 text-center font-sans">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white px-6 text-center font-sans">
         <div className="w-full max-w-md bg-white p-8 rounded-3xl shadow-lg border border-[#e5dfd3]">
           <div className="h-12 w-12 rounded-full bg-red-100 text-[#d30f0f] flex items-center justify-center mx-auto mb-4">
             <AlertCircle className="h-6 w-6" />

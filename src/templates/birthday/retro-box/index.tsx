@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { TemplateProps } from '../../types';
-import Countdown from '../../common/Countdown';
 import AudioPlayer from '../../common/AudioPlayer';
 import { fireConfetti } from '../../common/CanvasConfetti';
 import { Gift, Star, Cake } from 'lucide-react';
 import gsap from 'gsap';
+import TemplateWebsiteLayout from '../../common/TemplateWebsiteLayout';
 import './style.css';
 
 export const RetroBox: React.FC<TemplateProps> = ({ data, isPreview = false }) => {
@@ -79,113 +79,106 @@ export const RetroBox: React.FC<TemplateProps> = ({ data, isPreview = false }) =
   };
 
   return (
-    <div className="template-viewport">
-      {/* Background Floating Icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
-        <Star className="absolute top-12 left-[10%] h-12 w-12 animate-bounce" style={{ color: primaryColor }} />
-        <Cake className="absolute bottom-20 right-[15%] h-16 w-16 animate-pulse" style={{ color: primaryColor }} />
-        <Gift className="absolute top-[40%] right-[8%] h-10 w-10 animate-bounce" style={{ color: primaryColor }} />
-      </div>
-
-      {/* Main 3D Box Container */}
-      {!isOpen && (
-        <div className="text-center absolute top-20 pointer-events-none z-10 px-4">
-          <h2 className="font-display text-2xl font-bold uppercase tracking-widest text-[#111111] mb-2">
-            A Special Surprise
-          </h2>
-          <p className="font-display text-sm text-[#5e5a52]">
-            Click the box to open your wish
-          </p>
+    <div className={`template-viewport ${isOpen ? 'scrollable' : ''}`}>
+      
+      {/* HERO COVER SCREEN */}
+      <div className="w-full h-[100dvh] flex flex-col items-center justify-center relative shrink-0 overflow-hidden">
+        {/* Background Floating Icons */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+          <Star className="absolute top-12 left-[10%] h-12 w-12 animate-bounce" style={{ color: primaryColor }} />
+          <Cake className="absolute bottom-20 right-[15%] h-16 w-16 animate-pulse" style={{ color: primaryColor }} />
+          <Gift className="absolute top-[40%] right-[8%] h-10 w-10 animate-bounce" style={{ color: primaryColor }} />
         </div>
-      )}
 
-      <div 
-        className="box-scene" 
-        onClick={isPreview ? undefined : handleOpen}
-        style={{ pointerEvents: isPreview ? 'none' : 'auto' }}
-      >
+        {/* Main 3D Box Container */}
+        {!isOpen && (
+          <div className="text-center absolute top-20 pointer-events-none z-10 px-4">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-widest text-[#111111] mb-2">
+              A Special Surprise
+            </h2>
+            <p className="font-display text-sm text-[#5e5a52]">
+              Click the box to open your wish
+            </p>
+          </div>
+        )}
+
         <div 
-          ref={boxRef} 
-          className={`gift-box ${isOpen ? 'open' : 'breathing'}`}
+          className="box-scene" 
+          onClick={isPreview ? undefined : handleOpen}
+          style={{ pointerEvents: isPreview ? 'none' : 'auto' }}
         >
-          {/* Lid */}
-          <div ref={lidRef} className="box-lid">
-            <div className="lid-top" style={{ backgroundColor: primaryColor }}>
-              <div className="ribbon-v"></div>
-              <div className="ribbon-h"></div>
-              <div className="lid-bow"></div>
-            </div>
-            <div className="lid-side lid-side-front" style={{ backgroundColor: primaryColor }}></div>
-            <div className="lid-side lid-side-back" style={{ backgroundColor: primaryColor }}></div>
-            <div className="lid-side lid-side-left" style={{ backgroundColor: primaryColor }}></div>
-            <div className="lid-side lid-side-right" style={{ backgroundColor: primaryColor }}></div>
-          </div>
-
-          {/* Box Sides */}
-          <div ref={frontRef} className="box-face face-front" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
-            <div className="ribbon-v"></div>
-          </div>
-          <div ref={backRef} className="box-face face-back" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
-            <div className="ribbon-v"></div>
-          </div>
-          <div ref={leftRef} className="box-face face-left" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
-            <div className="ribbon-h"></div>
-          </div>
-          <div ref={rightRef} className="box-face face-right" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
-            <div className="ribbon-h"></div>
-          </div>
-          <div className="box-face face-bottom"></div>
-        </div>
-      </div>
-
-      {/* Floating Instruction text */}
-      {!isOpen && (
-        <div className="tap-instruction" style={{ color: primaryColor }}>
-          🎁 Open Surprise
-        </div>
-      )}
-
-      {/* Rising Greeting Card */}
-      <div 
-        className={`greeting-card-container ${isOpen ? 'visible' : ''}`}
-        style={{ borderTopColor: primaryColor }}
-      >
-        <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#111111] text-white inline-block mb-3">
-          Birthday Wish
-        </span>
-        <h1 className="font-display text-3xl font-extrabold text-[#111111] leading-tight mb-1">
-          {data.title || "Happy Birthday!"}
-        </h1>
-        <h2 className="font-display text-xl font-bold tracking-tight mb-4" style={{ color: primaryColor }}>
-          For {data.targetName || "Alex Mercer"}
-        </h2>
-
-        {data.date && (
-          <div className="mb-4">
-            <Countdown targetDate={data.date} primaryColor={primaryColor} />
-          </div>
-        )}
-
-        <p className="font-display text-sm text-[#5e5a52] leading-relaxed mb-6">
-          {data.message || "Wishing you a wonderful year ahead!"}
-        </p>
-
-        {data.extraMessage && (
-          <div className="border-t border-[#e5dfd3] pt-4 mb-4 text-xs italic text-[#5e5a52] leading-relaxed">
-            {data.extraMessage}
-          </div>
-        )}
-
-        {data.rsvpEmail && (
-          <a
-            href={`mailto:${data.rsvpEmail}?subject=Count%20Me%20In!`}
-            className="inline-flex w-full items-center justify-center rounded-xl py-3 px-4 text-sm font-bold text-white transition-all cursor-pointer hover:opacity-90"
-            style={{ backgroundColor: primaryColor }}
+          <div 
+            ref={boxRef} 
+            className={`gift-box ${isOpen ? 'open' : 'breathing'}`}
           >
-            RSVP via Email
-          </a>
+            {/* Lid */}
+            <div ref={lidRef} className="box-lid">
+              <div className="lid-top" style={{ backgroundColor: primaryColor }}>
+                <div className="ribbon-v"></div>
+                <div className="ribbon-h"></div>
+                <div className="lid-bow"></div>
+              </div>
+              <div className="lid-side lid-side-front" style={{ backgroundColor: primaryColor }}></div>
+              <div className="lid-side lid-side-back" style={{ backgroundColor: primaryColor }}></div>
+              <div className="lid-side lid-side-left" style={{ backgroundColor: primaryColor }}></div>
+              <div className="lid-side lid-side-right" style={{ backgroundColor: primaryColor }}></div>
+            </div>
+
+            {/* Box Sides */}
+            <div ref={frontRef} className="box-face face-front" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
+              <div className="ribbon-v"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/30 tracking-wider uppercase">BDAY</div>
+            </div>
+            <div ref={backRef} className="box-face face-back" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
+              <div className="ribbon-v"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/30 tracking-wider uppercase">BDAY</div>
+            </div>
+            <div ref={leftRef} className="box-face face-left" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
+              <div className="ribbon-h"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/30 tracking-wider uppercase">Wish</div>
+            </div>
+            <div ref={rightRef} className="box-face face-right" style={{ '--theme-color': primaryColor } as React.CSSProperties}>
+              <div className="ribbon-h"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/30 tracking-wider uppercase">Love</div>
+            </div>
+            <div className="box-face face-bottom"></div>
+          </div>
+        </div>
+
+        {/* Rising Greeting Card */}
+        <div className={`greeting-card-container ${isOpen ? 'visible' : ''}`}>
+          <h3 className="font-display text-lg font-black text-[#111111] mb-1">
+            For {data.targetName || "You"}
+          </h3>
+          <p className="text-xs text-[#5e5a52] font-semibold leading-relaxed mb-4">
+            {data.title || "Happy Birthday!"}
+          </p>
+          <div className="h-[1px] w-12 bg-[#cbd5e1] mx-auto mb-3" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-[#cbd5e1] animate-pulse">
+            Scroll Down to Celebrate 🎈
+          </span>
+        </div>
+
+        {/* Floating Instruction text */}
+        {!isOpen && (
+          <div className="tap-instruction" style={{ color: primaryColor }}>
+            🎁 Open Surprise
+          </div>
+        )}
+
+        {/* Scroll Indicator */}
+        {isOpen && (
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-xs font-bold uppercase tracking-widest text-[#5e5a52] animate-bounce select-none pointer-events-none z-30">
+            <span className="text-[10px]">Scroll Down</span>
+            <span className="text-sm">↓</span>
+          </div>
         )}
       </div>
+
+      {/* FULL SCROLLABLE WEBSITE SECTIONS */}
+      {isOpen && (
+        <TemplateWebsiteLayout data={data} primaryColor={primaryColor} type={data.templateType} />
+      )}
 
       {/* Background Audio Player */}
       {showMusic && data.musicUrl && (

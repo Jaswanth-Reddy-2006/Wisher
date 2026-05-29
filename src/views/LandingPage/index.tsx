@@ -4,12 +4,14 @@ import Navbar from '../../components/layout/Navbar';
 import { TEMPLATES } from '../../templates';
 import { Sparkles, Gift, Heart, Home, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
+import { renderCardPreview } from '../../components/preview/CardPreview';
+import { serializeWishData } from '../../utils/serialization';
+import { templateMockData } from '../../utils/mockData';
 
 export const LandingPage: React.FC = () => {
   const heroTextRef = useRef<HTMLHeadingElement | null>(null);
   const heroSubRef = useRef<HTMLParagraphElement | null>(null);
   const heroCTARef = useRef<HTMLDivElement | null>(null);
-  const worksGridRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // GSAP landing reveal animation
@@ -34,8 +36,14 @@ export const LandingPage: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+  // Filter specific templates for the marquee slider
+  const previewTemplates = TEMPLATES.filter(tmpl =>
+    ['retro-box', 'neon-cyberpunk-vinyl', 'magical-balloon-release', 'elegant-card', 'modern-door'].includes(tmpl.id)
+  );
+  const doubledTemplates = [...previewTemplates, ...previewTemplates];
+
   return (
-    <div className="min-h-screen bg-[#f5f2eb] text-[#111111] overflow-x-hidden relative flex flex-col">
+    <div className="min-h-screen bg-white text-[#111111] overflow-x-hidden relative flex flex-col">
       {/* Floating Header */}
       <Navbar />
 
@@ -109,7 +117,7 @@ export const LandingPage: React.FC = () => {
           </div>
 
           {/* Graphical Representation */}
-          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-medium border border-[#e5dfd3] bg-[#f5f2eb] p-8 flex flex-col justify-between">
+          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-medium border border-[#e5dfd3] bg-neutral-50 p-8 flex flex-col justify-between">
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
                 <div className="h-3 w-3 rounded-full bg-[#d30f0f]"></div>
@@ -141,8 +149,8 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Works Slider Section */}
-      <section id="works" className="py-20 px-6 max-w-6xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <section id="works" className="py-20 bg-white border-y border-[#e5dfd3] w-full overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <span className="text-[#d30f0f] text-xs font-black uppercase tracking-widest block mb-3">
               Explore Our Templates
@@ -159,58 +167,86 @@ export const LandingPage: React.FC = () => {
           </Link>
         </div>
 
-        {/* Showcase Cards Grid */}
-        <div ref={worksGridRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TEMPLATES.map((tmpl) => {
-            const Icon = tmpl.id === 'retro-box' ? Gift : tmpl.id === 'elegant-card' ? Heart : Home;
-            return (
-              <div
-                key={tmpl.id}
-                className="group relative rounded-3xl bg-white p-6 shadow-soft border border-[#e5dfd3] hover:shadow-medium hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Image cover */}
-                  <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6 bg-[#f5f2eb]">
-                    <img
-                      src={tmpl.thumbnail}
-                      alt={tmpl.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3 bg-[#111111] text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
-                      <Icon className="h-3 w-3" />
-                      {tmpl.category}
+        {/* Showcase Cards Infinite Slider Track */}
+        <div className="w-full relative py-4 overflow-hidden">
+          <style>{`
+            @keyframes marquee-scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-container {
+              overflow: hidden;
+              width: 100%;
+              mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+              -webkit-mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
+            }
+            .marquee-track {
+              display: flex;
+              width: max-content;
+              gap: 2.5rem;
+              animation: marquee-scroll 45s linear infinite;
+              padding-left: 2rem;
+            }
+            .marquee-track:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
+          
+          <div className="marquee-container">
+            <div className="marquee-track">
+              {doubledTemplates.map((tmpl, idx) => {
+                const Icon = tmpl.id === 'retro-box' ? Gift : tmpl.id === 'elegant-card' ? Heart : Home;
+                const mockData = templateMockData[tmpl.id];
+                const token = mockData ? serializeWishData(mockData) : '';
+                const liveDemoUrl = `/wish/${tmpl.id}?q=${token}`;
+
+                return (
+                  <div
+                    key={`${tmpl.id}-${idx}`}
+                    className="group w-[320px] shrink-0 rounded-3xl bg-white p-6 shadow-soft border border-[#e5dfd3] hover:shadow-medium hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* CSS/SVG Visual Preview */}
+                      <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6 bg-[#f9f9f9] border border-[#e5dfd3]">
+                        {renderCardPreview(tmpl.id)}
+                        <div className="absolute top-3 left-3 bg-[#111111] text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5 z-30 select-none">
+                          <Icon className="h-3 w-3" />
+                          {tmpl.category}
+                        </div>
+                      </div>
+
+                      <h3 className="font-display text-lg font-black text-[#111111] mb-2 leading-tight">
+                        {tmpl.name}
+                      </h3>
+                      <p className="text-xs text-[#5e5a52] leading-relaxed mb-6 font-semibold line-clamp-2">
+                        {tmpl.description}
+                      </p>
+                    </div>
+
+                    <div className="flex gap-3">
+                      {/* Live Demo Trigger */}
+                      <a
+                        href={liveDemoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center rounded-xl border border-[#111111] py-2.5 text-xs font-bold text-[#111111] hover:bg-[#111111] hover:text-white transition-all cursor-pointer text-center uppercase tracking-wider"
+                      >
+                        Live Demo
+                      </a>
+
+                      {/* Customize and edit */}
+                      <Link
+                        to={`/customizer?template=${tmpl.id}`}
+                        className="flex-1 inline-flex items-center justify-center rounded-xl bg-[#d30f0f] py-2.5 text-xs font-bold text-white hover:bg-[#b00c0c] transition-all cursor-pointer text-center uppercase tracking-wider"
+                      >
+                        Customize
+                      </Link>
                     </div>
                   </div>
-
-                  <h3 className="font-display text-lg font-black text-[#111111] mb-2 leading-tight">
-                    {tmpl.name}
-                  </h3>
-                  <p className="text-xs text-[#5e5a52] leading-relaxed mb-6 font-semibold">
-                    {tmpl.description}
-                  </p>
-                </div>
-
-                <div className="flex gap-3">
-                  {/* Preview Button */}
-                  <Link
-                    to={`/wish/${tmpl.id}?preview=true`}
-                    target="_blank"
-                    className="flex-1 inline-flex items-center justify-center rounded-xl border border-[#111111] py-2.5 text-xs font-bold text-[#111111] hover:bg-[#111111] hover:text-white transition-all cursor-pointer"
-                  >
-                    Live Demo
-                  </Link>
-
-                  {/* Customize Button */}
-                  <Link
-                    to={`/customizer?template=${tmpl.id}`}
-                    className="flex-1 inline-flex items-center justify-center rounded-xl bg-[#d30f0f] py-2.5 text-xs font-bold text-white hover:bg-[#b00c0c] transition-all cursor-pointer"
-                  >
-                    Customize
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 

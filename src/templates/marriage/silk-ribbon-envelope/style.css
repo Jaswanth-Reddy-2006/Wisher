@@ -1,0 +1,100 @@
+/* silk-ribbon-envelope Template Styles */
+
+.envelope-container {
+  width: 320px;
+  height: 220px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.5s ease-in-out;
+}
+
+.envelope-container.unfolded {
+  transform: translateY(40px);
+}
+
+/* Envelope Back Panel */
+.env-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background-color: #faf6f0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+/* Letter Card inside */
+.env-card {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  bottom: 12px;
+  border-radius: 6px;
+  z-index: 2;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), z-index 0.8s step-end;
+}
+
+.unfolded .env-card {
+  transform: translateY(-130px) scale(1.02);
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* Common Front flaps styling */
+.env-flap {
+  position: absolute;
+  transform-style: preserve-3d;
+  z-index: 3;
+}
+
+.env-left {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  border-radius: 8px 0 0 8px;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  z-index: 5;
+}
+
+.env-right {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  border-radius: 0 8px 8px 0;
+  clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+  z-index: 5;
+}
+
+.env-bottom {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  border-radius: 0 0 8px 8px;
+  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+  z-index: 6;
+}
+
+/* Top cover flap */
+.env-top-flap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 120px;
+  border-radius: 8px 8px 0 0;
+  clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+  transform-origin: top center;
+  z-index: 7;
+  transition: transform 0.6s ease-in-out, z-index 0.6s step-end;
+}
+
+.unfolded .env-top-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}

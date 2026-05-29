@@ -1,11 +1,14 @@
 :root {
-  --bg-primary: #f5f2eb;        /* Textured luxury warm cream background */
+  --bg-primary: #ffffff;        /* Pure premium white background */
   --bg-card: #ffffff;           /* Ultra crisp white card background surfaces */
-  --accent-red: #d30f0f;        /* High-vibrancy energetic premium crimson red */
-  --accent-red-hover: #b00c0c;  /* Slightly darker red for hover states */
-  --text-dark: #111111;         /* Deep rich charcoal for clean typography */
-  --text-muted: #5e5a52;        /* Mid-tone slate for secondary labels */
-  --pill-bg: #111111;           /* Ink black accents for system navigation items */
+  --accent-red: #102a43;        /* Skateboarding Lion Deep Navy Blue brand accent */
+  --accent-red-hover: #1e3d64;  /* Deep Navy hover state */
+  --accent-lavender: #b89df5;   /* Graffiti Lavender */
+  --accent-peach: #f5a18a;      /* Graffiti Coral/Peach */
+  --accent-yellow: #f7e8a3;     /* Graffiti Yellow */
+  --text-dark: #0c111d;         /* Deep rich slate charcoal for clean typography */
+  --text-muted: #475467;        /* Mid-tone gray-slate for secondary text labels */
+  --pill-bg: #102a43;           /* Navy accents for navigation pills */
   --pill-text: #ffffff;
   
   --font-primary: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;

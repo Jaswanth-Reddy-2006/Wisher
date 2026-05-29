@@ -7,6 +7,9 @@
   --color-card-luxury: var(--bg-card);
   --color-accent-red: var(--accent-red);
   --color-accent-red-hover: var(--accent-red-hover);
+  --color-accent-lavender: var(--accent-lavender);
+  --color-accent-peach: var(--accent-peach);
+  --color-accent-yellow: var(--accent-yellow);
   --color-text-dark: var(--text-dark);
   --color-text-muted: var(--text-muted);
   --font-primary: var(--font-primary);
@@ -119,4 +122,43 @@
   .mailbox-scene, .mailbox-details-card {
     zoom: 1.75;
   }
+}
+
+/* Scrollable viewport configuration for unlocked template websites */
+.template-viewport.scrollable,
+.cyberpunk-viewport.scrollable,
+.storybook-viewport.scrollable,
+.cosmic-viewport.scrollable,
+.wedding-viewport.scrollable,
+.scroll-viewport.scrollable,
+.origami-viewport.scrollable,
+.glass-box-viewport.scrollable,
+.door-viewport.scrollable,
+.blueprint-viewport.scrollable,
+.neighborhood-viewport.scrollable,
+.mailbox-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

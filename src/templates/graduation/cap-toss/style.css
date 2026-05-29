@@ -1,0 +1,36 @@
+/* cap-toss Template Styles */
+
+.cap-toss-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f172a;
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+/* Scrollable viewport state */
+.cap-toss-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
+
+@keyframes sway-diploma {
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+.cap-toss-viewport .cursor-pointer {
+  animation: sway-diploma 3s ease-in-out infinite alternate;
+}

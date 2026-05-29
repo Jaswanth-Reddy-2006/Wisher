@@ -15,12 +15,18 @@ interface StoreState {
   setDeployedId: (id: string | null) => void;
 }
 
-const getCategoryByTemplate = (template: WishData['templateType']): 'birthday' | 'wedding' | 'housewarming' => {
-  if (['retro-box', 'neon-cyberpunk-vinyl', 'pop-up-storybook', 'cosmic-constellation'].includes(template)) {
+const getCategoryByTemplate = (template: WishData['templateType']): 'birthday' | 'wedding' | 'housewarming' | 'graduation' | 'babyshower' => {
+  if (['retro-box', 'neon-cyberpunk-vinyl', 'pop-up-storybook', 'cosmic-constellation', 'magical-balloon-release', 'cosmic-galaxy-portal'].includes(template)) {
     return 'birthday';
   }
-  if (['elegant-card', 'wax-seal-scroll', 'infinity-origami-fold', 'glass-botanical-box'].includes(template)) {
+  if (['elegant-card', 'wax-seal-scroll', 'infinity-origami-fold', 'glass-botanical-box', 'silk-ribbon-envelope', 'garden-gate'].includes(template)) {
     return 'wedding';
+  }
+  if (['cap-toss', 'diploma-roll-unwrap', 'curtain-spotlight'].includes(template)) {
+    return 'graduation';
+  }
+  if (['stork-delivery', 'nursery-mobile'].includes(template)) {
+    return 'babyshower';
   }
   return 'housewarming';
 };
@@ -36,11 +42,46 @@ const getDefaultWish = (template: WishData['templateType']): WishData => {
       targetName: "Sarah & David",
       date: futureDate,
       message: "We invite you to share our joy as we exchange our vows and begin our new life together. Your presence is our greatest gift.",
-      primaryColor: "#d4af37", // Wedding gold
+      primaryColor: "#102a43", // Skateboarding Lion Deep Navy Blue
       musicUrl: "",
       musicName: "",
-      extraMessage: "The wedding ceremony will start at 4:00 PM, followed by cocktails and reception.",
-      rsvpEmail: "wedding@wisher.net"
+      extraMessage: "Cocktails and reception dinner will follow the ceremony.",
+      rsvpEmail: "wedding@wishes.net",
+      venueName: "The Grand Plaza, Crystal Ballroom",
+      googleMapsUrl: "https://maps.google.com",
+      weddingTime: "17:00",
+      brideName: "Sarah Jennings",
+      groomName: "David Miller"
+    };
+  }
+
+  if (category === 'graduation') {
+    return {
+      templateType: template,
+      title: "Congratulations, Graduate!",
+      targetName: "Michael Chang",
+      date: futureDate,
+      message: "Your hard work and dedication have paid off. Today we celebrate your great accomplishment and look forward to your bright future! Toss your cap to enter!",
+      primaryColor: "#102a43", // Navy blue
+      musicUrl: "",
+      musicName: "",
+      extraMessage: "Commencement afterparty starts at 7:00 PM. Dinner & drinks provided.",
+      rsvpEmail: "graduate@wishes.net"
+    };
+  }
+
+  if (category === 'babyshower') {
+    return {
+      templateType: template,
+      title: "Welcome Sweet Bundle!",
+      targetName: "Baby Boy Thompson",
+      date: futureDate,
+      message: "We're over the moon with joy and excited to invite you to celebrate our baby shower. A new little adventurer is on his way!",
+      primaryColor: "#f5a18a", // Peach
+      musicUrl: "",
+      musicName: "",
+      extraMessage: "Guacamole & baby punch served in the garden starting at 2:00 PM.",
+      rsvpEmail: "babyshower@wishes.net"
     };
   }
 

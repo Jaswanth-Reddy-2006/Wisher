@@ -135,6 +135,22 @@
   box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
 }
 
+.indoor-view::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 50%, rgba(255, 215, 0, 0.4) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.door-viewport.unlocked .indoor-view::before {
+  opacity: 1;
+}
+
+
 /* Invitation Card details inside */
 .housewarming-card {
   width: 100%;

@@ -1,0 +1,242 @@
+/* curtain-spotlight Template Styles */
+
+.curtain-spotlight-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #050508;
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+.curtain-spotlight-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
+
+/* Velvet Curtains */
+.curtain-flap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.5%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, #a61212 0%, #590404 80%, #300101 100%);
+  transition: transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.left-flap {
+  left: 0;
+  transform-origin: left center;
+}
+
+.left-flap.open {
+  transform: scaleX(0.1) translateX(-10%);
+}
+
+.right-flap {
+  right: 0;
+  transform-origin: right center;
+}
+
+.right-flap.open {
+  transform: scaleX(0.1) translateX(10%);
+}
+
+/* Curtain Texture Folds */
+.curtain-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 15px, #000 15px, #000 30px);
+}
+
+.curtain-folds {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.05) 0%, 
+    rgba(0,0,0,0.3) 12%, 
+    rgba(255,255,255,0.1) 25%, 
+    rgba(0,0,0,0.4) 37%, 
+    rgba(255,255,255,0.05) 50%, 
+    rgba(0,0,0,0.4) 62%, 
+    rgba(255,255,255,0.1) 75%, 
+    rgba(0,0,0,0.3) 88%, 
+    rgba(255,255,255,0.05) 100%
+  );
+  background-size: 80px 100%;
+}
+
+/* Spotlight Beam */
+.spotlight-beam {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 253, 235, 0.4) 0%, rgba(255, 253, 235, 0.05) 60%, transparent 100%);
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  opacity: 0;
+  transform-origin: top center;
+  pointer-events: none;
+  transition: opacity 1.5s ease-in-out 0.8s;
+  z-index: 2;
+}
+
+.spotlight-beam.active {
+  opacity: 1;
+  animation: spotlight-drift 10s ease-in-out infinite alternate;
+}
+
+@keyframes spotlight-drift {
+  0% { transform: translateX(-50%) rotate(-4deg); }
+  100% { transform: translateX(-50%) rotate(4deg); }
+}
+
+/* Pull Cord styling */
+.pull-cord-wrapper {
+  position: absolute;
+  right: 12%;
+  top: 0;
+  height: 60%;
+  width: 20px;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+.pull-cord-wrapper:hover {
+  transform: translateY(5px);
+}
+
+.pull-cord-wrapper.pulling {
+  transform: translateY(40px);
+}
+
+.cord-rope {
+  width: 2px;
+  height: calc(100% - 30px);
+  background: linear-gradient(to bottom, #d97706, #f59e0b, #d97706);
+  margin: 0 auto;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cord-tassel {
+  width: 14px;
+  height: 30px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tassel-ring {
+  width: 12px;
+  height: 12px;
+  border-radius: 55px;
+  background-color: #fbbf24;
+  border: 1px solid #d97706;
+}
+
+.tassel-skirt {
+  width: 10px;
+  height: 18px;
+  background: linear-gradient(to bottom, #d97706, #b45309);
+  border-radius: 0 0 4px 4px;
+  margin-top: -2px;
+}
+
+/* Stage pedestal */
+.stage-pedestal {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(150px);
+  opacity: 0;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s, opacity 1s ease 0.5s;
+  pointer-events: none;
+}
+
+.stage-pedestal.active {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.pedestal-top {
+  width: 80px;
+  height: 10px;
+  background: linear-gradient(to right, #475569, #1e293b, #475569);
+  border-radius: 4px;
+  border-bottom: 2px solid #0f172a;
+}
+
+.pedestal-column {
+  width: 24px;
+  height: 120px;
+  background: linear-gradient(to right, #64748b, #334155, #64748b);
+}
+
+.pedestal-base {
+  width: 110px;
+  height: 14px;
+  background: linear-gradient(to right, #334155, #0f172a, #334155);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Stage Diploma Wrapper */
+.stage-diploma-wrapper {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px) scale(0.6);
+  opacity: 0;
+  width: auto;
+  pointer-events: none;
+  transition: transform 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s, opacity 1s ease 0.7s;
+}
+
+.stage-diploma-wrapper.active {
+  transform: translateX(-50%) translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Floating particles */
+.sparkle-particle {
+  position: absolute;
+  font-size: 14px;
+  color: #fbbf24;
+  text-shadow: 0 0 5px #fbbf24;
+  opacity: 0;
+}
+
+.sp-1 { top: 30%; left: 20%; animation: float-sparkle 6s infinite 0.5s; }
+.sp-2 { top: 20%; right: 25%; animation: float-sparkle 7s infinite 1.5s; }
+.sp-3 { bottom: 35%; left: 25%; animation: float-sparkle 5s infinite 2.5s; }
+.sp-4 { bottom: 40%; right: 20%; animation: float-sparkle 8s infinite 0s; }
+
+@keyframes float-sparkle {
+  0% { transform: translateY(20px) scale(0.5); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+}

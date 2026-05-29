@@ -1,0 +1,27 @@
+/* stork-delivery Template Styles */
+
+.stork-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #bae6fd;
+  font-family: var(--font-primary);
+  user-select: none;
+}
+
+/* Scrollable viewport state */
+.stork-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
