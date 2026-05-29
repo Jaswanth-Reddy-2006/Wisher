@@ -42,24 +42,24 @@ export const LandingPage: React.FC = () => {
   const doubledTemplates = [...previewTemplates, ...previewTemplates];
 
   return (
-    <div className="min-h-screen bg-white text-[#111111] overflow-x-hidden relative flex flex-col">
+    <div className="min-h-screen bg-[#faf8f5] text-[#121212] overflow-x-hidden relative flex flex-col">
       {/* Floating Header */}
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative flex-1 pt-32 pb-20 px-6 md:pt-40 md:pb-32 max-w-6xl mx-auto flex flex-col justify-center items-center text-center">
         {/* Sparkle Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#111111] py-1.5 px-4 font-display text-[10px] font-black uppercase tracking-widest text-[#ffd700] mb-6 shadow-md">
-          <Sparkles className="h-3 w-3 fill-current text-gold" />
+        <div className="inline-flex items-center gap-2 rounded-full bg-[#121212] py-1.5 px-4 font-display text-[10px] font-black uppercase tracking-widest text-[#cca43b] mb-6 shadow-md">
+          <Sparkles className="h-3 w-3 fill-current text-[#cca43b]" />
           Introducing Wisher v1.0
         </div>
 
         {/* Asymmetrical bold title */}
         <h1
           ref={heroTextRef}
-          className="font-display text-5xl md:text-7xl font-extrabold tracking-tighter text-[#111111] max-w-4xl leading-[0.95] mb-6"
+          className="font-display text-5xl md:text-7xl font-extrabold tracking-tighter text-[#121212] max-w-4xl leading-[0.95] mb-6"
         >
-          Create custom <span className="text-[#d30f0f]">3D animated</span> pages for your wishes<span className="text-[#d30f0f]">.</span>
+          Create custom <span className="text-[#5a25e6]">3D animated</span> pages for your wishes<span className="text-[#5a25e6]">.</span>
         </h1>
 
         <p
@@ -73,13 +73,13 @@ export const LandingPage: React.FC = () => {
         <div ref={heroCTARef} className="flex flex-col sm:flex-row items-center gap-4">
           <Link
             to="/dashboard"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#d30f0f] py-4 px-8 font-display text-sm font-black uppercase tracking-wider text-white shadow-[0_10px_25px_rgba(211,15,15,0.35)] transition-all duration-300 hover:bg-[#b00c0c] hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#5a25e6] py-4 px-8 font-display text-sm font-black uppercase tracking-wider text-white shadow-[0_10px_25px_rgba(90,37,230,0.25)] transition-all duration-300 hover:bg-[#4517bf] hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
           >
             Start Creating <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
             href="#works"
-            className="inline-flex items-center justify-center gap-1 rounded-full border-2 border-[#111111] py-3.5 px-8 font-display text-sm font-black uppercase tracking-wider text-[#111111] transition-all hover:bg-[#111111] hover:text-white cursor-pointer"
+            className="inline-flex items-center justify-center gap-1 rounded-full border-2 border-[#121212] py-3.5 px-8 font-display text-sm font-black uppercase tracking-wider text-[#121212] transition-all hover:bg-[#121212] hover:text-white cursor-pointer"
           >
             Browse Works
           </a>
@@ -87,10 +87,10 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Interactive Mockup Grid */}
-      <section id="about" className="py-20 bg-white border-y border-[#e5dfd3] px-6">
+      <section id="about" className="py-20 bg-white border-y border-[#e5dfd3]/60 px-6 shadow-sm">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-[#d30f0f] text-xs font-black uppercase tracking-widest block mb-3">
+            <span className="text-[#5a25e6] text-xs font-black uppercase tracking-widest block mb-3">
               Premium UI/UX Experience
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] mb-6 leading-tight">
@@ -107,8 +107,8 @@ export const LandingPage: React.FC = () => {
                 "Instant live hosting url generations",
                 "Self-contained downloadable single-page ZIP files"
               ].map((feat, idx) => (
-                <li key={idx} className="flex items-center gap-3 font-display text-xs font-bold text-[#111111]">
-                  <CheckCircle2 className="h-5 w-5 text-[#d30f0f] shrink-0" />
+                <li key={idx} className="flex items-center gap-3 font-display text-xs font-bold text-[#121212]">
+                  <CheckCircle2 className="h-5 w-5 text-[#5a25e6] shrink-0" />
                   {feat}
                 </li>
               ))}
@@ -116,10 +116,10 @@ export const LandingPage: React.FC = () => {
           </div>
 
           {/* Graphical Representation */}
-          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-medium border border-[#e5dfd3] bg-neutral-50 p-8 flex flex-col justify-between">
+          <div className="relative aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden shadow-medium border border-[#e5dfd3]/60 bg-neutral-50 p-8 flex flex-col justify-between">
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
-                <div className="h-3 w-3 rounded-full bg-[#d30f0f]"></div>
+                <div className="h-3 w-3 rounded-full bg-[#5a25e6]"></div>
                 <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
                 <div className="h-3 w-3 rounded-full bg-green-400"></div>
               </div>
@@ -129,10 +129,10 @@ export const LandingPage: React.FC = () => {
             </div>
 
             <div className="my-auto flex flex-col items-center text-center">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#d30f0f]/10 text-[#d30f0f] mb-4">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#5a25e6]/10 text-[#5a25e6] mb-4">
                 <Gift className="h-8 w-8 animate-bounce" />
               </div>
-              <h3 className="font-display text-lg font-black text-[#111111]">
+              <h3 className="font-display text-lg font-black text-[#121212]">
                 3D Exploding Gift Box Template
               </h3>
               <p className="text-xs text-[#5e5a52] mt-1 max-w-[280px]">
@@ -140,27 +140,27 @@ export const LandingPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="w-full h-1 bg-[#e5dfd3] rounded-full overflow-hidden">
-              <div className="w-[70%] h-full bg-[#d30f0f]"></div>
+            <div className="w-full h-1 bg-[#e5dfd3]/60 rounded-full overflow-hidden">
+              <div className="w-[70%] h-full bg-[#5a25e6]"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Works Slider Section */}
-      <section id="works" className="py-20 bg-white border-y border-[#e5dfd3] w-full overflow-hidden">
+      <section id="works" className="py-20 bg-[#faf8f5] border-y border-[#e5dfd3]/60 w-full overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span className="text-[#d30f0f] text-xs font-black uppercase tracking-widest block mb-3">
+            <span className="text-[#5a25e6] text-xs font-black uppercase tracking-widest block mb-3">
               Explore Our Templates
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111] leading-none">
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[#121212] leading-none">
               Choose your theme
             </h2>
           </div>
           <Link
             to="/dashboard"
-            className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#d30f0f] hover:text-[#111111] transition-colors mt-4 md:mt-0 cursor-pointer"
+            className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#5a25e6] hover:text-[#cca43b] transition-colors mt-4 md:mt-0 cursor-pointer"
           >
             View all templates <ChevronRight className="h-4 w-4" />
           </Link>
@@ -182,7 +182,7 @@ export const LandingPage: React.FC = () => {
             .marquee-track {
               display: flex;
               width: max-content;
-              gap: 2.5rem;
+              gap: 0.25rem;
               animation: marquee-scroll 45s linear infinite;
               padding-left: 2rem;
             }
@@ -202,22 +202,22 @@ export const LandingPage: React.FC = () => {
                 return (
                   <div
                     key={`${tmpl.id}-${idx}`}
-                    className="group w-[320px] shrink-0 rounded-3xl bg-white p-6 shadow-soft border border-[#e5dfd3] hover:shadow-medium hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between"
+                    className="group w-[280px] shrink-0 rounded-none bg-white p-3 border-0 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
                       {/* CSS/SVG Visual Preview */}
-                      <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-6 bg-[#f9f9f9] border border-[#e5dfd3]">
+                      <div className="relative w-full h-48 rounded-lg overflow-hidden mb-3.5 bg-[#f9f9f9] border border-neutral-100/30">
                         {renderCardPreview(tmpl.id)}
-                        <div className="absolute top-3 left-3 bg-[#111111] text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5 z-30 select-none">
-                          <Icon className="h-3 w-3" />
+                        <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md border border-[#e5dfd3]/80 text-[#5a25e6] text-[8px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1.5 z-30 select-none">
+                          <Icon className="h-3 w-3 animate-pulse" />
                           {tmpl.category}
                         </div>
                       </div>
 
-                      <h3 className="font-display text-lg font-black text-[#111111] mb-2 leading-tight">
+                      <h3 className="font-display text-sm font-black text-[#121212] mb-1 leading-tight">
                         {tmpl.name}
                       </h3>
-                      <p className="text-xs text-[#5e5a52] leading-relaxed mb-6 font-semibold line-clamp-2">
+                      <p className="text-[10px] text-[#5e5a52] leading-relaxed mb-3 font-semibold line-clamp-2">
                         {tmpl.description}
                       </p>
                     </div>
@@ -228,7 +228,7 @@ export const LandingPage: React.FC = () => {
                         href={liveDemoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center rounded-xl border border-[#111111] py-2.5 text-xs font-bold text-[#111111] hover:bg-[#111111] hover:text-white transition-all cursor-pointer text-center uppercase tracking-wider"
+                        className="flex-1 inline-flex items-center justify-center rounded-xl border border-neutral-200/80 py-2.5 text-[10px] font-black text-[#5e5a52] hover:bg-[#121212] hover:text-white hover:border-[#121212] transition-all duration-300 cursor-pointer text-center uppercase tracking-widest"
                       >
                         Live Demo
                       </a>
@@ -236,7 +236,7 @@ export const LandingPage: React.FC = () => {
                       {/* Customize and edit */}
                       <Link
                         to={`/customizer?template=${tmpl.id}`}
-                        className="flex-1 inline-flex items-center justify-center rounded-xl bg-[#d30f0f] py-2.5 text-xs font-bold text-white hover:bg-[#b00c0c] transition-all cursor-pointer text-center uppercase tracking-wider"
+                        className="flex-1 inline-flex items-center justify-center rounded-xl bg-[#5a25e6] py-2.5 text-[10px] font-black text-white hover:bg-[#4517bf] hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#5a25e6]/15 hover:shadow-lg hover:shadow-[#5a25e6]/25 transition-all duration-300 cursor-pointer text-center uppercase tracking-widest"
                       >
                         Customize
                       </Link>
@@ -250,12 +250,12 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* How it works Section */}
-      <section id="steps" className="py-20 bg-white border-t border-[#e5dfd3] px-6">
+      <section id="steps" className="py-20 bg-[#faf8f5] border-t border-[#e5dfd3]/60 px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="text-[#d30f0f] text-xs font-black uppercase tracking-widest block mb-3">
+          <span className="text-[#5a25e6] text-xs font-black uppercase tracking-widest block mb-3">
             Workflow Process
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[#111111]">
+          <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-[#121212]">
             Deploy in minutes
           </h2>
           <p className="text-xs text-[#5e5a52] mt-3 font-semibold">
@@ -300,11 +300,11 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Premium Footer */}
-      <footer className="bg-[#111111] text-white py-16 px-6 border-t border-white/5">
+      <footer className="bg-[#121212] text-white py-16 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <h3 className="font-display text-2xl font-black tracking-tighter mb-2">
-              wisher<span className="text-[#d30f0f]">.</span>
+              wisher<span className="text-[#5a25e6]">.</span>
             </h3>
             <p className="text-xs text-white/50 max-w-xs font-semibold">
               The world's premium canvas editor for 3D interactive wishes and event invitations.

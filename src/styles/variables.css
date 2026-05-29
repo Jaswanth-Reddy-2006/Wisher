@@ -1,14 +1,14 @@
 :root {
-  --bg-primary: #ffffff;        /* Pure premium white background */
+  --bg-primary: #faf8f5;        /* Warm luxury ivory canvas background */
   --bg-card: #ffffff;           /* Ultra crisp white card background surfaces */
-  --accent-red: #102a43;        /* Skateboarding Lion Deep Navy Blue brand accent */
-  --accent-red-hover: #1e3d64;  /* Deep Navy hover state */
-  --accent-lavender: #b89df5;   /* Graffiti Lavender */
-  --accent-peach: #f5a18a;      /* Graffiti Coral/Peach */
-  --accent-yellow: #f7e8a3;     /* Graffiti Yellow */
-  --text-dark: #0c111d;         /* Deep rich slate charcoal for clean typography */
-  --text-muted: #475467;        /* Mid-tone gray-slate for secondary text labels */
-  --pill-bg: #102a43;           /* Navy accents for navigation pills */
+  --accent-red: #5a25e6;        /* Royal Orchid Violet primary brand accent */
+  --accent-red-hover: #4517bf;  /* Royal Orchid Violet hover state */
+  --accent-lavender: #a78bfa;   /* Vibrant Orchid Lavender */
+  --accent-peach: #cca43b;      /* Luminous Champagne Gold brand accent */
+  --accent-yellow: #dfb15b;     /* Light Gold accent */
+  --text-dark: #121212;         /* Deep rich obsidian charcoal for typography */
+  --text-muted: #5e5a52;        /* Elegant warm slate-charcoal for secondary text */
+  --pill-bg: #5a25e6;           /* Royal Orchid navigation pill background */
   --pill-text: #ffffff;
   
   --font-primary: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;

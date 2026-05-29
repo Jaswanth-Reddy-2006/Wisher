@@ -1,0 +1,403 @@
+/* ==========================================================
+   Birthday Pixel Arcade - Premium Encapsulated Styles
+   Theme: 8-Bit Chiptunes, Retro Neon Magenta, Glowing Gold
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@500;700&display=swap');
+
+.pixel-arcade-root {
+  --neon-pink: #ff007f;
+  --neon-magenta: #ec4899;
+  --neon-cyan: #06b6d4;
+  --retro-yellow: #fbbf24;
+  --cabinet-bg: #0d0415;
+  --crt-glow: radial-gradient(circle, #220c38 0%, #0c0214 70%, #050109 100%);
+  
+  font-family: 'Press Start 2P', monospace !important;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--crt-glow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.pixel-arcade-root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* --------------------------------------------------
+   1. Authentic CRT Scanline & Phosphor Grid Overlays
+   -------------------------------------------------- */
+.pixel-arcade-root .crt-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 99;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------
+   2. Floating Retro BGM Player Toggle
+   -------------------------------------------------- */
+.pixel-arcade-root .bgm-player-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: #000;
+  border: 4px double var(--neon-cyan);
+  color: var(--neon-cyan);
+  padding: 8px 16px;
+  font-size: 8px;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3);
+  transition: all 0.2s ease;
+}
+
+.pixel-arcade-root .bgm-player-btn:hover {
+  transform: scale(1.05);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------
+   3. Cabinet Front / Insert Coin Overlay (Phase 1)
+   -------------------------------------------------- */
+.pixel-arcade-root .cabinet-front {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 4, 21, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.pixel-arcade-root .glowing-border-wrap {
+  border: 4px double var(--neon-pink);
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+  max-width: 500px;
+  width: 90%;
+}
+
+.pixel-arcade-root .game-title {
+  font-size: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+  letter-spacing: 2px;
+}
+
+.pixel-arcade-root .birthday-banner-pixel {
+  font-size: 11px;
+  color: var(--retro-yellow);
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+  letter-spacing: 1px;
+}
+
+.pixel-arcade-root .divider-pixel {
+  height: 4px;
+  background: var(--neon-cyan);
+  margin: 20px 0;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.pixel-arcade-root .instruction-start {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.pixel-arcade-root .instruction-sub-pixel {
+  font-size: 7px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.pixel-arcade-root .btn-insert-coin {
+  background: #ff007f;
+  border: 4px double #ffffff;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+  animation: coinFlash 1s infinite alternate;
+  font-weight: bold;
+}
+
+.pixel-arcade-root .btn-insert-coin:hover {
+  background: #ffffff;
+  color: #ff007f;
+  border-color: #ff007f;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes coinFlash {
+  0% { opacity: 0.8; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.02); }
+}
+
+/* --------------------------------------------------
+   4. Trivia Quiz Dialog Cabinet Box (Phase 3)
+   -------------------------------------------------- */
+.pixel-arcade-root .quiz-overlay-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 1, 9, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pixel-arcade-root .quiz-box-card {
+  width: 90%;
+  max-width: 460px;
+  background: #000000;
+  border: 4px double var(--retro-yellow);
+  padding: 30px 20px;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.35);
+  text-align: center;
+}
+
+.pixel-arcade-root .card-header-pixel {
+  font-size: 9px;
+  color: var(--neon-cyan);
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.pixel-arcade-root .quiz-question-pixel {
+  font-size: 9px;
+  color: #ffffff;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.pixel-arcade-root .quiz-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pixel-arcade-root .btn-pixel-quiz {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 12px 16px;
+  font-size: 7px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.pixel-arcade-root .btn-pixel-quiz:hover {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.pixel-arcade-root .btn-pixel-quiz.correct {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.pixel-arcade-root .btn-pixel-quiz.wrong {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.pixel-arcade-root .feedback-wrong-pixel {
+  color: #ef4444;
+  font-size: 7px;
+  letter-spacing: 0.5px;
+}
+
+.pixel-arcade-root .feedback-correct-pixel {
+  color: #10b981;
+  font-size: 7px;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------
+   5. Vintage Cursive Wishes Parchment Scroll
+   -------------------------------------------------- */
+.pixel-arcade-root .scroll-modal-overlay-pixel {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 1, 4, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 150;
+  padding: 20px;
+}
+
+.pixel-arcade-root .scroll-wrapper-pixel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pixel-arcade-root .scroll-wooden-rod {
+  width: 104%;
+  height: 16px;
+  background: linear-gradient(to bottom, #5c3a21, #3b2413, #22150b);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
+}
+
+.pixel-arcade-root .scroll-wooden-rod::before,
+.pixel-arcade-root .scroll-wooden-rod::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  background: linear-gradient(to right, #ffd700, #b8860b, #ffd700);
+  border-radius: 3px;
+  top: -3px;
+}
+
+.pixel-arcade-root .scroll-wooden-rod::before { left: -5px; }
+.pixel-arcade-root .scroll-wooden-rod::after { right: -5px; }
+
+.pixel-arcade-root .scroll-body {
+  width: 92%;
+  background-color: #fdf6e2;
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+  border-left: 3px solid #dfd2b1;
+  border-right: 3px solid #dfd2b1;
+  padding: 40px 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  z-index: 5;
+  color: #451a03;
+}
+
+.pixel-arcade-root .scroll-wooden-rod.top-rod { margin-bottom: -5px; }
+.pixel-arcade-root .scroll-wooden-rod.bottom-rod { margin-top: -5px; }
+
+.pixel-arcade-root .scroll-title {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #78350f;
+  margin-bottom: 15px;
+}
+
+.pixel-arcade-root .scroll-parchment-divider {
+  width: 80px;
+  height: 2px;
+  background-color: #d97706;
+  margin: 15px 0;
+  opacity: 0.4;
+}
+
+.pixel-arcade-root .scroll-message-box {
+  width: 100%;
+}
+
+.pixel-arcade-root .scroll-text-pixel {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.8;
+  color: #451a03;
+}
+
+.pixel-arcade-root .typing-cursor-pixel {
+  display: inline-block;
+  width: 8px;
+  height: 2px;
+  background-color: #78350f;
+  margin-left: 2px;
+  animation: cursorBlinkPixel 0.8s infinite;
+}
+
+@keyframes cursorBlinkPixel {
+  50% { opacity: 0; }
+}
+
+.pixel-arcade-root .scroll-signature-pixel {
+  margin-top: 25px;
+}
+
+.pixel-arcade-root .scroll-signature-pixel span {
+  font-family: 'Press Start 2P', monospace !important;
+}
+
+.pixel-arcade-root .signature-font-pixel {
+  color: #78350f;
+  font-size: 11px;
+}
+
+.pixel-arcade-root .scroll-close-btn-pixel {
+  background: transparent;
+  border: 2px solid #78350f;
+  color: #78350f;
+  padding: 8px 16px;
+  font-size: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+
+.pixel-arcade-root .scroll-close-btn-pixel:hover {
+  background: #78350f;
+  color: #fdf6e2;
+}
+
+/* Animations for unrolling parchment scroll */
+@keyframes scrollUnroll {
+  0% { transform: scaleY(0.01); opacity: 0.5; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+.pixel-arcade-root .animate-scrollUnroll {
+  transform-origin: top center;
+  animation: scrollUnroll 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Shake Animation for Wrong Quiz answer */
+@keyframes shakeQuiz {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.pixel-arcade-root .animate-shake {
+  animation: shakeQuiz 0.5s ease-in-out;
+}
+
+/* General fade-in */
+.pixel-arcade-root .animate-fadeIn {
+  animation: arcadeFadeIn 0.8s ease forwards;
+}
+
+@keyframes arcadeFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

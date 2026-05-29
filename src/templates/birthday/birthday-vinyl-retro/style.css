@@ -1,0 +1,435 @@
+/* ==========================================================
+   Virtual Turntable / Neon Vinyl Card - Premium Styles
+   Theme: Midnight Grey, Neon Pink, Glowing Amber, CRT Scanlines
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Montserrat:wght@400;600;700&display=swap');
+
+.vinyl-retro-root {
+  --midnight-cabinet: radial-gradient(circle at 50% 30%, #1e1e24 0%, #0d0d11 65%, #050507 100%);
+  --neon-pink: #f43f5e;
+  --neon-amber: #f59e0b;
+  --pink-glow: 0 0 15px rgba(244, 63, 94, 0.4);
+  --amber-glow: 0 0 15px rgba(245, 158, 11, 0.4);
+
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--midnight-cabinet);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.vinyl-retro-root * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------
+   1. CRT Scanlines & Screen flicker
+   -------------------------------------------------- */
+.vinyl-retro-root .vinyl-crt {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+  background-size: 100% 4px, 3px 100%;
+  opacity: 0.85;
+  z-index: 2;
+}
+
+/* --------------------------------------------------
+   2. Floating BGM Player Panel Button
+   -------------------------------------------------- */
+.vinyl-retro-root .bgm-player-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--neon-pink);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.vinyl-retro-root .bgm-player-btn:hover {
+  border-color: var(--neon-pink);
+  box-shadow: var(--pink-glow);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------
+   3. Headphones Gated Entrance Card
+   -------------------------------------------------- */
+.vinyl-retro-root .neon-border-box {
+  border: 2px solid var(--neon-pink);
+  box-shadow: var(--pink-glow), inset 0 0 10px rgba(244, 63, 94, 0.2);
+  border-radius: 12px;
+}
+
+.vinyl-retro-root .neon-headphones-icon {
+  font-size: 3rem;
+  text-shadow: var(--pink-glow);
+}
+
+.vinyl-retro-root .neon-room-title {
+  font-family: 'VT323', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--neon-pink);
+  text-shadow: var(--pink-glow);
+}
+
+.vinyl-retro-root .neon-room-subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.vinyl-retro-root .btn-enter-room {
+  background: linear-gradient(135deg, var(--neon-pink) 0%, #be123c 100%);
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+}
+
+.vinyl-retro-root .btn-enter-room:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(244, 63, 94, 0.5);
+}
+
+/* --------------------------------------------------
+   4. Turntable Deck Player
+   -------------------------------------------------- */
+.vinyl-retro-root .turntable-instruction {
+  background: rgba(18, 18, 24, 0.7);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--neon-pink);
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.vinyl-retro-root .vinyl-record {
+  width: 250px;
+  height: 250px;
+  background-color: #111;
+  border: 5px solid #1a1a1a;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 5;
+}
+
+.vinyl-retro-root .vinyl-record.spinning {
+  animation: vinylSpin 10s linear infinite;
+}
+
+@keyframes vinylSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vinyl-retro-root .vinyl-center-label {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.vinyl-retro-root .tonearm-metal {
+  top: -10px;
+  right: 20px;
+  z-index: 10;
+  transform-origin: 20px 20px;
+  transform: rotate(-18deg);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+.vinyl-retro-root .tonearm-metal.arm-dropped {
+  transform: rotate(18deg);
+}
+
+/* Glowing Music Equalizer Bars visualizer */
+.vinyl-retro-root .neon-visualizer-bars {
+  width: 160px;
+  height: 30px;
+  bottom: 12px;
+  left: 32px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.vinyl-retro-root .bar {
+  width: 6px;
+  height: 2px;
+  border-radius: 3px;
+}
+
+.vinyl-retro-root .bar-pink { background-color: var(--neon-pink); box-shadow: var(--pink-glow); }
+.vinyl-retro-root .bar-amber { background-color: var(--neon-amber); box-shadow: var(--amber-glow); }
+
+@keyframes barPulsate1 {
+  0%, 100% { height: 4px; }
+  50% { height: 25px; }
+}
+@keyframes barPulsate2 {
+  0%, 100% { height: 6px; }
+  50% { height: 18px; }
+}
+@keyframes barPulsate3 {
+  0%, 100% { height: 5px; }
+  50% { height: 28px; }
+}
+
+.vinyl-retro-root .animate-visual1 { animation: barPulsate1 0.6s ease infinite alternate; }
+.vinyl-retro-root .animate-visual2 { animation: barPulsate2 0.4s ease infinite alternate; }
+.vinyl-retro-root .animate-visual3 { animation: barPulsate3 0.8s ease infinite alternate; }
+.vinyl-retro-root .animate-visual4 { animation: barPulsate1 0.5s ease infinite alternate; }
+.vinyl-retro-root .animate-visual5 { animation: barPulsate2 0.7s ease infinite alternate; }
+.vinyl-retro-root .animate-visual6 { animation: barPulsate3 0.6s ease infinite alternate; }
+
+.vinyl-retro-root .btn-deck {
+  background: transparent;
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--pink-glow);
+}
+
+.vinyl-retro-root .btn-deck:hover {
+  background: var(--neon-pink);
+  color: black;
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+/* --------------------------------------------------
+   5. Album Sleeves Polaroid memories
+   -------------------------------------------------- */
+.vinyl-retro-root .sleeve-instruction {
+  background: rgba(18, 18, 24, 0.7);
+  border: 1px solid var(--neon-pink);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--neon-pink);
+  letter-spacing: 1px;
+}
+
+.vinyl-retro-root .polaroid-sleeve {
+  background-color: #faf8f5;
+  padding: 12px 12px 24px 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  width: 170px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vinyl-retro-root .polaroid-sleeve img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------
+   6. Cassette tapes Liner notes scroll wishes
+   -------------------------------------------------- */
+.vinyl-retro-root .cassette-tape-card {
+  border: 1px solid var(--neon-pink);
+  box-shadow: var(--pink-glow);
+}
+
+.vinyl-retro-root .liner-divider {
+  width: 80px;
+  height: 2px;
+  background-color: var(--neon-pink);
+  margin: 15px auto;
+  opacity: 0.4;
+}
+
+.vinyl-retro-root .liner-text {
+  font-size: 11px;
+  color: #ffe4e6;
+  line-height: 1.6;
+}
+
+.vinyl-retro-root .liner-blink-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1rem;
+  background-color: var(--neon-pink);
+  margin-left: 3px;
+  animation: cassetteCursor 0.8s infinite;
+}
+
+@keyframes cassetteCursor {
+  50% { opacity: 0; }
+}
+
+.vinyl-retro-root .signature-font {
+  font-family: 'VT323', monospace;
+  color: var(--neon-pink);
+}
+
+/* Retro CSS Cake styling */
+.vinyl-retro-root .cake-draw {
+  position: relative;
+  width: 140px;
+  height: 120px;
+}
+
+.vinyl-retro-root .cake-plate {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 8px;
+  background-color: var(--neon-pink);
+  border-radius: 4px;
+}
+
+.vinyl-retro-root .lyr {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  border-radius: 4px 4px 0 0;
+}
+
+.vinyl-retro-root .lyr-1 { bottom: 8px; width: 100px; height: 32px; background: linear-gradient(to right, #111, #1e1e24); }
+.vinyl-retro-root .lyr-2 { bottom: 40px; width: 75px; height: 26px; background: linear-gradient(to right, #1a1a1a, #27272a); }
+.vinyl-retro-root .lyr-3 { bottom: 66px; width: 50px; height: 22px; background: linear-gradient(to right, #27272a, #3f3f46); }
+
+.vinyl-retro-root .drp {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+.vinyl-retro-root .cndle {
+  position: absolute;
+  width: 4px;
+  height: 18px;
+  background: linear-gradient(to right, var(--neon-amber), #d97706);
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.vinyl-retro-root .flam {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: radial-gradient(circle at bottom, var(--neon-amber), #ef4444);
+  border-radius: 50% 50% 20% 20%;
+  bottom: 21px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.85);
+  animation: retroFlameFlicker 0.1s ease infinite alternate;
+}
+
+@keyframes retroFlameFlicker {
+  0% { transform: translateX(-50%) scale(0.95); opacity: 0.9; }
+  100% { transform: translateX(-50%) scale(1.05); opacity: 1; }
+}
+
+.vinyl-retro-root .cake-prompt {
+  font-size: 9px;
+  color: var(--neon-pink);
+  font-weight: bold;
+}
+
+/* Polaroid image zoom */
+.vinyl-retro-root .sleeve-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 4, 7, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  padding: 20px;
+}
+
+.vinyl-retro-root .zoom-sleeve-polaroid {
+  background-color: #faf8f5;
+  padding: 12px 12px 32px 12px;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 300px;
+  position: relative;
+}
+
+.vinyl-retro-root .animate-popIn {
+  animation: sleevePopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes sleevePopIn {
+  0% { transform: scale(0.6) rotate(-5deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.vinyl-retro-root .animate-fadeIn {
+  animation: sleeveFadeIn 0.8s ease forwards;
+}
+
+@keyframes sleeveFadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .vinyl-retro-root .neon-room-title {
+    font-size: 1.8rem;
+  }
+  .vinyl-retro-root .deck-wrapper {
+    padding: 6px;
+    scale: 0.9;
+  }
+}

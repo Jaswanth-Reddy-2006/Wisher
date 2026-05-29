@@ -1,0 +1,633 @@
+/* =======================================================
+   Birthday Surprise Engine - Modular Encapsulated Styles
+   Theme: Elegant Blush, Frosted Glass & Gold
+   ======================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Sacramento&display=swap');
+
+.surprise-engine-root {
+  --pink-50: #fdf2f8;
+  --pink-100: #fce7f3;
+  --pink-200: #fbcfe8;
+  --pink-300: #f9a8d4;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  --pink-600: #db2777;
+  
+  --blush: #ffe4ec;
+  --rose: #ffd6e0;
+  --cream: #fff9f5;
+  --gold: #d4a574;
+  --soft-white: #fffbfc;
+  
+  --text-primary: #4a3642;
+  --text-secondary: #7a6570;
+  --text-light: #9a8590;
+  
+  --gradient-main: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #fff5f8 100%);
+  --gradient-button: linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #db2777 100%);
+  --gradient-glow: radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, transparent 70%);
+  
+  --shadow-soft: 0 4px 20px rgba(244, 114, 182, 0.15);
+  --shadow-medium: 0 8px 30px rgba(244, 114, 182, 0.2);
+  --shadow-glow: 0 0 35px rgba(244, 114, 182, 0.4);
+  
+  --font-handwritten: 'Dancing Script', cursive;
+  --font-elegant: 'Sacramento', cursive;
+  --font-body: 'Quicksand', sans-serif;
+  
+  font-family: 'Quicksand', sans-serif !important;
+  color: var(--text-primary);
+  background: var(--gradient-main);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.surprise-engine-root * {
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base button styled dynamically */
+.surprise-engine-root .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: white !important;
+  background: var(--gradient-button);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.surprise-engine-root .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.surprise-engine-root .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.surprise-engine-root .btn-primary:hover::before {
+  left: 100%;
+}
+
+.surprise-engine-root .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Dynamic Mute/Volume floating buttons */
+.surprise-engine-root .music-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pink-500);
+  transition: all 0.2s ease;
+}
+
+.surprise-engine-root .music-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--pink-600);
+}
+
+.surprise-engine-root .music-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* =======================================================
+   1. Name Gate Passcode Screen
+   ======================================================= */
+.surprise-engine-root .start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--gradient-main);
+  z-index: 90;
+  padding: 20px;
+}
+
+.surprise-engine-root .start-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 50px 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.surprise-engine-root .start-content::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: calc(var(--radius-lg) + 5px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(244,114,182,0.2));
+  z-index: -1;
+  pointer-events: none;
+}
+
+.surprise-engine-root .typing-text {
+  font-family: var(--font-handwritten) !important;
+  font-size: 2rem;
+  color: var(--text-primary);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.surprise-engine-root .typing-cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: var(--pink-500);
+  margin-left: 4px;
+  animation: surpriseBlink 0.8s infinite;
+}
+
+@keyframes surpriseBlink {
+  50% { opacity: 0; }
+}
+
+.surprise-engine-root .start-question {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+  color: var(--text-secondary);
+}
+
+.surprise-engine-root .name-input {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 24px;
+  border: 2px solid rgba(244, 114, 182, 0.3);
+  border-radius: 50px;
+  outline: none;
+  font-size: 1.1rem;
+  text-align: center;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.surprise-engine-root .name-input:focus {
+  border-color: var(--pink-400);
+  box-shadow: 0 0 15px rgba(244, 114, 182, 0.2);
+  background: #fff;
+}
+
+.surprise-engine-root .wrong-message {
+  color: #e63946;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.surprise-engine-root .hint-message {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.surprise-engine-root .start-button {
+  margin-top: 15px;
+}
+
+/* =======================================================
+   2. Hero Birthday Cake UI (CSS Cake with Candles)
+   ======================================================= */
+.surprise-engine-root .hero-section {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.surprise-engine-root .birthday-banner {
+  font-family: var(--font-handwritten) !important;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: var(--pink-600);
+  margin-bottom: 40px;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+}
+
+/* CSS-based birthday cake layers */
+.surprise-engine-root .cake-wrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.surprise-engine-root .cake-base {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  background-color: var(--gold);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.surprise-engine-root .cake-tier {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--blush);
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgba(244, 114, 182, 0.2);
+  box-shadow: 0 5px 15px rgba(244, 114, 182, 0.1);
+}
+
+.surprise-engine-root .cake-tier-1 {
+  bottom: 20px;
+  width: 180px;
+  height: 60px;
+  background: linear-gradient(to right, #ffe4ec, #ffd6e0);
+}
+
+.surprise-engine-root .cake-tier-2 {
+  bottom: 80px;
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(to right, #ffccd5, #ffb3c1);
+}
+
+.surprise-engine-root .cake-tier-3 {
+  bottom: 130px;
+  width: 100px;
+  height: 45px;
+  background: linear-gradient(to right, #ffb3c1, #ff8fa3);
+}
+
+/* Drips & Cream */
+.surprise-engine-root .drip {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background-color: var(--pink-400);
+  border-radius: 0 0 6px 6px;
+}
+
+.surprise-engine-root .candle {
+  position: absolute;
+  width: 8px;
+  height: 35px;
+  background: linear-gradient(to right, #FFD700, #ffa500);
+  bottom: 175px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+}
+
+.surprise-engine-root .flame {
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(circle at bottom, #FFD700, #ff4500);
+  border-radius: 50% 50% 20% 20%;
+  bottom: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+  animation: surpriseFlicker 0.1s ease infinite alternate;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes surpriseFlicker {
+  0% { transform: translateX(-50%) rotate(-1deg) scale(1); }
+  100% { transform: translateX(-50%) rotate(1deg) scale(1.05); }
+}
+
+.surprise-engine-root .flame.blown-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.surprise-engine-root .cake-instruction {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 15px;
+  animation: surpriseFloat 2s ease infinite alternate;
+}
+
+@keyframes surpriseFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+.surprise-engine-root .hero-button {
+  margin-top: 40px;
+}
+
+/* Decorative circles */
+.surprise-engine-root .decor-circle-1,
+.surprise-engine-root .decor-circle-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.surprise-engine-root .decor-circle-1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -200px;
+}
+
+.surprise-engine-root .decor-circle-2 {
+  width: 350px;
+  height: 350px;
+  bottom: -100px;
+  right: -150px;
+}
+
+/* =======================================================
+   3. Polaroid Gallery Grid UI
+   ======================================================= */
+.surprise-engine-root .gallery-section {
+  width: 100%;
+  max-width: 850px;
+  text-align: center;
+  padding: 40px 20px;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cute Side Borders */
+.surprise-engine-root .side-border-left,
+.surprise-engine-root .side-border-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1.5rem;
+  color: var(--pink-300);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.surprise-engine-root .side-border-left { left: 15px; }
+.surprise-engine-root .side-border-right { right: 15px; }
+
+@media (max-width: 900px) {
+  .surprise-engine-root .side-border-left,
+  .surprise-engine-root .side-border-right {
+    display: none;
+  }
+}
+
+.surprise-engine-root .border-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--pink-200);
+  border-radius: 50%;
+  align-self: center;
+}
+
+.surprise-engine-root .gallery-heading {
+  font-family: var(--font-handwritten) !important;
+  font-size: 3rem;
+  color: var(--pink-600);
+  margin-bottom: 30px;
+}
+
+/* 3x3 Grid */
+.surprise-engine-root .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .surprise-engine-root .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .surprise-engine-root .photo-grid {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+  }
+}
+
+.surprise-engine-root .photo-frame {
+  background: white;
+  padding: 12px 12px 28px 12px;
+  box-shadow: var(--shadow-soft);
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.surprise-engine-root .polaroid {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #fafafa;
+  border-radius: 2px;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.surprise-engine-root .photo {
+  width: 100%;
+  height: 100%;
+  object-cover: cover;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.surprise-engine-root .photo-frame:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  box-shadow: var(--shadow-medium);
+  z-index: 20;
+}
+
+.surprise-engine-root .photo-frame:hover .photo {
+  transform: scale(1.05);
+}
+
+.surprise-engine-root .gallery-button {
+  margin-top: 10px;
+}
+
+/* =======================================================
+   4. Hand-Folded Wish Letter UI
+   ======================================================= */
+.surprise-engine-root .letter-section {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  padding: 40px 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.surprise-engine-root .letter-heading {
+  font-family: var(--font-handwritten) !important;
+  font-size: 3rem;
+  color: var(--pink-600);
+  margin-bottom: 25px;
+}
+
+.surprise-engine-root .letter-card {
+  width: 100%;
+  background: var(--クリーム);
+  background-image: var(--gradient-card);
+  padding: 50px 40px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 40px rgba(74, 54, 66, 0.12);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+  text-align: left;
+}
+
+.surprise-engine-root .corner-tl,
+.surprise-engine-root .corner-tr,
+.surprise-engine-root .corner-bl,
+.surprise-engine-root .corner-br {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--gold);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.surprise-engine-root .corner-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.surprise-engine-root .corner-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.surprise-engine-root .corner-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.surprise-engine-root .corner-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+.surprise-engine-root .letter-content {
+  width: 100%;
+}
+
+.surprise-engine-root .message-text {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.surprise-engine-root .letter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.25rem;
+  background-color: var(--pink-500);
+  margin-left: 2px;
+  animation: surpriseBlink 0.8s infinite;
+}
+
+/* Background floating heart decals */
+.surprise-engine-root .bg-heart-1,
+.surprise-engine-root .bg-heart-2,
+.surprise-engine-root .bg-heart-3 {
+  position: absolute;
+  color: var(--pink-200);
+  font-size: 2rem;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.surprise-engine-root .bg-heart-1 { top: 15%; left: 8%; transform: rotate(-15deg); }
+.surprise-engine-root .bg-heart-2 { bottom: 20%; right: 10%; transform: rotate(20deg); }
+.surprise-engine-root .bg-heart-3 { top: 5%; right: 5%; transform: rotate(10deg); }
+
+.surprise-engine-root .surprise-footer {
+  margin-top: 50px;
+  text-align: center;
+  font-family: var(--font-elegant);
+  font-size: 2.2rem;
+  color: var(--pink-600);
+  text-shadow: 1px 1px 2px white;
+}

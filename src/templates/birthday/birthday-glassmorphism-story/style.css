@@ -1,0 +1,450 @@
+/* --- Glassmorphism Storybook Encapsulated Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Nunito+Sans:wght@400;600&display=swap');
+
+.glassmorphism-story-root {
+    --bg-color-1: #e0c3fc;
+    --bg-color-2: #8ec5fc;
+    --bg-color-3: #f0c3fc;
+    --bg-color-4: #c3e8fc;
+    --text-dark: #333;
+    --text-light: #fff;
+    --accent-gold: #FFD700;
+    --accent-deep-purple: #5a189a;
+    --book-cover-color: #7b2cbf;
+    --book-page-color: #f8f7f2;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+
+    font-family: 'Nunito Sans', sans-serif !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.glassmorphism-story-root * {
+    font-family: 'Nunito Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Moving gradient background container */
+.glassmorphism-story-root .background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3), var(--bg-color-4));
+    background-size: 400% 400%;
+    animation: storyGradientShift 20s ease infinite;
+}
+
+@keyframes storyGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Individual flow steps */
+.glassmorphism-story-root .step {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 0.8s ease-in-out;
+    padding: 40px 20px;
+}
+
+.glassmorphism-story-root .step.active {
+    display: flex;
+    opacity: 1;
+}
+
+.glassmorphism-story-root .instruction-text {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-shadow: 1px 1px 3px var(--shadow-color);
+    animation: storyFadeIn 1s 0.5s both;
+}
+
+@keyframes storyFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Step 1: Gift Box UI --- */
+.glassmorphism-story-root .gift-container {
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.glassmorphism-story-root .gift-box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: var(--accent-deep-purple);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: storyPulse 2s infinite alternate;
+}
+
+@keyframes storyPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.glassmorphism-story-root .gift-lid {
+    position: absolute;
+    width: 170px;
+    height: 40px;
+    background-color: #9d4edd;
+    top: -20px;
+    left: -10px;
+    border-radius: 8px;
+    transition: transform 0.5s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.glassmorphism-story-root .gift-bow::before,
+.glassmorphism-story-root .gift-bow::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 60px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    top: -45px;
+    z-index: 10;
+}
+
+.glassmorphism-story-root .gift-bow::before {
+    left: 55px;
+    transform: rotate(-45deg);
+}
+
+.glassmorphism-story-root .gift-bow::after {
+    left: 80px;
+    transform: rotate(45deg);
+}
+
+/* Lid pops off upon clicking */
+.glassmorphism-story-root .gift-container.open .gift-lid {
+    transform: translateY(-100px) rotate(25deg);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.glassmorphism-story-root .gift-container.open .gift-box {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.6s ease-out 0.2s, opacity 0.6s ease-out 0.2s;
+}
+
+/* --- Step 2: Drawing Gold Key UI --- */
+.glassmorphism-story-root .key-container {
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.glassmorphism-story-root .key-svg {
+    width: 150px;
+    height: 150px;
+    stroke: var(--accent-gold);
+    filter: drop-shadow(0 0 10px gold);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.glassmorphism-story-root .key-svg:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.glassmorphism-story-root #animatedKey {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: storyDrawKey 2.5s ease-out forwards;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+@keyframes storyDrawKey {
+    to { stroke-dashoffset: 0; }
+}
+
+.glassmorphism-story-root .key-container.unlocking #animatedKey {
+    transform: translateY(120px) scale(0.1) rotate(-90deg);
+    opacity: 0;
+}
+
+/* --- Step 3: Storybook opening --- */
+.glassmorphism-story-root .storybook-container {
+    perspective: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.glassmorphism-story-root .book {
+    width: 440px;
+    height: 330px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.2s ease-in-out;
+    opacity: 0;
+    transform: rotateY(-30deg) scale(0.5);
+}
+
+.glassmorphism-story-root .storybook-container.visible .book {
+    opacity: 1;
+    transform: rotateY(-25deg) scale(1);
+}
+
+.glassmorphism-story-root .storybook-container.opening .book {
+    transform: rotateY(0deg) scale(1.2);
+}
+
+.glassmorphism-story-root .book-cover,
+.glassmorphism-story-root .page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+}
+
+.glassmorphism-story-root .book-cover {
+    transform-origin: left;
+    transition: transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: 10;
+}
+
+.glassmorphism-story-root .cover-front,
+.glassmorphism-story-root .cover-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--book-cover-color);
+    border-radius: 6px;
+    backface-visibility: hidden;
+}
+
+.glassmorphism-story-root .cover-front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border-left: 5px solid rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-story-root .book-title {
+    font-family: 'Playfair Display', serif !important;
+    color: var(--accent-gold);
+    font-size: 2.2rem;
+    font-weight: 700;
+    border: 3px double var(--accent-gold);
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.glassmorphism-story-root .cover-back {
+    transform: rotateY(180deg);
+}
+
+/* Flipped cover opens up */
+.glassmorphism-story-root .book-cover.flipped {
+    transform: rotateY(-180deg);
+}
+
+.glassmorphism-story-root .page {
+    transform-origin: left;
+    transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--book-page-color);
+    border-radius: 0 6px 6px 0;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.05);
+}
+
+/* Layering pages correctly */
+.glassmorphism-story-root #page1 { z-index: 8; }
+.glassmorphism-story-root #page2 { z-index: 7; }
+
+.glassmorphism-story-root .page-front,
+.glassmorphism-story-root .page-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--book-page-color);
+    border-radius: 0 6px 6px 0;
+    backface-visibility: hidden;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.glassmorphism-story-root .page-back {
+    transform: rotateY(180deg);
+    border-radius: 6px 0 0 6px;
+    border-right: 2px solid rgba(0,0,0,0.05);
+}
+
+.glassmorphism-story-root .page-text {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #4a154b;
+    line-height: 1.6;
+}
+
+.glassmorphism-story-root .page.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* --- Step 5: Finale Congratulations Overlay --- */
+.glassmorphism-story-root .finale-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.glassmorphism-story-root .finale-card {
+    position: relative;
+    text-align: center;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 15px 35px var(--shadow-color);
+    width: 90%;
+    max-width: 600px;
+    opacity: 0;
+    animation: storyFadeInShort 1.2s 0.5s forwards;
+}
+
+@keyframes storyFadeInShort {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.glassmorphism-story-root .finale-greeting {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.2rem;
+    color: var(--accent-deep-purple);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.glassmorphism-story-root .finale-name {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: var(--accent-deep-purple);
+    margin: 8px 0;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+}
+
+.glassmorphism-story-root .finale-wish {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-top: 15px;
+    color: #333333;
+    font-weight: 500;
+}
+
+/* Elegant floral line arts */
+.glassmorphism-story-root .floral-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.glassmorphism-story-root .floral-svg path {
+    fill: none;
+    stroke: var(--accent-deep-purple);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.15;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: storyDrawVines 4s ease-out 1s forwards;
+}
+
+@keyframes storyDrawVines {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Play/Pause music indicator watermark */
+.glassmorphism-story-root .music-playing-indicator {
+    font-size: 10px;
+    color: var(--accent-deep-purple);
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.glassmorphism-story-root .music-playing-indicator:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .glassmorphism-story-root .book {
+        transform: scale(0.8) rotateY(-25deg);
+    }
+    .glassmorphism-story-root .storybook-container.opening .book {
+        transform: rotateY(0deg) scale(0.9);
+    }
+    .glassmorphism-story-root .finale-greeting { font-size: 1.8rem; }
+    .glassmorphism-story-root .finale-name { font-size: 2.8rem; }
+    .glassmorphism-story-root .finale-wish { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+    .glassmorphism-story-root .book {
+        width: 320px;
+        height: 240px;
+    }
+    .glassmorphism-story-root .book-title { font-size: 1.6rem; }
+    .glassmorphism-story-root .page-text { font-size: 1rem; }
+    .glassmorphism-story-root .finale-greeting { font-size: 1.6rem; }
+    .glassmorphism-story-root .finale-name { font-size: 2.2rem; }
+    .glassmorphism-story-root .finale-wish { font-size: 0.85rem; }
+    .glassmorphism-story-root .finale-card { padding: 30px 20px; }
+}

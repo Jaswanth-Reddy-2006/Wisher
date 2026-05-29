@@ -137,6 +137,104 @@ export const renderCardPreview = (id: WishData['templateType']) => {
           </div>
         </div>
       );
+    case 'birthday-glassmorphism-story':
+      return (
+        <div className="w-full h-full bg-[#1e1035] relative flex items-center justify-center overflow-hidden border border-[#7b2cbf]/20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.2)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-[#FFD700] text-xl animate-bounce">🎁</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-purple-300 font-serif tracking-widest uppercase font-bold">Glassmorphism Story</span>
+          </div>
+        </div>
+      );
+    case 'birthday-surprise-engine':
+      return (
+        <div className="w-full h-full bg-[#fff5f8] relative flex items-center justify-center overflow-hidden border border-[#f472b6]/20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.15)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-[#ec4899] text-xl animate-bounce">🎂</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#ec4899] font-serif tracking-widest uppercase font-bold">Surprise Engine</span>
+          </div>
+        </div>
+      );
+    case 'birthday-sky-lanterns':
+      return (
+        <div className="w-full h-full bg-[#050b1a] relative flex items-center justify-center overflow-hidden border border-amber-500/20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.2)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-[#fbbf24] text-xl animate-bounce">🏮</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#fbbf24] font-serif tracking-widest uppercase font-bold">Sky Lanterns</span>
+          </div>
+        </div>
+      );
+    case 'birthday-pixel-arcade':
+      return (
+        <div className="w-full h-full bg-black relative flex items-center justify-center overflow-hidden border border-rose-500/20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.15)_0%,transparent_70%)] animate-pulse" />
+          {/* Retro scanlines */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] pointer-events-none" />
+          <div className="relative w-12 h-12 flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-rose-500 text-xl animate-bounce">👾</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-rose-400 font-mono tracking-widest uppercase font-bold">Pixel Arcade</span>
+          </div>
+        </div>
+      );
+    case 'birthday-botanical-magic':
+      return (
+        <div className="w-full h-full bg-[#022c22] relative flex items-center justify-center overflow-hidden border border-emerald-500/20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.2)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-[#34d399] text-xl animate-bounce">🌿</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#34d399] font-serif tracking-widest uppercase font-bold">Secret Garden</span>
+          </div>
+        </div>
+      );
+    case 'birthday-vinyl-retro':
+      return (
+        <div className="w-full h-full bg-zinc-900 relative flex items-center justify-center overflow-hidden border border-rose-500/25">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,63,94,0.15)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-rose-500 text-xl animate-bounce">💿</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-rose-400 font-mono tracking-widest uppercase font-bold">Neon Vinyl</span>
+          </div>
+        </div>
+      );
+    case 'birthday-cyber-hacker':
+      return (
+        <div className="w-full h-full bg-black relative flex items-center justify-center overflow-hidden border border-green-500/25">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,0,0.15)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-green-500 text-xl animate-bounce">☠</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-green-400 font-mono tracking-widest uppercase font-bold">Cyber Hacker</span>
+          </div>
+        </div>
+      );
+    case 'birthday-retro-camera':
+      return (
+        <div className="w-full h-full bg-[#3e2723] relative flex items-center justify-center overflow-hidden border border-amber-900/25">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.15)_0%,transparent_70%)] animate-pulse" />
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-amber-300 text-xl animate-bounce">📸</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-amber-500 font-serif tracking-widest uppercase font-bold">Shutter Polaroid</span>
+          </div>
+        </div>
+      );
     case 'wedding-classic-sonali':
       return (
         <div className="w-full h-full bg-[#fdfaf6] relative flex items-center justify-center overflow-hidden border border-[#674ea7]/10">
@@ -151,6 +249,41 @@ export const renderCardPreview = (id: WishData['templateType']) => {
           
           <div className="absolute bottom-2 left-0 right-0 text-center">
             <span className="text-[7px] text-[#674ea7] font-serif tracking-widest uppercase font-bold">Sonali Wedding</span>
+          </div>
+        </div>
+      );
+    case 'wedding-rampatra':
+      return (
+        <div className="w-full h-full bg-[#18181b] relative flex items-center justify-center overflow-hidden border border-[#f05f70]/20">
+          {/* Parallax dark overlay */}
+          <div className="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-500" style={{ backgroundImage: "url('https://wedding.ramswaroop.me/img/hero-min.jpg')" }} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/80" />
+          
+          {/* Logo illustration */}
+          <div className="relative flex flex-col items-center group-hover:scale-110 transition-transform duration-300">
+            <span className="text-[#f05f70] text-xl font-serif font-black animate-pulse">💍</span>
+            <span className="text-[6px] text-white/90 uppercase tracking-widest mt-1">Ram & Antara</span>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#f05f70] font-serif tracking-widest uppercase font-bold">Hitched Template</span>
+          </div>
+        </div>
+      );
+    case 'wedding-rehan-maulidan':
+      return (
+        <div className="w-full h-full bg-[#fcfcfc] relative flex items-center justify-center overflow-hidden border border-[#113468]/15">
+          {/* Half circle flower illustration */}
+          <div className="absolute top-0 w-24 h-12 bg-cover bg-center opacity-60 rounded-b-full border-b border-[#113468]/10" style={{ backgroundImage: "url('https://ngodingsolusi.github.io/the-wedding-of-rehan-maulidan/images/half%20circle%20flower-500.png')" }} />
+          
+          {/* Content display */}
+          <div className="relative flex flex-col items-center mt-6 group-hover:scale-105 transition-transform duration-300">
+            <span className="text-[#113468] text-sm font-serif font-extrabold italic">Rehan & Maulidan</span>
+            <span className="text-[5px] text-[#828282] uppercase tracking-widest mt-1">Kami Mengundang Anda</span>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#113468] font-serif tracking-widest uppercase font-bold">Rehan Wedding</span>
           </div>
         </div>
       );

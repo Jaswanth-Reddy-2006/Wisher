@@ -146,7 +146,7 @@ export const Deployer: React.FC = () => {
         document.body.innerHTML = \`
             <div class="min-h-screen flex flex-col justify-center items-center p-6 text-center font-sans bg-white">
                 <div class="max-w-md bg-white p-8 rounded-3xl shadow-lg border border-[#e5dfd3]">
-                    <div class="h-12 w-12 rounded-full bg-red-100 text-[#d30f0f] flex items-center justify-center mx-auto mb-4">
+                    <div class="h-12 w-12 rounded-full bg-violet-100 text-[#5a25e6] flex items-center justify-center mx-auto mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                         </svg>
@@ -155,7 +155,7 @@ export const Deployer: React.FC = () => {
                     <p class="text-xs text-[#5e5a52] leading-relaxed mb-6">
                         This bundle redirects you to the live interactive 3D wish canvas with fully synchronized audio engines.
                     </p>
-                    <a href="\${liveUrl}" class="inline-flex w-full items-center justify-center rounded-xl bg-[#d30f0f] py-3 text-xs font-bold text-white shadow-md hover:bg-red-700">
+                    <a href="\${liveUrl}" class="inline-flex w-full items-center justify-center rounded-xl bg-[#5a25e6] py-3 text-xs font-bold text-white shadow-md hover:bg-violet-750">
                         Launch Experience
                     </a>
                 </div>
@@ -197,11 +197,11 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
   const progress = (currentStep / steps.length) * 100;
 
   return (
-    <div className="min-h-screen bg-white text-[#111111] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-[#faf8f5] text-[#121212] flex items-center justify-center p-6">
       <div className="w-full max-w-xl bg-white rounded-3xl shadow-medium border border-[#e5dfd3] p-8 relative overflow-hidden">
         {/* Border glow styling when finished */}
         {deployedId && (
-          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#d30f0f] animate-pulse"></div>
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#5a25e6] animate-pulse"></div>
         )}
 
         {/* 1. COMPILING TERMINAL STATE */}
@@ -222,9 +222,9 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
             </div>
 
             {/* Progress track */}
-            <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden mb-6 border border-[#e5dfd3]">
+            <div className="w-full h-2 bg-neutral-100 rounded-full overflow-hidden mb-6 border border-[#e5dfd3]/60">
               <div
-                className="h-full bg-[#d30f0f] transition-all duration-300 ease-out"
+                className="h-full bg-[#5a25e6] transition-all duration-300 ease-out"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -240,7 +240,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
             </div>
 
             <div className="mt-6 flex items-center gap-2 text-[#5e5a52] text-[10px] font-semibold bg-[#fdfdfb] p-3 rounded-xl border border-[#e5dfd3]">
-              <AlertCircle className="h-4 w-4 shrink-0 text-[#d30f0f]" />
+              <AlertCircle className="h-4 w-4 shrink-0 text-[#cca43b]" />
               Do not close this page. Edge server structures are finalizing configurations.
             </div>
           </div>
@@ -264,14 +264,14 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
                 type="text"
                 readOnly
                 value={liveLink}
-                className="w-full bg-transparent border-none text-xs font-bold text-[#111111] select-all focus:outline-none"
+                className="w-full bg-transparent border-none text-xs font-bold text-[#121212] select-all focus:outline-none"
               />
               <button
                 onClick={handleCopyLink}
                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-all cursor-pointer ${
                   copied
                     ? 'bg-green-600 text-white'
-                    : 'bg-[#111111] text-white hover:bg-[#d30f0f]'
+                    : 'bg-[#121212] text-white hover:bg-[#5a25e6]'
                 }`}
                 title="Copy Live Link"
               >
@@ -284,7 +284,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
               {/* Toggle QR Code */}
               <button
                 onClick={() => setShowQR(!showQR)}
-                className="flex items-center justify-center gap-2 rounded-xl border border-[#111111] py-3 text-xs font-bold text-[#111111] hover:bg-[#111111] hover:text-white transition-all cursor-pointer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-[#121212] py-3 text-xs font-bold text-[#121212] hover:bg-[#121212] hover:text-white transition-all cursor-pointer"
               >
                 <QrCode className="h-4 w-4" /> QR Code
               </button>
@@ -293,7 +293,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
               <button
                 onClick={handleDownloadZip}
                 disabled={zipLoading}
-                className="flex items-center justify-center gap-2 rounded-xl bg-[#d30f0f] py-3 text-xs font-bold text-white hover:bg-[#b00c0c] transition-all cursor-pointer shadow-md disabled:opacity-50"
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#5a25e6] py-3 text-xs font-bold text-white hover:bg-[#4517bf] transition-all cursor-pointer shadow-md shadow-[#5a25e6]/25 disabled:opacity-50"
               >
                 <Download className="h-4 w-4" /> {zipLoading ? "Zipping..." : "Export ZIP"}
               </button>
@@ -313,7 +313,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
             <div className="flex justify-center gap-6 border-t border-[#e5dfd3] pt-6">
               <button
                 onClick={() => navigate(`/customizer?template=${currentWish.templateType}`)}
-                className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#5e5a52] hover:text-[#111111] cursor-pointer"
+                className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#5e5a52] hover:text-[#121212] cursor-pointer"
               >
                 <Edit2 className="h-3.5 w-3.5" /> Edit Wish
               </button>
@@ -321,7 +321,7 @@ Once uploaded to web servers, anyone visiting index.html will instantly launch t
                 href={liveLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#d30f0f] hover:text-[#b00c0c] cursor-pointer"
+                className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#5a25e6] hover:text-[#4517bf] cursor-pointer"
               >
                 <Play className="h-3.5 w-3.5" /> Open Website
               </a>

@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+/* Main Root Containers */
+.rampatra-root {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: 'Montserrat', sans-serif !important;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.rampatra-root * {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Typography styles */
+.rampatra-root h1, 
+.rampatra-root h2, 
+.rampatra-root h3, 
+.rampatra-root h4, 
+.rampatra-root h5 {
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Sticky Header Navigation */
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 40px;
+  z-index: 40;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.primary-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+.primary-nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.2s ease;
+}
+
+.primary-nav a:hover {
+  color: #f05f70;
+}
+
+.member-actions {
+  display: flex;
+  list-style: none;
+  margin: 0 0 0 40px;
+  padding: 0;
+}
+
+.btn-white {
+  text-decoration: none;
+  color: #1f2937;
+  background-color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-white:hover {
+  background-color: #f05f70;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Fullscreen Parallax Hero Cover */
+.hero-section {
+  width: 100%;
+  height: 100dvh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
+}
+
+.btn-accent {
+  background-color: #f05f70;
+  color: #ffffff;
+  padding: 14px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+  background-color: #d04958;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(240, 95, 112, 0.4);
+}
+
+/* Floating Arrows */
+.down-arrow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.floating-arrow {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* Timeline met details */
+.story-section {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .md\:ml-1\/2 {
+    margin-left: 50% !important;
+  }
+  .md\:translate-x\-\[-1px\] {
+    transform: translateX(-1px) !important;
+  }
+  .md\:w-1\/2 {
+    width: 50% !important;
+  }
+  .md\:ml-auto {
+    margin-left: auto !important;
+  }
+  .md\:mr-auto {
+    margin-right: auto !important;
+  }
+  .md\:pl-12 {
+    padding-left: 48px !important;
+  }
+  .md\:pr-12 {
+    padding-right: 48px !important;
+  }
+  .md\:text-right {
+    text-align: right !important;
+  }
+}
+
+/* Memories Gallery */
+.rampatra-polaroid {
+  background-color: #ffffff;
+}
+
+/* Footer Section */
+.footer-credits {
+  background-color: #18181b;
+}
+
+/* Responsive Overrides */
+@media (max-width: 767px) {
+  .primary-nav, 
+  .member-actions {
+    display: none !important;
+  }
+  .navigation {
+    padding: 16px 20px;
+  }
+  .hero-section h1 {
+    font-size: 3.2rem !important;
+  }
+}

@@ -105,8 +105,20 @@ export const WishRender: React.FC = () => {
   const templateConfig = getTemplateById(wishData.templateType);
   const TemplateComponent = templateConfig.component;
 
+  const isScrollableTemplate = [
+    'wedding-classic-sonali',
+    'wedding-rampatra',
+    'wedding-rehan-maulidan',
+    'birthday-surprise-engine',
+    'birthday-glassmorphism-story',
+    'birthday-botanical-magic',
+    'birthday-vinyl-retro',
+    'birthday-cyber-hacker',
+    'birthday-retro-camera'
+  ].includes(wishData.templateType);
+
   return (
-    <div className="w-screen h-[100dvh] overflow-hidden relative">
+    <div className={`w-screen h-[100dvh] ${isScrollableTemplate ? 'overflow-y-auto' : 'overflow-hidden'} relative`}>
       <TemplateComponent data={wishData} isPreview={isPreview} />
 
       {/* Floating brand watermark (discreet, premium look) */}

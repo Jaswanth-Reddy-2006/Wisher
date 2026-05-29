@@ -33,10 +33,10 @@ export const Navbar: React.FC = () => {
           to="/" 
           className="flex items-center gap-2 font-display text-lg font-black tracking-tighter text-[#111111]"
         >
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#102a43] text-white">
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-red text-white transition-transform duration-300 hover:rotate-12">
             <Sparkles className="h-4 w-4 fill-current" />
           </div>
-          wishes<span className="text-[#102a43]">.</span>
+          wishes<span className="text-accent-red">.</span>
         </Link>
       </div>
     );
@@ -50,10 +50,10 @@ export const Navbar: React.FC = () => {
           to="/" 
           className="flex items-center gap-2 font-display text-lg font-black tracking-tighter text-[#111111]"
         >
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#102a43] text-white">
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-red text-white transition-transform duration-300 hover:rotate-12">
             <Sparkles className="h-4 w-4 fill-current" />
           </div>
-          wishes<span className="text-[#102a43]">.</span>
+          wishes<span className="text-accent-red">.</span>
         </Link>
 
         {/* Navigation Links - Hidden on Dashboard */}
@@ -85,7 +85,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-3">
             <Link
               to="/dashboard"
-              className="rounded-full bg-[#111111] py-2 px-5 font-display text-xs font-extrabold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#102a43] hover:scale-105 active:scale-95 shadow-md"
+              className="rounded-full bg-[#111111] py-2 px-5 font-display text-xs font-extrabold uppercase tracking-wider text-white transition-all duration-300 hover:bg-accent-red-hover hover:scale-105 active:scale-95 shadow-md"
             >
               Start
             </Link>

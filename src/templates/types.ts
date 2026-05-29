@@ -8,7 +8,17 @@ export interface WishData {
     | 'cinematic-3d-birthday' 
     | 'birthday-original'
     | 'galactic-3d-heart'
-    | 'wedding-classic-sonali';
+    | 'birthday-glassmorphism-story'
+    | 'birthday-surprise-engine'
+    | 'birthday-sky-lanterns'
+    | 'birthday-pixel-arcade'
+    | 'birthday-botanical-magic'
+    | 'birthday-vinyl-retro'
+    | 'birthday-cyber-hacker'
+    | 'birthday-retro-camera'
+    | 'wedding-classic-sonali'
+    | 'wedding-rampatra'
+    | 'wedding-rehan-maulidan';
   title: string;
   targetName: string;
   date: string; // ISO string / Date format string

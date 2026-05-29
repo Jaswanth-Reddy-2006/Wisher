@@ -34,7 +34,7 @@ export const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#111111] pb-20 relative flex flex-col">
+    <div className="min-h-screen bg-[#faf8f5] text-[#121212] pb-20 relative flex flex-col">
       {/* Navbar */}
       <Navbar />
 
@@ -61,7 +61,7 @@ export const Dashboard: React.FC = () => {
                 placeholder="Search templates..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] placeholder:text-[#5e5a52] focus:outline-none focus:border-[#102a43] focus:ring-1 focus:ring-[#102a43] transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] placeholder:text-[#5e5a52] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6] transition-all"
               />
             </div>
           </div>
@@ -73,10 +73,10 @@ export const Dashboard: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`rounded-full px-4 py-1.5 font-display text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer shrink-0 ${
+                className={`rounded-full px-4 py-1.5 font-display text-[10px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer shrink-0 border ${
                   selectedCategory === cat
-                    ? 'bg-[#102a43] text-white shadow-sm'
-                    : 'bg-white/60 text-[#5e5a52] border border-[#e5dfd3] hover:bg-white hover:text-[#111111]'
+                    ? 'bg-[#5a25e6] text-white border-[#5a25e6] shadow-md shadow-[#5a25e6]/20 hover:bg-[#4517bf] hover:border-[#4517bf]'
+                    : 'bg-white/90 text-[#5e5a52] border-[#e5dfd3]/60 hover:bg-[#5a25e6]/5 hover:text-[#5a25e6] hover:border-[#5a25e6]/30'
                 }`}
               >
                 {cat}
@@ -87,10 +87,10 @@ export const Dashboard: React.FC = () => {
 
         {/* Templates Grid Container - Full-bleed px-0 & gap-0 */}
         {filteredTemplates.length > 0 ? (
-          <div className="w-full px-0 pb-16">
+          <div className="w-full px-1 pb-16">
             <motion.div 
               layout 
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-0"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[2px]"
             >
               <AnimatePresence mode="popLayout">
                 {filteredTemplates.map((tmpl) => {
@@ -111,22 +111,22 @@ export const Dashboard: React.FC = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                       key={tmpl.id}
-                      className="group flex flex-col justify-between bg-white p-6 hover:bg-neutral-50/80 transition-all duration-300 relative"
+                      className="group flex flex-col justify-between bg-white p-3 rounded-none border-0 hover:bg-neutral-50/80 transition-all duration-300 relative"
                     >
                       <div>
                         {/* CSS/SVG cover preview */}
-                        <div className="relative w-full h-48 rounded-2xl overflow-hidden mb-6 border border-neutral-100 bg-[#f9f9f9]">
+                        <div className="relative w-full h-48 rounded-lg overflow-hidden mb-3.5 bg-[#f9f9f9] border border-neutral-100/30">
                           {renderCardPreview(tmpl.id)}
-                          <div className="absolute top-3 left-3 bg-[#102a43] text-white text-[9px] font-black uppercase tracking-widest px-2.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 z-30 select-none">
-                            <Icon className="h-3.5 w-3.5" />
+                          <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md border border-[#e5dfd3]/80 text-[#5a25e6] text-[8px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full shadow-sm flex items-center gap-1.5 z-30 select-none">
+                            <Icon className="h-3 w-3" />
                             {tmpl.category}
                           </div>
                         </div>
 
-                        <h3 className="font-display text-base font-black text-[#111111] mb-2 leading-tight">
+                        <h3 className="font-display text-sm font-black text-[#121212] mb-1 leading-tight">
                           {tmpl.name}
                         </h3>
-                        <p className="text-xs text-[#5e5a52] leading-relaxed mb-6 font-semibold line-clamp-2">
+                        <p className="text-[10px] text-[#5e5a52] leading-relaxed mb-3 font-semibold line-clamp-2">
                           {tmpl.description}
                         </p>
                       </div>
@@ -137,7 +137,7 @@ export const Dashboard: React.FC = () => {
                           href={liveDemoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center rounded-xl border border-[#102a43] py-2.5 text-xs font-bold text-[#102a43] hover:bg-[#102a43] hover:text-white transition-all cursor-pointer text-center uppercase tracking-wider"
+                          className="flex-1 inline-flex items-center justify-center rounded-xl border border-neutral-200/80 py-2.5 text-[10px] font-black text-[#5e5a52] hover:bg-[#121212] hover:text-white hover:border-[#121212] transition-all duration-300 cursor-pointer text-center uppercase tracking-widest"
                         >
                           Live Demo
                         </a>
@@ -145,7 +145,7 @@ export const Dashboard: React.FC = () => {
                         {/* Customize and edit */}
                         <button
                           onClick={() => handleSelectTemplate(tmpl.id)}
-                          className="flex-1 inline-flex items-center justify-center rounded-xl bg-[#102a43] py-2.5 text-xs font-bold text-white hover:bg-[#1e3d64] transition-all cursor-pointer uppercase tracking-wider"
+                          className="flex-1 inline-flex items-center justify-center rounded-xl bg-[#5a25e6] py-2.5 text-[10px] font-black text-white hover:bg-[#4517bf] hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#5a25e6]/15 hover:shadow-lg hover:shadow-[#5a25e6]/25 transition-all duration-300 cursor-pointer uppercase tracking-widest"
                         >
                           Customize
                         </button>

@@ -83,7 +83,7 @@ export const Customizer: React.FC = () => {
 
           <button
             onClick={handlePublish}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-[#d30f0f] py-2 px-4 font-display text-xs font-bold text-white transition-all hover:bg-[#b00c0c] hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-[#5a25e6] py-2 px-4 font-display text-xs font-bold text-white transition-all hover:bg-[#4517bf] hover:scale-105 active:scale-95 shadow-md shadow-[#5a25e6]/20 cursor-pointer"
           >
             <Rocket className="h-3.5 w-3.5" />
             Deploy
@@ -94,8 +94,8 @@ export const Customizer: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-6 space-y-8 scrollbar-thin">
           {/* 1. Template switcher */}
           <div className="space-y-3">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <Sparkles className="h-3.5 w-3.5 text-[#d30f0f]" /> 1. Select Template
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <Sparkles className="h-3.5 w-3.5 text-[#5a25e6]" /> 1. Select Template
             </label>
             <div className="grid grid-cols-3 gap-2">
               {TEMPLATES.map((tmpl) => (
@@ -104,7 +104,7 @@ export const Customizer: React.FC = () => {
                   onClick={() => handleTemplateChange(tmpl.id)}
                   className={`rounded-xl p-2.5 text-left border transition-all cursor-pointer flex flex-col justify-between h-[80px] ${
                     activeTemplateId === tmpl.id
-                      ? 'border-[#d30f0f] bg-[#d30f0f]/5 text-[#d30f0f]'
+                      ? 'border-[#5a25e6] bg-[#5a25e6]/5 text-[#5a25e6]'
                       : 'border-[#e5dfd3] bg-white hover:bg-neutral-100'
                   }`}
                 >
@@ -121,8 +121,8 @@ export const Customizer: React.FC = () => {
 
           {/* 2. Accent Color */}
           <div className="space-y-3">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <Paintbrush className="h-3.5 w-3.5 text-[#d30f0f]" /> 2. Accent Color
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <Paintbrush className="h-3.5 w-3.5 text-[#5a25e6]" /> 2. Accent Color
             </label>
             <div className="flex gap-2">
               {colorPresets.map((preset) => (
@@ -143,8 +143,8 @@ export const Customizer: React.FC = () => {
 
           {/* 3. Birthday Setup */}
           <div className="space-y-4">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <CalendarDays className="h-3.5 w-3.5 text-[#d30f0f]" /> 3. Birthday Setup
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <CalendarDays className="h-3.5 w-3.5 text-[#5a25e6]" /> 3. Birthday Setup
             </label>
 
             <div className="space-y-1">
@@ -153,7 +153,7 @@ export const Customizer: React.FC = () => {
                 type="text"
                 value={currentWish.title}
                 onChange={(e) => updateWish({ title: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6]"
                 placeholder={activeTemplate.defaultTitle}
               />
             </div>
@@ -164,7 +164,7 @@ export const Customizer: React.FC = () => {
                 type="text"
                 value={currentWish.targetName}
                 onChange={(e) => updateWish({ targetName: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6]"
                 placeholder="Name"
               />
             </div>
@@ -172,8 +172,8 @@ export const Customizer: React.FC = () => {
 
           {/* 4. Greeting Message */}
           <div className="space-y-4">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <FileText className="h-3.5 w-3.5 text-[#d30f0f]" /> 4. Messages
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <FileText className="h-3.5 w-3.5 text-[#5a25e6]" /> 4. Messages
             </label>
 
             <div className="space-y-1">
@@ -182,7 +182,7 @@ export const Customizer: React.FC = () => {
                 value={currentWish.message}
                 onChange={(e) => updateWish({ message: e.target.value })}
                 rows={3}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f] resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6] resize-none"
                 placeholder="Message"
               />
             </div>
@@ -193,7 +193,7 @@ export const Customizer: React.FC = () => {
                 value={currentWish.extraMessage}
                 onChange={(e) => updateWish({ extraMessage: e.target.value })}
                 rows={3}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f] resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6] resize-none"
                 placeholder="Write your heartfelt letter here..."
               />
             </div>
@@ -201,8 +201,8 @@ export const Customizer: React.FC = () => {
 
           {/* 5. Hero & Photo Gallery */}
           <div className="space-y-4">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <Image className="h-3.5 w-3.5 text-[#d30f0f]" /> 5. Photos
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <Image className="h-3.5 w-3.5 text-[#5a25e6]" /> 5. Photos
             </label>
 
             <div className="space-y-1">
@@ -211,7 +211,7 @@ export const Customizer: React.FC = () => {
                 type="text"
                 value={currentWish.bgImage || ''}
                 onChange={(e) => updateWish({ bgImage: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6]"
                 placeholder="https://example.com/photo.jpg"
               />
               {currentWish.bgImage && (
@@ -233,7 +233,7 @@ export const Customizer: React.FC = () => {
                   type="text"
                   value={currentWish[item.key] || ''}
                   onChange={(e) => updateWish({ [item.key]: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6]"
                   placeholder="https://example.com/photo.jpg"
                 />
                 {currentWish[item.key] && (
@@ -245,8 +245,8 @@ export const Customizer: React.FC = () => {
 
           {/* 6. Interactive Quiz */}
           <div className="space-y-4">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <HelpCircle className="h-3.5 w-3.5 text-[#d30f0f]" /> 6. Quiz Questions
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <HelpCircle className="h-3.5 w-3.5 text-[#5a25e6]" /> 6. Quiz Questions
             </label>
             <p className="text-[10px] text-[#5e5a52] font-semibold leading-relaxed">
               Create a fun "How Well Do You Know Me?" quiz. Set 3 questions with 4 answer options each.
@@ -290,7 +290,7 @@ export const Customizer: React.FC = () => {
                       type="text"
                       value={currentWish[q.qKey] || ''}
                       onChange={(e) => updateWish({ [q.qKey]: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f]"
+                      className="w-full px-3 py-2 rounded-lg border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6]"
                       placeholder="Enter your question..."
                     />
 
@@ -301,7 +301,7 @@ export const Customizer: React.FC = () => {
                           type="text"
                           value={currentWish[aKey] || ''}
                           onChange={(e) => updateWish({ [aKey]: e.target.value })}
-                          className="flex-1 px-3 py-2 rounded-lg border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f]"
+                          className="flex-1 px-3 py-2 rounded-lg border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6]"
                           placeholder={`Answer ${String.fromCharCode(65 + ai)}`}
                         />
                       </div>
@@ -312,7 +312,7 @@ export const Customizer: React.FC = () => {
                       <select
                         value={currentWish[q.correctKey] ?? 0}
                         onChange={(e) => updateWish({ [q.correctKey]: parseInt(e.target.value) })}
-                        className="px-3 py-1.5 rounded-lg border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f]"
+                        className="px-3 py-1.5 rounded-lg border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6]"
                       >
                         <option value={0}>A</option>
                         <option value={1}>B</option>
@@ -328,8 +328,8 @@ export const Customizer: React.FC = () => {
 
           {/* 7. Background Audio */}
           <div className="space-y-4">
-            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#111111]">
-              <Music className="h-3.5 w-3.5 text-[#d30f0f]" /> 7. Background Audio
+            <label className="flex items-center gap-1.5 font-display text-xs font-black uppercase tracking-wider text-[#121212]">
+              <Music className="h-3.5 w-3.5 text-[#5a25e6]" /> 7. Background Audio
             </label>
 
             <div className="space-y-2">
@@ -341,7 +341,7 @@ export const Customizer: React.FC = () => {
                     onClick={() => updateWish({ musicUrl: sound.url, musicName: sound.name })}
                     className={`rounded-xl p-2 text-left border transition-all text-[10px] font-bold cursor-pointer ${
                       currentWish.musicUrl === sound.url
-                        ? 'border-[#d30f0f] bg-[#d30f0f]/5 text-[#d30f0f]'
+                        ? 'border-[#5a25e6] bg-[#5a25e6]/5 text-[#5a25e6]'
                         : 'border-[#e5dfd3] bg-white hover:bg-neutral-100'
                     }`}
                   >
@@ -357,7 +357,7 @@ export const Customizer: React.FC = () => {
                 type="text"
                 value={currentWish.musicUrl}
                 onChange={(e) => updateWish({ musicUrl: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6]"
                 placeholder="URL (e.g. mp3 file link)"
               />
             </div>
@@ -368,7 +368,7 @@ export const Customizer: React.FC = () => {
                 type="text"
                 value={currentWish.musicName}
                 onChange={(e) => updateWish({ musicName: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#111111] focus:outline-none focus:border-[#d30f0f] focus:ring-1 focus:ring-[#d30f0f]"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#e5dfd3] bg-white text-xs font-semibold text-[#121212] focus:outline-none focus:border-[#5a25e6] focus:ring-1 focus:ring-[#5a25e6]"
                 placeholder="Ambient Instrumental"
               />
             </div>
@@ -377,7 +377,7 @@ export const Customizer: React.FC = () => {
 
         {/* Builder Info tip */}
         <div className="p-4 border-t border-[#e5dfd3] bg-[#fdfdfb] flex gap-3 text-[#5e5a52]">
-          <Info className="h-4.5 w-4.5 shrink-0 text-[#d30f0f] mt-0.5" />
+          <Info className="h-4.5 w-4.5 shrink-0 text-[#cca43b] mt-0.5" />
           <p className="text-[10px] leading-relaxed font-semibold">
             All updates synchronize in real time. Click <strong>Deploy</strong> to generate a shareable URL with all your customizations embedded.
           </p>

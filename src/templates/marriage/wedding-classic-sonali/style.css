@@ -1,130 +1,307 @@
-/* Viewport & Scrolling Constraints */
-.sonali-viewport {
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+
+/* Main Root Styling */
+.sonali-root {
+  min-height: 100vh;
   width: 100%;
-  height: 100dvh;
-  overflow: hidden;
-  position: relative;
   background-color: #faf5ef;
-}
-
-.sonali-viewport.scrollable {
-  overflow-y: auto;
-  height: auto;
-  min-h: 100vh;
-}
-
-/* 3D Envelope Container & Positioning */
-.sonali-envelope-container {
-  width: 100%;
-  max-width: 440px;
-  min-height: 380px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  perspective: 1200px;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: 'Arvo', serif !important;
+  color: #111111;
 }
 
-.sonali-envelope-container.open {
-  transform: translateY(-20px);
+.sonali-root * {
+  font-family: 'Arvo', serif;
+  box-sizing: border-box;
 }
 
-/* Envelope Front Card Cover */
-.sonali-envelope-front {
+/* Falling Sakura animations */
+.sakura-falling {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
-  transition: all 0.6s ease;
-}
-
-/* Luxury 3D Wax Seal Styles */
-.sonali-wax-seal {
-  background-size: 200% 200%;
-  animation: pulse-gold 3s infinite alternate;
-}
-
-@keyframes pulse-gold {
-  0% {
-    box-shadow: 0 4px 15px rgba(226, 92, 103, 0.4), 0 0 0 0px rgba(212, 175, 55, 0.4);
-  }
-  100% {
-    box-shadow: 0 8px 25px rgba(226, 92, 103, 0.6), 0 0 0 8px rgba(212, 175, 55, 0);
-  }
-}
-
-/* Invitation Card Styles (Inside Envelope) */
-.sonali-invitation-card {
-  width: 100%;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  transform: scale(0.9) rotateY(-20deg) translateY(50px);
   pointer-events: none;
-  visibility: hidden;
+  overflow: hidden;
+  z-index: 10;
 }
 
-.sonali-envelope-container.open .sonali-invitation-card {
-  opacity: 1;
-  transform: scale(1) rotateY(0deg) translateY(0px);
-  pointer-events: auto;
-  visibility: visible;
-}
-
-/* Sakura Petal Falling Particle Simulations */
-.sonali-sakura-petal {
+.sakura {
   position: absolute;
   top: -10%;
-  background-color: #fca5a5; /* Romantic soft rose-pink background */
+  background: #674ea7;
   border-radius: 90% 10% 90% 10%;
   pointer-events: none;
-  animation: sonali-fall-sway linear infinite;
-  transform-origin: center;
+  animation: sonali-fall linear infinite;
 }
 
-@keyframes sonali-fall-sway {
+@keyframes sonali-fall {
   0% {
     top: -10%;
     transform: translateX(0) rotate(0deg);
   }
   30% {
-    transform: translateX(40px) rotate(120deg) scale(0.9);
+    transform: translateX(50px) rotate(120deg) scale(0.9);
   }
   60% {
-    transform: translateX(-40px) rotate(240deg) scale(1.1);
+    transform: translateX(-50px) rotate(240deg) scale(1.1);
   }
   100% {
     top: 110%;
-    transform: translateX(20px) rotate(360deg) scale(1);
+    transform: translateX(30px) rotate(360deg) scale(1);
   }
 }
 
-/* Custom Animation classes */
-@keyframes sonali-fade-in {
+/* Corner Decorations */
+.top-right-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  z-index: 5;
+  max-width: 250px;
+}
+
+.top-left-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 5;
+  max-width: 250px;
+}
+
+@media (max-width: 900px) {
+  .top-right-decoration,
+  .top-left-decoration {
+    max-width: 30% !important;
+  }
+}
+
+/* Typography Layouts */
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+}
+
+.title {
+  margin-bottom: 40px;
+}
+
+.title h1 {
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 60px;
+  margin: 32px 0;
+  color: #674ea7;
+  line-height: 1.1;
+}
+
+.title h2 {
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: bold;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  color: #e25c67;
+  line-height: 1;
+}
+
+.title h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 24px;
+  color: #674ea7;
+  margin-top: 5px;
+}
+
+.title p {
+  color: #564861;
+  margin: 30px 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.date, .place {
+  color: #874562;
+  font-weight: 900;
+}
+
+/* Countdown Clock Box Grid */
+#time {
+  width: auto;
+  height: auto;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  z-index: 5;
+  margin: 24px 0 16px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10px;
+  overflow: hidden;
+  gap: 0;
+}
+
+.block {
+  width: 180px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.days {
+  background: linear-gradient(90deg, #b33a46, #9b313c);
+}
+
+.hours {
+  background: linear-gradient(90deg, #a7c3cd, #90a9b2);
+}
+
+.minutes {
+  background-color: #874562;
+}
+
+.seconds {
+  background-color: #145689;
+}
+
+.end-msg {
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  background-color: #ebebeb;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #212529;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.dance-med {
+  font-family: 'Dancing Script', cursive !important;
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 32px;
+  color: #674ea7;
+  margin: 24px 16px;
+  text-align: center;
+  z-index: 5;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  font-size: 12px;
+  letter-spacing: 0pt;
+  margin-bottom: 20px;
+  z-index: 5;
+  gap: 8px;
+}
+
+.venue {
+  width: auto;
+  height: auto;
+  background-color: #674ea7;
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 10px rgba(103, 78, 167, 0.15);
+}
+
+.venue:hover {
+  transform: translateY(-2px);
+  background-color: #553e8d;
+}
+
+.venue:active {
+  transform: translateY(0);
+}
+
+/* Footer Section */
+.footer {
+  color: #564861;
+  text-align: center;
+  font-size: 16px;
+  margin: 24px;
+  z-index: 5;
+  line-height: 1.6;
+}
+
+.happiness {
+  color: #874562;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 24px;
+  z-index: 5;
+  cursor: pointer;
+  animation: pulse-music 2s infinite alternate;
+}
+
+@keyframes pulse-music {
   0% {
-    opacity: 0;
-    transform: translateY(-10px);
+    opacity: 0.8;
   }
   100% {
-    opacity: 0.9;
-    transform: translateY(0);
+    opacity: 1;
+    transform: scale(1.02);
   }
 }
 
-.animate-fade-in {
-  animation: sonali-fade-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Media Queries for sizing */
+/* Mobile responsive fixes */
 @media (max-width: 480px) {
-  .sonali-envelope-container {
-    max-width: 90vw;
-    min-height: 360px;
+  .title h1 {
+    font-size: 44px;
   }
-  .sonali-envelope-front,
-  .sonali-invitation-card {
-    padding: 24px 16px !important;
+  .block {
+    width: 130px;
+    height: 120px;
+    font-size: 18px;
   }
-  .sonali-invitation-card h1 {
-    font-size: 1.8rem !important;
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .venue {
+    width: 250px;
+    margin-right: 0;
+    margin-bottom: 8px;
   }
 }
