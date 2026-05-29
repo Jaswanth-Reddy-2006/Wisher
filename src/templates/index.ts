@@ -1,6 +1,8 @@
 import { BirthdayUniverse } from './birthday/birthday-universe';
 import { HappyBirthdayClassic } from './birthday/happy-birthday-classic';
 import { PopUpStorybook } from './birthday/pop-up-storybook';
+import { RomanticAnimeBirthday } from './birthday/romantic-anime-birthday';
+import { Cinematic3DBirthday } from './birthday/cinematic-3d-birthday';
 
 export const TEMPLATES = [
   {
@@ -29,6 +31,24 @@ export const TEMPLATES = [
     component: PopUpStorybook,
     thumbnail: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80',
     defaultTitle: 'Your Fairytale Chapter!',
+  },
+  {
+    id: 'romantic-anime-birthday' as const,
+    name: 'Romantic Anime Dream',
+    description: 'A deeply romantic, cute, and cinematic anime-style birthday experience with floating balloons, confetti, and emotional love letters.',
+    category: 'Birthday',
+    component: RomanticAnimeBirthday,
+    thumbnail: 'https://images.unsplash.com/photo-1518199266791-5375a83164ba?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Happy Birthday My Love!',
+  },
+  {
+    id: 'cinematic-3d-birthday' as const,
+    name: 'Cinematic 3D Dream',
+    description: 'An ultra-premium futuristic 3D cinematic birthday experience with glassmorphism, depth parallax, and glowing romantic scenes.',
+    category: 'Birthday',
+    component: Cinematic3DBirthday,
+    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80',
+    defaultTitle: 'Happy Birthday Navya ❤️',
   }
 ];
 

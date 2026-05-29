@@ -505,7 +505,7 @@ export const BirthdayUniverse: React.FC<TemplateProps> = ({ data, isPreview = fa
               className="text-4xl md:text-7xl font-serif text-white mb-6 select-none"
               style={{ textShadow: '0 0 25px rgba(255, 182, 193, 0.7)' }}
             >
-              Happy Birthday, {data.targetName || 'Preethi'}! ❤️
+              Happy Birthday, {data.targetName || 'Navya'}! ❤️
             </h1>
 
             {introStep >= 1 && (
@@ -738,7 +738,7 @@ export const BirthdayUniverse: React.FC<TemplateProps> = ({ data, isPreview = fa
               >
                 <div className="envelope-back" />
                 <div className="envelope-paper glassmorphic-card p-6 border border-pink-300/10">
-                  <h3 className="text-xl font-serif text-pink-300 mb-4">My Dearest {data.targetName || 'Preethi'},</h3>
+                  <h3 className="text-xl font-serif text-pink-300 mb-4">My Dearest {data.targetName || 'Navya'},</h3>
                   <p className="text-xs font-serif text-slate-300 leading-relaxed italic mb-4">
                     From the moment you entered my life, everything became brighter, warmer, and infinitely more beautiful.
                   </p>
@@ -930,7 +930,7 @@ export const BirthdayUniverse: React.FC<TemplateProps> = ({ data, isPreview = fa
                 className="text-6xl md:text-9xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-indigo-400 font-bold mb-8"
                 style={{ filter: 'drop-shadow(0 0 25px rgba(255, 182, 193, 0.45))' }}
               >
-                {data.targetName || 'Preethi'} ❤️
+                {data.targetName || 'Navya'} ❤️
               </h1>
               <p className="text-xl md:text-3xl font-serif text-white/80 italic text-glow drop-shadow-md">
                 "You are my happiest place."

@@ -21,7 +21,7 @@ const getDefaultWish = (template: WishData['templateType']): WishData => {
   return {
     templateType: template,
     title: "Happy Birthday!",
-    targetName: "Preethi",
+    targetName: "Navya",
     date: futureDate,
     message: "Wishing you a beautiful day filled with love, laughter, and endless joy! Tap the cover to reveal your surprise!",
     primaryColor: "#ffb6c1",

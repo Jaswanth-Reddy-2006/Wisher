@@ -1,6 +1,6 @@
 export interface WishData {
   id?: string;
-  templateType: 'birthday-universe' | 'happy-birthday-classic' | 'pop-up-storybook';
+  templateType: 'birthday-universe' | 'happy-birthday-classic' | 'pop-up-storybook' | 'romantic-anime-birthday' | 'cinematic-3d-birthday';
   title: string;
   targetName: string;
   date: string; // ISO string / Date format string
@@ -16,6 +16,7 @@ export interface WishData {
   weddingTime?: string;  // Ceremony time string
   brideName?: string;    // Bride profile name
   groomName?: string;    // Groom profile name
+  senderName?: string;   // Sender of the wish
 
   // Quiz section — 3 customizable questions
   quizQ1?: string;

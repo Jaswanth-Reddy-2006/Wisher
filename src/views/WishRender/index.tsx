@@ -41,6 +41,12 @@ export const WishRender: React.FC = () => {
         
         if (data) {
           setWishData(data);
+          // Only track actual views, not previews that don't have an ID
+          if (id && !isPreview) {
+            import('../../services/analyticsService').then(({ analyticsService }) => {
+              analyticsService.trackView(id);
+            });
+          }
         } else {
           setError("This invitation or wish website does not exist or has expired.");
         }
