@@ -17,14 +17,16 @@ interface StoreState {
 
 const getDefaultWish = (template: WishData['templateType']): WishData => {
   const futureDate = new Date(Date.now() + 86400000 * 3).toISOString().slice(0, 16); // 3 days in future
+  const isGalactic = template === 'galactic-3d-heart';
 
   return {
     templateType: template,
-    title: "Happy Birthday!",
-    targetName: "Navya",
+    title: isGalactic ? "Happy Birthday Siri ❤️" : "Happy Birthday!",
+    targetName: isGalactic ? "Siri" : "Navya",
+    senderName: isGalactic ? "Arjun" : undefined,
     date: futureDate,
     message: "Wishing you a beautiful day filled with love, laughter, and endless joy! Tap the cover to reveal your surprise!",
-    primaryColor: "#ffb6c1",
+    primaryColor: isGalactic ? "#d4af37" : "#ffb6c1",
     musicUrl: "https://raw.githubusercontent.com/ProgrammerGaurav/happy-birthday/master/Happy%20Birthday_files/music.mp3",
     musicName: "Classic Happy Birthday",
     extraMessage: "I wanted to make this space just to tell you everything I feel. Every single day with you feels like a gift. From the quiet mornings to our late-night laughs, you bring a light into my life that I never knew existed.",

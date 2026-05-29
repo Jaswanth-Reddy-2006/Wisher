@@ -57,6 +57,49 @@ export const renderCardPreview = (id: WishData['templateType']) => {
           </div>
         </div>
       );
+    case 'romantic-anime-birthday':
+      return (
+        <div className="w-full h-full bg-[#fff0f5] relative flex items-center justify-center overflow-hidden">
+          {/* Cherry blossoms drifting preview */}
+          <div className="absolute w-2 h-2 rounded-full bg-pink-300/60 top-2 left-6 animate-pulse" />
+          <div className="absolute w-1.5 h-1.5 rounded-full bg-pink-200/50 bottom-4 right-8" />
+          
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-pink-400 text-xl animate-bounce">🌸</span>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-pink-500 font-serif tracking-widest uppercase">Anime Dream</span>
+          </div>
+        </div>
+      );
+    case 'cinematic-3d-birthday':
+      return (
+        <div className="w-full h-full bg-[#050505] relative flex items-center justify-center overflow-hidden border border-red-500/10">
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <span className="text-red-500 text-xl filter drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]">✨</span>
+          </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-red-500 font-serif tracking-widest uppercase">Cinematic 3D</span>
+          </div>
+        </div>
+      );
+    case 'galactic-3d-heart':
+      return (
+        <div className="w-full h-full bg-[#030014] relative flex items-center justify-center overflow-hidden border border-[#d4af37]/20">
+          {/* Subtle gold stellar dust aura */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)] animate-pulse" />
+          
+          <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+            <div className="w-8 h-8 rounded-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.3)_0%,transparent_70%)] absolute" />
+            <span className="text-[#d4af37] text-lg animate-pulse filter drop-shadow-[0_0_8px_rgba(212,175,55,0.7)]">❤️</span>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#d4af37] font-serif tracking-widest uppercase">Galactic Heart</span>
+          </div>
+        </div>
+      );
     default:
       return (
         <div className="w-full h-full bg-slate-200 flex items-center justify-center">

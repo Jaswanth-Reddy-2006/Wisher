@@ -23,7 +23,10 @@ export const Customizer: React.FC = () => {
     const validTemplates: WishData['templateType'][] = [
       'birthday-universe', 
       'happy-birthday-classic', 
-      'pop-up-storybook'
+      'pop-up-storybook',
+      'romantic-anime-birthday',
+      'cinematic-3d-birthday',
+      'galactic-3d-heart'
     ];
     if (tmplParam && validTemplates.includes(tmplParam as WishData['templateType'])) {
       if (currentWish.templateType !== tmplParam) {

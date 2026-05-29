@@ -1,6 +1,6 @@
 export interface WishData {
   id?: string;
-  templateType: 'birthday-universe' | 'happy-birthday-classic' | 'pop-up-storybook' | 'romantic-anime-birthday' | 'cinematic-3d-birthday';
+  templateType: 'birthday-universe' | 'happy-birthday-classic' | 'pop-up-storybook' | 'romantic-anime-birthday' | 'cinematic-3d-birthday' | 'galactic-3d-heart';
   title: string;
   targetName: string;
   date: string; // ISO string / Date format string

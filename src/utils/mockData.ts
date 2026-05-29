@@ -143,5 +143,26 @@ export const templateMockData: Record<WishData['templateType'], WishData> = {
     photo2: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
     photo3: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80",
     photo4: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+  },
+  'galactic-3d-heart': {
+    templateType: 'galactic-3d-heart',
+    title: "Happy Birthday Siri ❤️",
+    targetName: "Siri",
+    senderName: "Arjun",
+    date: new Date(Date.now() + 86400000 * 3).toISOString().slice(0, 16),
+    message: "Wishing you a beautiful day filled with love, laughter, and endless joy! You deserve all the happiness in the world. Tap the cover to reveal your surprise!",
+    primaryColor: "#d4af37",
+    musicUrl: "https://raw.githubusercontent.com/ProgrammerGaurav/happy-birthday/master/Happy%20Birthday_files/music.mp3",
+    musicName: "Royal Galactic Theme",
+    extraMessage: "Forever Yours ❤️",
+    rsvpEmail: "birthday@wisher.net",
+    bgImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80",
+    quizQ1: "What is my favorite color?", quizA1a: "Pink 💗", quizA1b: "Blue 💙", quizA1c: "Purple 💜", quizA1d: "Red ❤️", quizA1correct: 0,
+    quizQ2: "What is my dream travel destination?", quizA2a: "Paris 🗼", quizA2b: "Maldives 🏝️", quizA2c: "Tokyo 🗾", quizA2d: "Switzerland 🏔️", quizA2correct: 1,
+    quizQ3: "What makes me happiest?", quizA3a: "Good food 🍕", quizA3b: "Sunsets 🌅", quizA3c: "Being with you 🥰", quizA3d: "Music 🎵", quizA3correct: 2,
+    photo1: "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=600&q=80",
+    photo2: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+    photo3: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80",
+    photo4: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
   }
 };
