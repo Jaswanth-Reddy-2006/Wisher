@@ -13,7 +13,6 @@ interface TemplateWebsiteLayoutProps {
 export const TemplateWebsiteLayout: React.FC<TemplateWebsiteLayoutProps> = ({
   data,
   primaryColor,
-  type,
 }) => {
   const [rsvpName, setRsvpName] = useState('');
   const [rsvpGuestCount, setRsvpGuestCount] = useState('1');
@@ -23,11 +22,11 @@ export const TemplateWebsiteLayout: React.FC<TemplateWebsiteLayoutProps> = ({
   const [candlesBlownOut, setCandlesBlownOut] = useState(false);
   const [openedGifts, setOpenedGifts] = useState<{ [key: number]: boolean }>({ 0: false, 1: false, 2: false });
 
-  const isWedding = ['elegant-card', 'wax-seal-scroll', 'infinity-origami-fold', 'glass-botanical-box', 'silk-ribbon-envelope', 'garden-gate'].includes(type);
-  const isHousewarming = ['modern-door', 'blueprint-to-brick', 'isometric-neighborhood', 'cozy-mailbox-reveal', 'golden-keycard', 'ring-doorbell'].includes(type);
-  const isGraduation = ['cap-toss', 'diploma-roll-unwrap', 'curtain-spotlight'].includes(type);
-  const isBabyShower = ['stork-delivery', 'nursery-mobile'].includes(type);
-  const isBirthday = !isWedding && !isHousewarming && !isGraduation && !isBabyShower;
+  const isWedding = false;
+  const isHousewarming = false;
+  const isGraduation = false;
+  const isBabyShower = false;
+  const isBirthday = true;
 
   const handleBlowOut = () => {
     if (candlesBlownOut) return;

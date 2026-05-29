@@ -1,0 +1,283 @@
+/* Happy Birthday Classic Template Styles */
+
+.classic-viewport {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(circle at center, #1e0b36 0%, #0c0214 100%);
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: #ffffff;
+}
+
+.classic-viewport.scrollable {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  height: 100dvh !important;
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism card */
+.classic-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Glowing text */
+.gold-glow {
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.pink-glow {
+  text-shadow: 0 0 15px rgba(244, 114, 182, 0.4);
+}
+
+/* Floating balloons */
+.balloons-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 50px;
+  height: 65px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  animation: floatUp 12s infinite ease-in;
+  opacity: 0.75;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 22px;
+  width: 6px;
+  height: 8px;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 8px solid currentColor;
+}
+
+.balloon-string {
+  position: absolute;
+  bottom: -45px;
+  left: 24px;
+  width: 1px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+/* Start Button styling */
+.btn-gold-pulse {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  color: #0c0214;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  transition: all 0.3s ease;
+  animation: pulseGold 2s infinite;
+}
+
+.btn-gold-pulse:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, #ffe555 0%, #ffbb22 100%);
+}
+
+@keyframes pulseGold {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+/* Classic Cake interaction */
+.cake-interactive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem auto;
+}
+
+.cake-candles {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: -4px;
+  position: relative;
+  z-index: 10;
+}
+
+.cake-candle {
+  width: 8px;
+  height: 35px;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cake-candle:hover {
+  transform: scaleY(1.1);
+}
+
+.candle-flame-classic {
+  width: 10px;
+  height: 14px;
+  background: radial-gradient(circle, #ffe359 20%, #ff8c00 70%, #ff4500 100%);
+  border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: -16px;
+  left: -1px;
+  box-shadow: 0 0 10px #ffaa00, 0 0 20px #ff4500;
+  animation: flameFlicker 0.6s infinite ease-in-out alternate;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: scale(1) rotate(-2deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+.cake-layer {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(to right, #ec4899, #f43f5e);
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  box-shadow: inset 0 8px 10px rgba(255, 255, 255, 0.2), 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.cake-layer-middle {
+  width: 240px;
+  height: 60px;
+  background: linear-gradient(to right, #db2777, #e11d48);
+  position: relative;
+  box-shadow: inset 0 8px 10px rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.cake-layer-bottom {
+  width: 280px;
+  height: 70px;
+  background: linear-gradient(to right, #be185d, #be123c);
+  border-radius: 0 0 6px 6px;
+  position: relative;
+  box-shadow: inset 0 8px 10px rgba(255, 255, 255, 0.1), 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.cake-frosting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  background-color: #fdf2f8;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.cake-drips {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: absolute;
+  top: 13px;
+  left: 0;
+}
+
+.cake-drip {
+  width: 12px;
+  height: 12px;
+  background-color: #fdf2f8;
+  border-radius: 50%;
+  margin-top: -6px;
+}
+
+.cake-plate {
+  width: 320px;
+  height: 12px;
+  background: linear-gradient(to bottom, #e2e8f0, #cbd5e1);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Typed typewriter cursor */
+.typewriter-cursor::after {
+  content: '|';
+  animation: cursorBlink 1s infinite steps(2);
+  color: #ffd700;
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Polaroid Scrollable gallery */
+.gallery-scroll-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-scroll-container.active {
+  cursor: grabbing;
+}
+
+/* Animated Sparkles */
+@keyframes spinSparkle {
+  from { transform: rotate(0deg) scale(0.9); }
+  to { transform: rotate(360deg) scale(1.1); }
+}
+
+.sparkle-icon {
+  animation: spinSparkle 4s linear infinite alternate;
+}

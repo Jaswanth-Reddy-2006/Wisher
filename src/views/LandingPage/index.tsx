@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/layout/Navbar';
 import { TEMPLATES } from '../../templates';
-import { Sparkles, Gift, Heart, Home, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Sparkles, Gift, ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { renderCardPreview } from '../../components/preview/CardPreview';
 import { serializeWishData } from '../../utils/serialization';
@@ -37,9 +37,8 @@ export const LandingPage: React.FC = () => {
   }, []);
 
   // Filter specific templates for the marquee slider
-  const previewTemplates = TEMPLATES.filter(tmpl =>
-    ['retro-box', 'neon-cyberpunk-vinyl', 'magical-balloon-release', 'elegant-card', 'modern-door'].includes(tmpl.id)
-  );
+  // Use all available templates for the marquee slider
+  const previewTemplates = TEMPLATES;
   const doubledTemplates = [...previewTemplates, ...previewTemplates];
 
   return (
@@ -195,7 +194,7 @@ export const LandingPage: React.FC = () => {
           <div className="marquee-container">
             <div className="marquee-track">
               {doubledTemplates.map((tmpl, idx) => {
-                const Icon = tmpl.id === 'retro-box' ? Gift : tmpl.id === 'elegant-card' ? Heart : Home;
+                const Icon = Gift;
                 const mockData = templateMockData[tmpl.id];
                 const token = mockData ? serializeWishData(mockData) : '';
                 const liveDemoUrl = `/wish/${tmpl.id}?q=${token}`;

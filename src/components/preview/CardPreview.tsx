@@ -2,505 +2,58 @@ import type { WishData } from '../../templates/types';
 
 export const renderCardPreview = (id: WishData['templateType']) => {
   switch (id) {
-    case 'retro-box':
+    case 'birthday-universe':
       return (
-        <div className="w-full h-full bg-gradient-to-tr from-[#9e0b0b] to-[#d30f0f] relative flex items-center justify-center overflow-hidden">
-          {/* Floating balloons */}
-          <div className="absolute w-4 h-6 rounded-full bg-[#ffd700] opacity-70 blur-[0.5px] top-12 left-10 transition-transform duration-700 group-hover:-translate-y-8" />
-          <div className="absolute w-5 h-7 rounded-full bg-white opacity-85 blur-[0.5px] top-8 right-12 transition-transform duration-1000 group-hover:-translate-y-12 delay-75" />
+        <div className="w-full h-full bg-[#0a0518] relative flex items-center justify-center overflow-hidden">
+          {/* Glowing galaxy rings */}
+          <div className="absolute w-32 h-32 rounded-full border border-dashed border-pink-500/20 animate-spin" style={{ animationDuration: '10s' }} />
+          <div className="absolute w-24 h-24 rounded-full border border-dashed border-purple-500/30 animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }} />
           
-          {/* Ribbon paths under the box */}
-          <div className="absolute w-1 h-36 bg-[#ffd700]" />
-          <div className="absolute h-1 w-36 bg-[#ffd700]" />
-          
-          {/* Gift Box Container */}
-          <div className="relative w-20 h-20 flex flex-col items-center justify-center">
-            {/* Lid */}
-            <div className="w-22 h-5 bg-[#ffd700] rounded-sm shadow-md border border-[#b89512] transition-transform duration-500 transform group-hover:-translate-y-4 group-hover:rotate-6 z-10" />
-            {/* Box Body */}
-            <div className="w-20 h-16 bg-white rounded-b-md shadow-md border border-neutral-200 flex items-center justify-center relative overflow-hidden mt-0.5">
-              {/* Ribbon cross */}
-              <div className="absolute w-4 h-full bg-[#ffd700]" />
-              <span className="relative z-10 text-[10px] font-black text-[#9e0b0b] tracking-wider uppercase">Open</span>
+          {/* Glowing core particle */}
+          <div className="relative w-12 h-12 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,63,94,0.4)_0%,transparent_70%)] flex items-center justify-center shadow-[0_0_20px_rgba(244,63,94,0.3)] transition-transform duration-500 group-hover:scale-110">
+            <div className="w-6 h-6 rounded-full bg-white shadow-[0_0_10px_#fff] flex items-center justify-center">
+              <span className="text-pink-600 text-[8px] animate-pulse">❤️</span>
             </div>
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-pink-400 font-serif tracking-widest uppercase">Cosmic Universe</span>
           </div>
         </div>
       );
-    case 'neon-cyberpunk-vinyl':
+    case 'happy-birthday-classic':
       return (
-        <div className="w-full h-full bg-[#111111] relative flex items-center justify-center overflow-hidden">
-          {/* Tech grid lines */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:16px_16px] opacity-40" />
+        <div className="w-full h-full bg-[#120224] relative flex items-center justify-center overflow-hidden">
+          {/* Floating tiny balloons */}
+          <div className="absolute w-2.5 h-3 rounded-full bg-pink-500/40 top-4 left-3 animate-bounce" />
+          <div className="absolute w-2 h-2.5 rounded-full bg-yellow-500/40 top-6 right-5 animate-bounce" style={{ animationDelay: '0.5s' }} />
           
-          {/* Container */}
-          <div className="relative w-44 h-28 flex items-center">
-            {/* Vinyl Record */}
-            <div className="absolute w-24 h-24 rounded-full bg-gradient-to-r from-[#222] via-[#050505] to-[#222] border border-[#ff007f]/50 flex items-center justify-center shadow-lg transition-all duration-700 transform translate-x-2 group-hover:translate-x-12 group-hover:rotate-180">
-              <div className="w-20 h-20 rounded-full border border-zinc-800/80 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full border border-zinc-800/60 flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#00ffff] to-[#ff007f] flex items-center justify-center">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#111111]" />
-                  </div>
-                </div>
-              </div>
+          {/* Glowing cupcake / cake illustration */}
+          <div className="relative flex flex-col items-center group-hover:scale-105 transition-all duration-300">
+            {/* Candle */}
+            <div className="w-1 h-3 bg-yellow-300/90 rounded-sm relative">
+              <div className="w-2 h-2 rounded-full bg-orange-400 absolute -top-1.5 left-1/2 -translate-x-1/2 animate-pulse shadow-[0_0_8px_#fb923c]" />
             </div>
-            
-            {/* Vinyl Sleeve */}
-            <div className="absolute w-28 h-28 bg-[#1a1a1a] rounded-xl border border-[#ff007f]/30 flex flex-col justify-between p-3.5 shadow-2xl z-10 transition-transform duration-500 group-hover:scale-102">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#ff007f] to-[#00ffff] opacity-80" />
-              <div className="space-y-1">
-                <div className="h-1.5 w-12 bg-[#ff007f]/60 rounded-full" />
-                <div className="h-1 w-16 bg-[#00ffff]/40 rounded-full" />
-              </div>
-            </div>
+            {/* Cake bottom */}
+            <div className="w-8 h-4 bg-pink-400/90 rounded-t-sm shadow-md border-b border-pink-500" />
+            <div className="w-10 h-1 bg-yellow-400/80 rounded-full" />
+          </div>
+          
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-yellow-300 font-serif tracking-widest uppercase">Classic Party</span>
           </div>
         </div>
       );
     case 'pop-up-storybook':
       return (
-        <div className="w-full h-full bg-[#eae3d2] relative flex items-center justify-center overflow-hidden">
-          {/* Sparkles / Stars */}
-          <div className="absolute w-2 h-2 bg-[#d4af37] rotate-45 top-10 left-16 opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-4" />
-          <div className="absolute w-3 h-3 bg-[#d4af37] rotate-45 top-6 right-20 opacity-0 scale-50 transition-all duration-700 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-6 delay-75" />
-          <div className="absolute w-1.5 h-1.5 bg-[#d4af37] rotate-45 bottom-12 right-16 opacity-0 scale-50 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-2" />
-
-          {/* Open Storybook */}
-          <div className="relative w-36 h-24 flex justify-center transition-all duration-500 transform group-hover:scale-105 [perspective:500px]">
-            {/* Book Cover */}
-            <div className="absolute inset-0 bg-[#5c3a21] rounded-lg shadow-xl border border-[#3d2514] transform rotate-1" />
-            {/* Left Page */}
-            <div className="absolute left-1 top-1 bottom-1 w-[66px] bg-white rounded-l-md border-r border-neutral-200 shadow-inner p-2 origin-right transition-transform duration-500 group-hover:[transform:rotateY(-30deg)]">
-              <div className="w-8 h-2 bg-[#d4af37]/30 rounded mb-1" />
-              <div className="space-y-1">
-                <div className="h-1 w-full bg-[#5e5a52]/20 rounded-full" />
-                <div className="h-1 w-5/6 bg-[#5e5a52]/20 rounded-full" />
-              </div>
-            </div>
-            {/* Right Page */}
-            <div className="absolute right-1 top-1 bottom-1 w-[66px] bg-white rounded-r-md shadow-inner p-2 origin-left transition-transform duration-500 group-hover:[transform:rotateY(30deg)]">
-              <div className="w-6 h-6 rounded bg-[#d4af37]/20 border border-[#d4af37]/40 flex items-center justify-center mb-1 float-right">
-                <span className="text-[6px] text-[#d4af37] font-bold">♥</span>
-              </div>
-              <div className="space-y-1 clear-right">
-                <div className="h-1 w-full bg-[#5e5a52]/20 rounded-full" />
-                <div className="h-1 w-4/5 bg-[#5e5a52]/20 rounded-full" />
-              </div>
-            </div>
+        <div className="w-full h-full bg-[#fdfaf2] relative flex items-center justify-center overflow-hidden border border-[#5c3a21]/20">
+          {/* Book frame details */}
+          <div className="w-12 h-16 rounded border border-dashed border-[#5c3a21]/40 flex flex-col items-center justify-center bg-white shadow-md">
+            <span className="text-[12px] text-[#5c3a21]">📖</span>
+            <span className="text-[5px] text-[#5c3a21] uppercase tracking-tighter scale-90 mt-1 font-bold">Storybook</span>
           </div>
-        </div>
-      );
-    case 'cosmic-constellation':
-      return (
-        <div className="w-full h-full bg-[#0a0813] relative flex items-center justify-center overflow-hidden">
-          {/* Nebula glow */}
-          <div className="absolute w-28 h-28 rounded-full bg-[#00ffff]/20 blur-2xl top-4 left-8 transition-transform duration-1000 group-hover:scale-125" />
-          <div className="absolute w-24 h-24 rounded-full bg-[#ff00ff]/10 blur-2xl bottom-6 right-10 transition-transform duration-1000 group-hover:scale-125 delay-100" />
-          
-          {/* Stars & Constellation Lines SVG */}
-          <svg className="w-32 h-32 relative z-10" viewBox="0 0 100 100">
-            {/* Constellation Lines */}
-            <line x1="20" y1="50" x2="45" y2="25" stroke="rgba(0, 255, 255, 0.4)" strokeWidth="0.75" strokeDasharray="100" strokeDashoffset="100" className="transition-all duration-700 group-hover:[stroke-dashoffset:0]" />
-            <line x1="45" y1="25" x2="80" y2="40" stroke="rgba(0, 255, 255, 0.4)" strokeWidth="0.75" strokeDasharray="100" strokeDashoffset="100" className="transition-all duration-700 group-hover:[stroke-dashoffset:0] delay-100" />
-            <line x1="80" y1="40" x2="65" y2="75" stroke="rgba(0, 255, 255, 0.4)" strokeWidth="0.75" strokeDasharray="100" strokeDashoffset="100" className="transition-all duration-700 group-hover:[stroke-dashoffset:0] delay-200" />
-            <line x1="65" y1="75" x2="35" y2="70" stroke="rgba(0, 255, 255, 0.4)" strokeWidth="0.75" strokeDasharray="100" strokeDashoffset="100" className="transition-all duration-700 group-hover:[stroke-dashoffset:0] delay-300" />
-            <line x1="35" y1="70" x2="20" y2="50" stroke="rgba(0, 255, 255, 0.4)" strokeWidth="0.75" strokeDasharray="100" strokeDashoffset="100" className="transition-all duration-700 group-hover:[stroke-dashoffset:0] delay-400" />
-
-            {/* Dotted Star Nodes */}
-            <circle cx="20" cy="50" r="3" fill="#ffffff" className="transition-transform duration-300 group-hover:scale-150" />
-            <circle cx="45" cy="25" r="4" fill="#00ffff" className="transition-transform duration-300 group-hover:scale-120" />
-            <circle cx="80" cy="40" r="3.5" fill="#ffffff" className="transition-transform duration-300 group-hover:scale-150" />
-            <circle cx="65" cy="75" r="3" fill="#00ffff" className="transition-transform duration-300 group-hover:scale-120" />
-            <circle cx="35" cy="70" r="4" fill="#ffffff" className="transition-transform duration-300 group-hover:scale-150" />
-          </svg>
-        </div>
-      );
-    case 'magical-balloon-release':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#e0f2fe] to-[#bae6fd] relative flex items-center justify-center overflow-hidden">
-          {/* Subtle clouds in background */}
-          <div className="absolute w-20 h-6 bg-white/60 rounded-full blur-[2px] top-6 left-4" />
-          <div className="absolute w-24 h-8 bg-white/60 rounded-full blur-[2px] bottom-8 right-6" />
-
-          {/* Balloon bundle group */}
-          <div className="relative w-36 h-36 flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-105">
-            {/* Balloons */}
-            <div className="absolute top-4 w-6 h-8 rounded-full bg-pink-500 shadow-md transition-all duration-700 group-hover:-translate-y-4 group-hover:-translate-x-2" style={{ left: '20%' }}>
-              <div className="w-1.5 h-1.5 bg-white rounded-full opacity-45 absolute top-1 left-1" />
-            </div>
-            <div className="absolute top-2 w-7 h-9 rounded-full bg-sky-500 shadow-md transition-all duration-700 group-hover:-translate-y-6" style={{ left: '42%' }}>
-              <div className="w-1.5 h-1.5 bg-white rounded-full opacity-45 absolute top-1 left-1" />
-            </div>
-            <div className="absolute top-5 w-6 h-8 rounded-full bg-yellow-500 shadow-md transition-all duration-700 group-hover:-translate-y-4 group-hover:translate-x-2" style={{ right: '20%' }}>
-              <div className="w-1.5 h-1.5 bg-white rounded-full opacity-45 absolute top-1 left-1" />
-            </div>
-
-            {/* String lines converging */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
-              <line x1="30" y1="40" x2="50" y2="70" stroke="rgba(100, 116, 139, 0.4)" strokeWidth="0.75" />
-              <line x1="50" y1="36" x2="50" y2="70" stroke="rgba(100, 116, 139, 0.4)" strokeWidth="0.75" />
-              <line x1="70" y1="40" x2="50" y2="70" stroke="rgba(100, 116, 139, 0.4)" strokeWidth="0.75" />
-            </svg>
-
-            {/* Hanging Tag */}
-            <div className="absolute bottom-2 bg-white/95 border border-amber-200 shadow-md rounded-lg p-2 text-center w-24 transition-all duration-500 group-hover:translate-y-1">
-              <span className="text-[6px] font-black uppercase text-amber-800 tracking-wider">Happy Bday</span>
-              <div className="h-[1px] w-8 bg-amber-200 mx-auto my-0.5" />
-              <span className="text-[5px] font-bold text-slate-500 uppercase tracking-widest block">Open Tag</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'elegant-card':
-      return (
-        <div className="w-full h-full bg-[#f4f0e6] relative flex items-center justify-center overflow-hidden">
-          {/* Royal Border */}
-          <div className="absolute inset-4 border border-[#d4af37]/30 rounded-xl pointer-events-none" />
-          
-          {/* Flipping booklet */}
-          <div className="relative w-36 h-24 flex items-center justify-center transition-all duration-500 transform group-hover:scale-105 [perspective:500px]">
-            {/* Back layer */}
-            <div className="absolute w-[130px] h-[80px] bg-white border border-[#d4af37]/40 shadow-lg rounded p-3 flex flex-col justify-between">
-              <div className="text-center font-display text-[9px] font-bold text-[#d4af37] tracking-widest uppercase">The Wedding</div>
-              <div className="space-y-1">
-                <div className="h-0.5 w-16 bg-[#5e5a52]/30 mx-auto rounded-full" />
-                <div className="h-0.5 w-12 bg-[#5e5a52]/30 mx-auto rounded-full" />
-              </div>
-            </div>
-            
-            {/* Flipping Cover Page */}
-            <div className="absolute w-[65px] h-[80px] bg-[#fdfbf7] border border-[#d4af37]/40 border-r-0 shadow-md rounded-l left-[25px] origin-right transition-transform duration-500 group-hover:[transform:rotateY(-120deg)] flex flex-col justify-center items-center">
-              <div className="w-6 h-6 rounded-full border border-[#d4af37]/50 flex items-center justify-center mb-1">
-                <span className="text-[8px] text-[#d4af37] font-serif">S</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    case 'wax-seal-scroll':
-      return (
-        <div className="w-full h-full bg-[#f1ebd9] relative flex items-center justify-center overflow-hidden">
-          <div className="relative w-28 h-28 flex flex-col items-center justify-center transition-transform duration-500 group-hover:scale-105">
-            {/* Scroll Cylinder Background */}
-            <div className="w-16 h-28 bg-[#fdfaf2] border-x border-[#dcd3ba] shadow-xl rounded-t-sm rounded-b-sm flex flex-col justify-between py-4 relative">
-              <div className="absolute -top-1.5 left-0 right-0 h-3 bg-[#e8debe] border border-[#c4b998] rounded shadow-md transform scale-x-105 transition-transform duration-500 group-hover:-translate-y-1" />
-              <div className="absolute -bottom-1.5 left-0 right-0 h-3 bg-[#e8debe] border border-[#c4b998] rounded shadow-md transform scale-x-105 transition-transform duration-500 group-hover:translate-y-1" />
-              
-              <div className="w-full h-full border-x border-[#ffd700]/30 px-2 flex flex-col items-center justify-center space-y-1.5">
-                <div className="h-1 w-8 bg-[#b80c0c]/20 rounded-full" />
-                <div className="h-0.5 w-10 bg-[#5e5a52]/20 rounded-full" />
-                <div className="h-0.5 w-8 bg-[#5e5a52]/20 rounded-full" />
-              </div>
-            </div>
-            
-            {/* Wax Seal Stamp */}
-            <div className="absolute w-10 h-10 rounded-full bg-[#b80c0c] border-2 border-[#800707] shadow-lg flex items-center justify-center z-10 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-12">
-              <div className="w-7 h-7 rounded-full border border-dashed border-[#ff6b6b]/40 flex items-center justify-center">
-                <span className="text-[9px] text-[#ffdddd] font-serif font-black">W</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    case 'infinity-origami-fold':
-      return (
-        <div className="w-full h-full bg-[#fdfcf9] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(#e5dfd3_1px,transparent_1px)] bg-[size:10px_10px] opacity-40" />
-          
-          <div className="relative w-24 h-24 grid grid-cols-2 gap-1.5 transition-transform duration-500 group-hover:rotate-6 [perspective:400px]">
-            {/* Quadrant 1 */}
-            <div className="w-11 h-11 bg-white border border-neutral-200 shadow-sm rounded-md relative overflow-hidden transition-transform duration-500 origin-top-left group-hover:[transform:rotateY(180deg)]">
-              <div className="absolute inset-0 bg-[#d30f0f]/5 flex items-center justify-center">
-                <div className="w-5 h-5 border-b border-r border-[#d30f0f]/30 border-dashed" />
-              </div>
-            </div>
-            {/* Quadrant 2 */}
-            <div className="w-11 h-11 bg-white border border-neutral-200 shadow-sm rounded-md relative overflow-hidden transition-transform duration-500 origin-top-right group-hover:[transform:rotateY(-180deg)]">
-              <div className="absolute inset-0 bg-neutral-50 flex items-center justify-center">
-                <div className="w-5 h-5 border-b border-l border-[#5e5a52]/20 border-dashed" />
-              </div>
-            </div>
-            {/* Quadrant 3 */}
-            <div className="w-11 h-11 bg-white border border-neutral-200 shadow-sm rounded-md relative overflow-hidden transition-transform duration-500 origin-bottom-left group-hover:[transform:rotateX(-180deg)]">
-              <div className="absolute inset-0 bg-neutral-50 flex items-center justify-center">
-                <div className="w-5 h-5 border-t border-r border-[#5e5a52]/20 border-dashed" />
-              </div>
-            </div>
-            {/* Quadrant 4 */}
-            <div className="w-11 h-11 bg-[#d30f0f] border border-[#b80c0c] shadow-sm rounded-md relative overflow-hidden transition-transform duration-500 origin-bottom-right group-hover:[transform:rotateX(180deg)] flex items-center justify-center">
-              <span className="text-[8px] text-white font-bold font-display uppercase tracking-widest">Love</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'glass-botanical-box':
-      return (
-        <div className="w-full h-full bg-[#f4f2ea] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute top-2 left-2 w-10 h-10 border-l border-t border-[#2d6a4f]/20 rounded-tl-full pointer-events-none" />
-          <div className="absolute bottom-2 right-2 w-10 h-10 border-r border-b border-[#2d6a4f]/20 rounded-br-full pointer-events-none" />
-          
-          <div className="relative w-36 h-24 bg-white/30 backdrop-blur-md border border-white/60 shadow-2xl rounded-2xl p-3 flex flex-col justify-between overflow-hidden transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1">
-            <div className="absolute inset-1.5 border border-[#d4af37]/60 rounded-xl" />
-            <div className="relative z-10 flex justify-between h-full items-center px-2">
-              <svg className="w-8 h-16 text-[#2d6a4f] opacity-80" viewBox="0 0 20 40">
-                <path d="M10,40 Q5,20 10,0 Q15,20 10,40" fill="none" stroke="currentColor" strokeWidth="1" />
-                <path d="M10,30 Q0,25 2,20" fill="none" stroke="currentColor" strokeWidth="1" />
-                <path d="M10,15 Q20,10 18,5" fill="none" stroke="currentColor" strokeWidth="1" />
-              </svg>
-              <div className="w-16 h-10 bg-white/70 border border-[#d4af37]/40 rounded-lg flex flex-col items-center justify-center space-y-0.5 shadow-sm">
-                <span className="text-[6px] uppercase tracking-wider font-extrabold text-[#2d6a4f]">Invite</span>
-                <div className="h-0.5 w-8 bg-[#2d6a4f]/30 rounded-full" />
-              </div>
-              <svg className="w-8 h-16 text-[#2d6a4f] opacity-80 transform scale-x-[-1]" viewBox="0 0 20 40">
-                <path d="M10,40 Q5,20 10,0 Q15,20 10,40" fill="none" stroke="currentColor" strokeWidth="1" />
-                <path d="M10,30 Q0,25 2,20" fill="none" stroke="currentColor" strokeWidth="1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      );
-    case 'modern-door':
-      return (
-        <div className="w-full h-full bg-[#f2edd9] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute w-20 h-28 border-2 border-t-8 border-[#3d2c1f] rounded-t-md flex items-end justify-center relative overflow-hidden bg-[#ffd700]/20 shadow-inner [perspective:400px]">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#ffd700]/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            
-            {/* Door swing */}
-            <div className="absolute inset-0 bg-[#7a4b2c] border border-[#5c371e] rounded-t-xs shadow-md p-1.5 origin-left transition-all duration-700 transform group-hover:[transform:rotateY(-85deg)] flex flex-col justify-between items-end z-10">
-              <div className="w-full h-1/2 border border-[#5c371e] bg-[#6c4023] rounded-sm mb-1" />
-              <div className="w-full h-1/2 border border-[#5c371e] bg-[#6c4023] rounded-sm flex items-center justify-end pr-1">
-                <div className="w-1.5 h-4 bg-[#ffd700] rounded-full border border-[#b89512] transition-transform duration-300 group-hover:rotate-12" />
-              </div>
-            </div>
-            <span className="absolute bottom-10 text-[7px] font-black text-[#5c371e] uppercase tracking-widest z-0 animate-pulse">Welcome</span>
-          </div>
-        </div>
-      );
-    case 'blueprint-to-brick':
-      return (
-        <div className="w-full h-full bg-[#0d2b45] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1b4965_1px,transparent_1px),linear-gradient(to_bottom,#1b4965_1px,transparent_1px)] bg-[size:10px_10px]" />
-          <div className="absolute w-24 h-24 rounded-full border border-[#62b6cb]/20 top-4 right-4 pointer-events-none" />
-          <svg className="w-24 h-24 relative z-10 transition-transform duration-500 transform group-hover:scale-110 group-hover:-translate-y-1" viewBox="0 0 100 100">
-            <polygon points="50,75 80,60 50,45 20,60" fill="none" stroke="#62b6cb" strokeWidth="1" />
-            <line x1="20" y1="60" x2="20" y2="40" stroke="#00ffff" strokeWidth="1.5" className="transition-all duration-700 group-hover:stroke-[#fff]" />
-            <line x1="50" y1="75" x2="50" y2="55" stroke="#00ffff" strokeWidth="1.5" className="transition-all duration-700 group-hover:stroke-[#fff]" />
-            <line x1="80" y1="60" x2="80" y2="40" stroke="#00ffff" strokeWidth="1.5" className="transition-all duration-700 group-hover:stroke-[#fff]" />
-            <polygon points="50,55 80,40 50,25 20,40" fill="none" stroke="#00ffff" strokeWidth="1.5" strokeDasharray="100" strokeDashoffset="100" className="transition-all duration-1000 group-hover:[stroke-dashoffset:0]" />
-            <line x1="50" y1="25" x2="50" y2="12" stroke="#ff007f" strokeWidth="1" strokeDasharray="5" />
-          </svg>
-        </div>
-      );
-    case 'isometric-neighborhood':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#ffd269] to-[#ffd700]/30 relative flex items-center justify-center overflow-hidden">
-          <div className="absolute w-24 h-6 rounded-full bg-white/40 top-4 left-4 blur-xs" />
-          <div className="absolute bottom-0 w-full flex items-end justify-between px-2 gap-1.5">
-            <div className="w-12 h-10 bg-[#5c4a37] rounded-t-md relative">
-              <polygon points="0,10 6,0 12,10" className="fill-[#3d2c1f]" />
-            </div>
-            <div className="w-16 h-14 bg-[#4a3b2c] rounded-t-md relative flex flex-col justify-end items-center">
-              <div className="absolute top-[-6px] right-2 w-3 h-6 bg-[#3d2c1f] rounded-t-xs" />
-              <polygon points="-4,14 8,0 20,14" className="fill-[#d30f0f] transform scale-x-120 transition-transform duration-500 origin-bottom group-hover:-translate-y-1.5" />
-            </div>
-            <div className="w-10 h-8 bg-[#5c4a37] rounded-t-md" />
-          </div>
-          <div className="absolute top-2 flex flex-col items-center justify-center transition-all duration-700 transform group-hover:translate-y-8">
-            <svg className="w-6 h-10 text-[#d4af37] drop-shadow-md animate-bounce" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="12" cy="6" r="4" fill="none" stroke="currentColor" strokeWidth="2.5" />
-              <rect x="11" y="10" width="2" height="12" />
-              <rect x="13" y="14" width="3" height="2" />
-              <rect x="13" y="18" width="3" height="2" />
-            </svg>
-          </div>
-        </div>
-      );
-    case 'cozy-mailbox-reveal':
-      return (
-        <div className="w-full h-full bg-[#e8f1f5] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute bottom-4 left-0 right-0 h-0.5 bg-[#5e5a52]/20" />
-          <div className="absolute w-2 h-14 bg-[#8b5a2b] bottom-4 left-1/2 -translate-x-1/2" />
-          <div className="absolute w-24 h-14 bg-[#4a5568] rounded-t-full border border-slate-700 bottom-12 left-1/2 -translate-x-1/2 flex items-center justify-between px-3 shadow-lg transition-transform duration-500 group-hover:scale-105 [perspective:400px]">
-            <div className="absolute right-[-4px] top-4 w-1.5 h-8 bg-[#d30f0f] origin-bottom transition-transform duration-500 transform group-hover:rotate-90" />
-            <div className="absolute left-[-2px] bottom-0 w-8 h-10 bg-[#334155] border-r border-[#1e293b] origin-bottom transition-all duration-500 transform group-hover:[transform:rotateX(90deg)] flex items-center justify-center z-20">
-              <div className="w-1.5 h-1.5 bg-[#cbd5e1] rounded-full" />
-            </div>
-            <div className="absolute w-12 h-8 bg-white border border-[#cbd5e1] rounded-xs shadow-md left-2 bottom-1.5 transition-all duration-700 transform translate-x-0 group-hover:-translate-x-6 z-10 flex flex-col justify-center p-1 space-y-0.5">
-              <div className="w-3 h-3 bg-[#d30f0f]/10 rounded-full flex items-center justify-center self-end">
-                <span className="text-[4px] text-[#d30f0f]">♥</span>
-              </div>
-              <div className="h-0.5 w-6 bg-[#94a3b8] rounded-full" />
-            </div>
-          </div>
-        </div>
-      );
-    case 'cap-toss':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#0f172a] to-[#1e293b] relative flex items-center justify-center overflow-hidden">
-          {/* Constellation gold stars */}
-          <div className="absolute w-1.5 h-1.5 bg-amber-400 rotate-45 top-6 left-12 opacity-60 group-hover:animate-ping" />
-          <div className="absolute w-2 h-2 bg-amber-400 rotate-45 bottom-8 right-12 opacity-80 group-hover:scale-125 transition-transform" />
-          
-          {/* Tossed Cap */}
-          <div className="relative w-16 h-16 flex flex-col items-center justify-center transition-all duration-700 transform group-hover:-translate-y-8 group-hover:rotate-12">
-            {/* Diamond top plate */}
-            <div className="w-14 h-14 bg-zinc-900 border border-zinc-800 rotate-45 rounded-sm shadow-md flex items-center justify-center relative">
-              <div className="w-2.5 h-2.5 rounded-full bg-amber-500 relative">
-                <div className="absolute top-1 left-2 w-8 h-[1px] bg-amber-500 origin-left rotate-45" />
-              </div>
-            </div>
-            {/* Base cap border */}
-            <div className="w-8 h-4 bg-zinc-800 rounded-b-md mt-[-8px] shadow-sm z-10" />
-          </div>
-        </div>
-      );
-    case 'stork-delivery':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#e0f2fe] to-[#bae6fd] relative flex items-center justify-center overflow-hidden">
-          {/* Clouds */}
-          <div className="absolute w-12 h-4 bg-white/60 rounded-full blur-[1px] top-6 left-6 transition-transform duration-700 group-hover:translate-x-4" />
-          <div className="absolute w-14 h-5 bg-white/60 rounded-full blur-[1px] bottom-8 right-6 transition-transform duration-1000 group-hover:-translate-x-4" />
-          
-          {/* Tied Diaper Bundle */}
-          <div className="relative w-16 h-16 bg-[#fed7aa]/80 border border-orange-200 shadow-md rounded-b-full flex flex-col items-center justify-center pt-2 transition-transform duration-500 group-hover:scale-105">
-            <div className="absolute -top-1 w-4 h-4 rounded-full bg-[#fcd34d] border border-amber-300" />
-            <div className="w-5 h-5 rounded-full bg-rose-400 flex items-center justify-center shadow-sm">
-              <span className="text-[7px] text-white font-serif">♥</span>
-            </div>
-            <span className="text-[5px] uppercase font-black text-rose-500 tracking-wider mt-1.5">Baby</span>
-          </div>
-        </div>
-      );
-    case 'silk-ribbon-envelope':
-      return (
-        <div className="w-full h-full bg-gradient-to-tr from-[#ffe4e6] to-[#fff1f3] relative flex items-center justify-center overflow-hidden">
-          {/* Heart overlay sparkles */}
-          <div className="absolute w-2 h-2 bg-rose-400 rotate-45 top-6 left-16 opacity-0 group-hover:opacity-85 group-hover:-translate-y-2 transition-all duration-500" />
-          
-          <div className="relative w-32 h-20 bg-white border border-[#ffe4e6] rounded-md shadow-md flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-            {/* Horizontal ribbon */}
-            <div className="absolute w-full h-3 bg-rose-400" />
-            {/* Vertical ribbon */}
-            <div className="absolute h-full w-3 bg-rose-400" />
-            {/* Center Bow Knot */}
-            <div className="absolute w-6 h-6 rounded-full bg-rose-500 shadow-md border border-white flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-              <span className="text-[6px] text-white">♥</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'golden-keycard':
-      return (
-        <div className="w-full h-full bg-slate-900 relative flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:12px_12px]" />
-          
-          {/* Keycard device */}
-          <div className="relative w-24 h-32 bg-slate-800 border border-slate-700 rounded-xl shadow-lg flex flex-col items-center justify-between p-2.5 transition-all duration-500 group-hover:scale-105">
-            <div className="w-1.5 h-1.5 rounded-full bg-rose-500 self-start shadow-[0_0_5px_#ef4444]" />
-            
-            {/* House icon glow */}
-            <div className="w-10 h-10 border border-slate-700 bg-slate-900 rounded-md flex items-center justify-center">
-              <span className="text-slate-600 text-xs font-bold font-display group-hover:text-amber-400 transition-colors">⌂</span>
-            </div>
-            
-            {/* Slot */}
-            <div className="w-full h-4 bg-neutral-950 rounded border border-slate-800 flex items-center justify-center relative overflow-hidden">
-              <div className="absolute w-12 h-6 bg-amber-500 rounded transform translate-y-[-10px] group-hover:translate-y-0 transition-transform duration-700" />
-              <span className="text-[5px] text-slate-500 uppercase tracking-widest z-10">Slot</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'cosmic-galaxy-portal':
-      return (
-        <div className="w-full h-full bg-[#0a0518] relative flex items-center justify-center overflow-hidden">
-          {/* Stardust particles */}
-          <div className="absolute w-1 h-1 bg-white rounded-full top-6 left-12 opacity-80" />
-          <div className="absolute w-1.5 h-1.5 bg-purple-400 rounded-full bottom-10 left-16 opacity-60 animate-pulse" />
-          <div className="absolute w-1 h-1 bg-sky-400 rounded-full top-10 right-14 opacity-70" />
-          
-          {/* Glowing Galaxy Swirl */}
-          <div className="relative w-16 h-16 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.4)_0%,transparent_70%)] flex items-center justify-center shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-transform duration-500 group-hover:scale-115">
-            <div className="w-12 h-12 rounded-full border border-dashed border-sky-400/50 animate-spin" style={{ animationDuration: '6s' }} />
-            <div className="absolute w-6 h-6 rounded-full bg-white shadow-[0_0_10px_#fff] flex items-center justify-center">
-              <span className="text-purple-600 text-[8px] animate-pulse">✦</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'diploma-roll-unwrap':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#1e293b] to-[#0f172a] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute w-1.5 h-1.5 bg-amber-400 rotate-45 top-6 left-16 opacity-60" />
-          <div className="absolute w-2 h-2 bg-amber-400 rotate-45 bottom-8 right-16 opacity-80" />
-          
-          {/* Unwrapping scroll */}
-          <div className="relative w-24 h-6 bg-[#faf6f0] border-y border-[#cbd5e1] rounded-sm shadow-md flex items-center justify-center transition-transform duration-500 group-hover:rotate-6">
-            {/* Wooden rods ends */}
-            <div className="absolute left-[-4px] w-1 h-8 bg-amber-600 rounded-sm" />
-            <div className="absolute right-[-4px] w-1 h-8 bg-amber-600 rounded-sm" />
-            
-            {/* Red Ribbon wrap */}
-            <div className="absolute w-4 h-full bg-rose-600 border-x border-amber-400 flex items-center justify-center">
-              <span className="text-white text-[5px] font-black">★</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'curtain-spotlight':
-      return (
-        <div className="w-full h-full bg-[#050508] relative flex items-center justify-center overflow-hidden">
-          {/* Backdrop light */}
-          <div className="absolute top-0 w-24 h-full bg-yellow-100/10 clip-path-[polygon(40%_0,60%_0,100%_100%,0_100%)] pointer-events-none" />
-          {/* Curtains */}
-          <div className="absolute inset-y-0 left-0 w-[45%] bg-[#7f1d1d] border-r border-amber-500/20 shadow-md transition-transform duration-500 group-hover:-translate-x-6" />
-          <div className="absolute inset-y-0 right-0 w-[45%] bg-[#7f1d1d] border-l border-amber-500/20 shadow-md transition-transform duration-500 group-hover:translate-x-6" />
-          {/* Stand */}
-          <div className="absolute bottom-2 w-12 h-6 bg-slate-800 rounded-xs flex flex-col items-center">
-            <div className="w-8 h-1 bg-amber-500/50" />
-            <div className="w-2 h-4 bg-slate-900" />
-          </div>
-          {/* Golden Cord */}
-          <div className="absolute right-2 top-0 h-[60%] w-0.5 bg-amber-500 transition-transform group-hover:translate-y-1" />
-        </div>
-      );
-    case 'nursery-mobile':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#e0f2fe] to-[#fbcfe8]/40 relative flex items-center justify-center overflow-hidden">
-          {/* Mobile hanger */}
-          <div className="relative w-20 h-20 flex flex-col items-center transition-transform duration-700 group-hover:rotate-12">
-            <div className="w-0.5 h-6 bg-amber-700/40" />
-            <div className="w-14 h-1 bg-amber-700/60 rounded-full" />
-            {/* Hanging pieces */}
-            <div className="absolute top-7 left-2 w-3 h-3 bg-white rounded-full shadow-xs" />
-            <div className="absolute top-9 left-1/2 -translate-x-1/2 w-4 h-4 bg-yellow-200 rounded-full text-[8px] flex items-center justify-center">🌙</div>
-            <div className="absolute top-7 right-2 w-3 h-3 bg-pink-100 rounded-full text-[6px] flex items-center justify-center">⭐</div>
-          </div>
-        </div>
-      );
-    case 'garden-gate':
-      return (
-        <div className="w-full h-full bg-gradient-to-b from-[#fdf2f8] to-[#e0e7ff]/60 relative flex items-center justify-center overflow-hidden">
-          {/* Gates */}
-          <div className="relative w-24 h-24 border border-amber-600/30 rounded-t-lg bg-slate-950/80 shadow-md overflow-hidden [perspective:300px]">
-            <div className="absolute inset-y-0 left-0 w-1/2 border-r border-amber-500/20 origin-left transition-transform duration-700 group-hover:[transform:rotateY(-80deg)]" />
-            <div className="absolute inset-y-0 right-0 w-1/2 border-l border-amber-500/20 origin-right transition-transform duration-700 group-hover:[transform:rotateY(80deg)]" />
-            {/* Golden Heart Lock */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center z-20 shadow-sm">
-              <span className="text-white text-[6px]">♥</span>
-            </div>
-          </div>
-        </div>
-      );
-    case 'ring-doorbell':
-      return (
-        <div className="w-full h-full bg-[#1e293b] relative flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:100%_12px]" />
-          {/* Plate plaque */}
-          <div className="relative w-10 h-20 bg-slate-800 border border-amber-600/40 rounded-sm shadow-md flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-            <div className="w-6 h-6 rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center">
-              {/* Button ring */}
-              <div className="w-3 h-3 rounded-full bg-[#38bdf8] shadow-[0_0_4px_#0284c7] group-hover:bg-emerald-500 group-hover:shadow-[0_0_6px_#22c55e] transition-colors" />
-            </div>
+          <div className="absolute bottom-2 left-0 right-0 text-center">
+            <span className="text-[7px] text-[#5c3a21] font-serif tracking-widest uppercase">Pop-up Story</span>
           </div>
         </div>
       );

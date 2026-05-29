@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../store/useStore';
-import { wishService } from '../../services/wishService';
+import { serializeWishData } from '../../utils/serialization';
 import { Terminal, Copy, Check, QrCode, Download, Edit2, Play, AlertCircle } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import JSZip from 'jszip';
@@ -52,19 +52,11 @@ export const Deployer: React.FC = () => {
         }
       }
 
-      // Deployment finalized - Save the wish config
-      try {
-        const id = await wishService.saveWish(currentWish);
-        if (active) {
-          setDeployedId(id);
-          addLog(`${getTimestamp()} Live deployments active: wish ID linked successfully (${id}).`);
-        }
-      } catch (err) {
-        if (active) {
-          addLog(`${getTimestamp()} ERROR: Database sync failed. Registering backup URL.`);
-          // Save with a random local short id anyway
-          setDeployedId('local-' + Math.random().toString(36).substr(2, 6));
-        }
+      // Generate self-contained URL with all wish data embedded
+      const generatedId = currentWish.templateType;
+      if (active) {
+        setDeployedId(generatedId);
+        addLog(`${getTimestamp()} Live deployment active: self-contained URL generated successfully.`);
       }
     };
 
@@ -82,8 +74,9 @@ export const Deployer: React.FC = () => {
     }
   }, [logs]);
 
+  const token = serializeWishData(currentWish);
   const liveLink = deployedId
-    ? `${window.location.origin}/wish/${deployedId}`
+    ? `${window.location.origin}/wish/${deployedId}?q=${token}`
     : '';
 
   const handleCopyLink = () => {

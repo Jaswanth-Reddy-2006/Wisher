@@ -15,108 +15,54 @@ interface StoreState {
   setDeployedId: (id: string | null) => void;
 }
 
-const getCategoryByTemplate = (template: WishData['templateType']): 'birthday' | 'wedding' | 'housewarming' | 'graduation' | 'babyshower' => {
-  if (['retro-box', 'neon-cyberpunk-vinyl', 'pop-up-storybook', 'cosmic-constellation', 'magical-balloon-release', 'cosmic-galaxy-portal'].includes(template)) {
-    return 'birthday';
-  }
-  if (['elegant-card', 'wax-seal-scroll', 'infinity-origami-fold', 'glass-botanical-box', 'silk-ribbon-envelope', 'garden-gate'].includes(template)) {
-    return 'wedding';
-  }
-  if (['cap-toss', 'diploma-roll-unwrap', 'curtain-spotlight'].includes(template)) {
-    return 'graduation';
-  }
-  if (['stork-delivery', 'nursery-mobile'].includes(template)) {
-    return 'babyshower';
-  }
-  return 'housewarming';
-};
-
 const getDefaultWish = (template: WishData['templateType']): WishData => {
   const futureDate = new Date(Date.now() + 86400000 * 3).toISOString().slice(0, 16); // 3 days in future
-  const category = getCategoryByTemplate(template);
 
-  if (category === 'wedding') {
-    return {
-      templateType: template,
-      title: "Together Forever",
-      targetName: "Sarah & David",
-      date: futureDate,
-      message: "We invite you to share our joy as we exchange our vows and begin our new life together. Your presence is our greatest gift.",
-      primaryColor: "#102a43", // Skateboarding Lion Deep Navy Blue
-      musicUrl: "",
-      musicName: "",
-      extraMessage: "Cocktails and reception dinner will follow the ceremony.",
-      rsvpEmail: "wedding@wishes.net",
-      venueName: "The Grand Plaza, Crystal Ballroom",
-      googleMapsUrl: "https://maps.google.com",
-      weddingTime: "17:00",
-      brideName: "Sarah Jennings",
-      groomName: "David Miller"
-    };
-  }
-
-  if (category === 'graduation') {
-    return {
-      templateType: template,
-      title: "Congratulations, Graduate!",
-      targetName: "Michael Chang",
-      date: futureDate,
-      message: "Your hard work and dedication have paid off. Today we celebrate your great accomplishment and look forward to your bright future! Toss your cap to enter!",
-      primaryColor: "#102a43", // Navy blue
-      musicUrl: "",
-      musicName: "",
-      extraMessage: "Commencement afterparty starts at 7:00 PM. Dinner & drinks provided.",
-      rsvpEmail: "graduate@wishes.net"
-    };
-  }
-
-  if (category === 'babyshower') {
-    return {
-      templateType: template,
-      title: "Welcome Sweet Bundle!",
-      targetName: "Baby Boy Thompson",
-      date: futureDate,
-      message: "We're over the moon with joy and excited to invite you to celebrate our baby shower. A new little adventurer is on his way!",
-      primaryColor: "#f5a18a", // Peach
-      musicUrl: "",
-      musicName: "",
-      extraMessage: "Guacamole & baby punch served in the garden starting at 2:00 PM.",
-      rsvpEmail: "babyshower@wishes.net"
-    };
-  }
-
-  if (category === 'housewarming') {
-    return {
-      templateType: template,
-      title: "Our New Home",
-      targetName: "The Sharma Family",
-      date: futureDate,
-      message: "We have moved into our new nest! Join us for a housewarming party to bless our new home with your warmth and love.",
-      primaryColor: "#2d6a4f", // House warming forest green
-      musicUrl: "",
-      musicName: "",
-      extraMessage: "Dinner and drinks will be served. Address details are linked below.",
-      rsvpEmail: "home@wisher.net"
-    };
-  }
-
-  // default: birthday
   return {
     templateType: template,
     title: "Happy Birthday!",
-    targetName: "Alex Mercer",
+    targetName: "Preethi",
     date: futureDate,
-    message: "Wishing you a beautiful day filled with love, laughter, and endless joy! You deserve all the happiness in the world. Tap the cover to reveal your surprise!",
-    primaryColor: "#d30f0f", // Birthday crimson red
-    musicUrl: "",
-    musicName: "",
-    extraMessage: "Let's gather and toast to another wonderful year of adventures! We are organizing a rooftop surprise party.",
-    rsvpEmail: "birthday@wisher.net"
+    message: "Wishing you a beautiful day filled with love, laughter, and endless joy! Tap the cover to reveal your surprise!",
+    primaryColor: "#ffb6c1",
+    musicUrl: "https://raw.githubusercontent.com/ProgrammerGaurav/happy-birthday/master/Happy%20Birthday_files/music.mp3",
+    musicName: "Classic Happy Birthday",
+    extraMessage: "I wanted to make this space just to tell you everything I feel. Every single day with you feels like a gift. From the quiet mornings to our late-night laughs, you bring a light into my life that I never knew existed.",
+    rsvpEmail: "birthday@wisher.net",
+    bgImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80",
+
+    // Quiz defaults
+    quizQ1: "What is my favorite color?",
+    quizA1a: "Pink 💗",
+    quizA1b: "Blue 💙",
+    quizA1c: "Purple 💜",
+    quizA1d: "Red ❤️",
+    quizA1correct: 0,
+
+    quizQ2: "What is my dream travel destination?",
+    quizA2a: "Paris 🗼",
+    quizA2b: "Maldives 🏝️",
+    quizA2c: "Tokyo 🗾",
+    quizA2d: "Switzerland 🏔️",
+    quizA2correct: 1,
+
+    quizQ3: "What makes me happiest?",
+    quizA3a: "Good food 🍕",
+    quizA3b: "Sunsets 🌅",
+    quizA3c: "Being with you 🥰",
+    quizA3d: "Music 🎵",
+    quizA3correct: 2,
+
+    // Photo gallery defaults
+    photo1: "https://images.unsplash.com/photo-1558636508-e0db3814bd1d?auto=format&fit=crop&w=600&q=80",
+    photo2: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+    photo3: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80",
+    photo4: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
   };
 };
 
 export const useStore = create<StoreState>((set) => ({
-  currentWish: getDefaultWish('retro-box'),
+  currentWish: getDefaultWish('birthday-universe'),
   isDeploying: false,
   logs: [],
   deployedId: null,
